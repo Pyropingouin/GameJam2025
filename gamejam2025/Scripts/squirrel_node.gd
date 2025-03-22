@@ -1,3 +1,4 @@
+class_name SquirrelNode
 extends Panel
 
 @export var squirrel_name: String = "Squirrel McNutty"
@@ -11,6 +12,9 @@ extends Panel
 @onready var button = $Button
 @onready var button2 = $Button2
 
+
+signal show_info_requested(squirrel: SquirrelNode)
+
 func _ready():
 	name_label.text = squirrel_name
 	avatar.texture = squirrel_avatar
@@ -19,6 +23,9 @@ func _ready():
 
 func _on_button_pressed():
 	print("Squirrel sélectionné :", squirrel_name)
+	print(self)
+	emit_signal("show_info_requested", self)
+
 
 func _on_button2_pressed():
 	print("Bouton 2 cliqué — on cache les descendants de", squirrel_name)
@@ -26,3 +33,5 @@ func _on_button2_pressed():
 		var descendant = get_node_or_null(path)
 		if descendant:
 			descendant.visible = false
+			
+			

@@ -1,12 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://br13jqyfb661s"]
+[gd_scene load_steps=3 format=3 uid="uid://br13jqyfb661s"]
 
 [ext_resource type="PackedScene" uid="uid://c3gfhhqrstnjr" path="res://Scenes/squirrel_node.tscn" id="1_c4lpk"]
+[ext_resource type="Script" path="res://Scripts/genealogy_tree.gd" id="1_d7iie"]
 
 [node name="GenealogyTree" type="Node2D"]
+script = ExtResource("1_d7iie")
 
 [node name="background" type="ColorRect" parent="."]
-offset_right = 1922.0
-offset_bottom = 1712.0
+offset_left = -1.0
+offset_top = -5.0
+offset_right = 1921.0
+offset_bottom = 1707.0
 
 [node name="tree_container" type="Node2D" parent="."]
 
@@ -22,3 +26,18 @@ offset_left = 407.0
 offset_top = 137.0
 offset_right = 556.0
 offset_bottom = 237.0
+
+[node name="info_panel" type="ColorRect" parent="."]
+visible = false
+offset_left = 725.0
+offset_top = 90.0
+offset_right = 1042.0
+offset_bottom = 268.0
+color = Color(0.10342, 0.392735, 0.399587, 1)
+
+[node name="name_label" type="Label" parent="info_panel"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 5.0
+offset_right = 121.0
+offset_bottom = 97.0
