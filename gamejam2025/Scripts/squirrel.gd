@@ -5,10 +5,14 @@ extends Node2D
 @export var currentHealth: int = 100
 @export var damageMultiplier: float = 1.0
 
+@onready var healthBar : ProgressBar = $HealthBar
+@onready var healthStatus: RichTextLabel = $HealthBar/HealthStatus
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# You can initialize some UI elements or other components here if needed.
-	pass
+	healthBar.max_value = maxHealth
+	healthBar.value = currentHealth
+	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -29,3 +33,5 @@ func reduceHealth(damage: int) -> void:
 	currentHealth -= damage
 	if currentHealth < 0:
 		currentHealth = 0
+	healthBar.value = currentHealth
+	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
