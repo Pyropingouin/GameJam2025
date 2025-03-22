@@ -5,6 +5,12 @@ const CARD_MOVE_SPEED = 0.3
 const MAX_MANA = 5.0
 const CARD_TYPE_OFFENSE = "Offense"
 const CARD_TYPE_DEFENSE = "Defense"
+const ennemyMoves = [
+	{"type": "Attack", "damage": 10},
+	{"type": "Attack", "damage": 15},
+	{"type": "Attack", "damage": 20},
+	{"type": "Defense", "damage": 0}
+]
 
 @onready var player_hand: Node2D = $"../PlayerHand"
 @onready var deck: Node2D = $"../Deck"
@@ -22,6 +28,7 @@ var discard_pile = []
 var card_being_played
 var current_mana
 var allies = []
+var ennemyNextAttack
 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,7 +38,10 @@ func _ready() -> void:
 	
 	button_show_tree.pressed.connect(_on_button_show_tree_pressed)
 	genealogy_tree.combat_requested.connect(_on_combat_requested)
-
+	
+	setNextAttack()
+	
+	print(ennemyNextAttack)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -88,10 +98,16 @@ func _on_button_show_tree_pressed():
 	card_manager.set_physics_process(false)
 	card_manager.set_process(false)
 	squirrel_enemy.visible = false
+	player.visible = false
 	
 	
 func _on_combat_requested(squirrel: SquirrelNode):
 	print("BattleManager a reçu :", squirrel.squirrel_name)
+	
+	squirrel_enemy.setEnnemy(squirrel)
+
+	
+	
 	
 	
 	genealogy_tree.visible = false
@@ -103,6 +119,7 @@ func _on_combat_requested(squirrel: SquirrelNode):
 	card_manager.set_physics_process(true)
 	card_manager.set_process(true)
 	squirrel_enemy.visible = true
+	player.visible = true
 	
 
 func on_end_turn_pressed():
@@ -130,8 +147,14 @@ func attack_allies():
 		squirrel_enemy.reduceHealth(10)
 
 func attack_enemies():
-		player.reduceHealth(10)
+		print(ennemyNextAttack.damage * squirrel_enemy.damageMultiplier)
+		print(ennemyNextAttack.damage)
+		print(squirrel_enemy.damageMultiplier)
+		player.reduceHealth(ennemyNextAttack.damage * squirrel_enemy.damageMultiplier)
+		setNextAttack()
 
+func setNextAttack():
+	ennemyNextAttack = ennemyMoves.pick_random()
 
 func _on_end_turn_button_pressed() -> void:
 	on_end_turn_pressed()

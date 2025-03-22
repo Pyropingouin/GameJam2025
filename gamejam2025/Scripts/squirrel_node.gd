@@ -3,8 +3,11 @@ extends Panel
 
 @export var squirrel_name: String = "Squirrel McNutty"
 @export var squirrel_avatar: Texture2D
+@export var squirrel_image: Texture2D
 @export var hp: int = 12
+@export var attack_array: Array[int]
 @export var description: String
+@export var dmgMult: int
 
 @export var descendants: Array[NodePath]  # Tu pourras assigner les descendants dans l'éditeur
 
