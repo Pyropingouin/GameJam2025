@@ -14,12 +14,12 @@ var center_screen_x
 func _ready() -> void:
 	center_screen_x = get_viewport_rect().size.x / 2
 	
-	var card_scene = preload(CARD_SCENE_PATH)
-	for i in range(HAND_COUNT):
-		var new_card = card_scene.instantiate()
-		card_manager.add_child(new_card)
-		new_card.name = "Card"
-		add_card_to_hand(new_card, DEFAULT_CARD_MOVE_SPEED)
+	#var card_scene = preload(CARD_SCENE_PATH)
+	#for i in range(HAND_COUNT):
+		#var new_card = card_scene.instantiate()
+		#card_manager.add_child(new_card)
+		#new_card.name = "Card"
+		#add_card_to_hand(new_card, DEFAULT_CARD_MOVE_SPEED)
 
 func add_card_to_hand(card, speed):
 	# Lorsque call dans _ready()

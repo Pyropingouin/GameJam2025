@@ -7,6 +7,7 @@ const CARD_COLLISION_MASK = 1
 const DECK_COLLISION_MASK = 2
 
 @onready var card_manager: Node2D = $"../CardManager"
+@onready var deck: Node2D = $"../Deck"
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -36,4 +37,4 @@ func raycast_at_cursor():
 				card_manager.card_clicked(card_found)
 		elif result_collision_mask == DECK_COLLISION_MASK:
 			# Deck clicked
-			card_manager.draw_card()
+			deck.draw_card()

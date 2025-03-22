@@ -102,6 +102,3 @@ func highlight_card(card, hovered):
 	else:
 		card.scale = Vector2(DEFAULT_CARD_SCALE, DEFAULT_CARD_SCALE)
 		card.z_index = 1
-
-func draw_card():
-	pass

@@ -4,6 +4,11 @@ signal hovered
 signal hovered_off
 
 var hand_position
+var damage
+var armor
+var heal
+var card_effect
+var card_type
 
 func _ready() -> void:
 	# !! Toutes les cartes doivent être enfant de CardManager !!
