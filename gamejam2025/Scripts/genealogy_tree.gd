@@ -18,6 +18,8 @@ func _ready():
 				if descendant:
 					var line = draw_link(sn, descendant)
 					sn.descendant_lines[descendant] = line
+					
+					
 
 			
 			

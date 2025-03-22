@@ -19,6 +19,7 @@ var descendant_lines: Dictionary = {}
 
 
 
+
 signal show_info_requested(squirrel: SquirrelNode)
 
 func _ready():
@@ -34,32 +35,40 @@ func _on_button_pressed():
 
 
 func _on_button2_pressed():
-	print("Bouton 2 cliqué — on supprime les descendants de", squirrel_name)
-	
+	print("Suppression de", squirrel_name, "et de ses descendants + lignes")
+
 	var flash_count = 3
 	var flash_duration = 0.2
 	var total_flash_time = flash_count * flash_duration * 2
 
-	# Lancer le flash pour chaque descendant
+	# Flash descendants + leurs lignes
 	for path in descendants:
 		var descendant = get_node_or_null(path)
 		if descendant and descendant is CanvasItem:
 			flash_node(descendant, flash_count, flash_duration)
-			
-			
-	# Faire flasher ce noeud lui-même
-	flash_node(self, flash_count, flash_duration)		
 
-	# Attendre la fin du flash avant de les supprimer
+			var line = descendant_lines.get(descendant)
+			if line:
+				flash_node(line, flash_count, flash_duration)
+
+	# Flash self
+	flash_node(self, flash_count, flash_duration)
+
 	await get_tree().create_timer(total_flash_time).timeout
 
+	# Supprimer descendants + lignes
 	for path in descendants:
 		var descendant = get_node_or_null(path)
 		if descendant:
 			descendant.queue_free()
-			
-			
-	queue_free()		
+
+		var line = descendant_lines.get(descendant)
+		if line:
+			line.queue_free()
+
+	# Supprimer le node actuel
+	queue_free()
+
 
 			
 			
