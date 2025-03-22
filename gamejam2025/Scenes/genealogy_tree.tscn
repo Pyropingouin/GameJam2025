@@ -48,6 +48,7 @@ offset_right = 5.0
 offset_bottom = 673.0
 
 [node name="info_panel" type="TextureRect" parent="."]
+visible = false
 offset_left = 1121.0
 offset_top = 200.0
 offset_right = 1819.0

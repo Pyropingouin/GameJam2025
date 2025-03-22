@@ -8,6 +8,8 @@ extends Node
 @onready var button_combat = $info_panel/button_combat
 @onready var button_cancel = $info_panel/button_cancel
 
+var selected_squirrel: SquirrelNode = null
+
 
 
 
@@ -30,13 +32,26 @@ func _ready():
 			
 	
 func _on_button_combat_pressed():
-	print("combat")
+	if selected_squirrel:
+		print("Combat contre :", selected_squirrel.squirrel_name)
+		print("HP :", selected_squirrel.hp)
+		print("Avatar :", selected_squirrel.squirrel_avatar)
+		
+	else:
+		print("Aucun écureuil sélectionné !")
+	
 	
 func _on_button_cancel_pressed():
+	if selected_squirrel:
+		selected_squirrel = null
+	
+	info_panel.visible = false	
+	
 	print("cancel")				
 			
 func _on_squirrel_info_requested(sn: SquirrelNode):
 	print("yup")
+	selected_squirrel = sn  # ← Stocke le node sélectionné
 	name_label.text = sn.squirrel_name
 	squirrel_avatar.texture = sn.squirrel_avatar
 	description.text = sn.description
