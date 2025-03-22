@@ -3,8 +3,6 @@ extends Node2D
 var maxHealth = 100
 var currentHealth = 100
 var defense = 0
-var maxEnergy = 4
-var currentEnergy = 4
 var acorn = 0
 
 @onready var healthBar: ProgressBar = $HealthBar
@@ -52,18 +50,6 @@ func addDefense(amount: int) -> void:
 	defense += amount
 	shield.visible = true
 	shield_text.text = str(defense)
-
-func regenerateEnergy(amount: int) -> void:
-	currentEnergy += amount
-	if currentEnergy > maxEnergy:
-		currentEnergy = maxEnergy
-
-func spendEnergy(amount: int) -> bool:
-	if currentEnergy >= amount:
-		currentEnergy -= amount
-		return true
-	else:
-		return false
 
 func addAcorns(amount: int) -> void:
 	acorn += amount
