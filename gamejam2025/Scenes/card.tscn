@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://e6jxvndb0jae"]
+[gd_scene load_steps=5 format=3 uid="uid://e6jxvndb0jae"]
 
 [ext_resource type="Script" path="res://Scripts/card.gd" id="1_1g4or"]
 [ext_resource type="Texture2D" uid="uid://cjfv5rfs7xqsh" path="res://Assets/Cards/CarteGriffe.png" id="2_1w4oy"]
+[ext_resource type="Texture2D" uid="uid://blhyvhoxoyt3k" path="res://Assets/Cards/CarteDos.png" id="3_dn351"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_liphp"]
 size = Vector2(179, 266)
@@ -15,8 +16,10 @@ script = ExtResource("1_1g4or")
 texture = ExtResource("2_1w4oy")
 
 [node name="BackCardImage" type="Sprite2D" parent="."]
-position = Vector2(-1.25001, -1.25001)
-scale = Vector2(0.591667, 1.78333)
+visible = false
+position = Vector2(-2.5, -1.09673e-05)
+scale = Vector2(0.904762, 0.965517)
+texture = ExtResource("3_dn351")
 
 [node name="Area2D" type="Area2D" parent="."]
 
