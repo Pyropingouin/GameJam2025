@@ -47,6 +47,7 @@ texture = ExtResource("3_hscb7")
 
 [node name="ShieldText" type="RichTextLabel" parent="HealthBar"]
 z_index = 1
+layout_mode = 0
 offset_left = -5.0
 offset_top = -3.0
 offset_right = 7.0

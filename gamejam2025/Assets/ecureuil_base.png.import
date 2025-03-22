@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpuncs5rqd6nj"
-path="res://.godot/imported/2020-HW-squirrel-removal-cost.jpg-35c32ef6844fd3ed009eff097576613a.ctex"
+uid="uid://c5xajxqo7murm"
+path="res://.godot/imported/ecureuil_base.png-04619e079b6b06c1d58931d2e1e2b9de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/2020-HW-squirrel-removal-cost.jpg"
-dest_files=["res://.godot/imported/2020-HW-squirrel-removal-cost.jpg-35c32ef6844fd3ed009eff097576613a.ctex"]
+source_file="res://Assets/ecureuil_base.png"
+dest_files=["res://.godot/imported/ecureuil_base.png-04619e079b6b06c1d58931d2e1e2b9de.ctex"]
 
 [params]
 

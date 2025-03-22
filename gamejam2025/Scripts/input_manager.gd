@@ -5,8 +5,10 @@ signal left_mouse_button_released
 
 const CARD_COLLISION_MASK = 1
 const DECK_COLLISION_MASK = 2
+const ENEMY_COLLISTION_MASK = 4
 
 @onready var card_manager: Node2D = $"../CardManager"
+@onready var deck: Node2D = $"../Deck"
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -34,6 +36,8 @@ func raycast_at_cursor():
 			var card_found = result[0].collider.get_parent()
 			if card_found:
 				card_manager.card_clicked(card_found)
-		elif result_collision_mask == DECK_COLLISION_MASK:
-			# Deck clicked
-			card_manager.draw_card()
+		#elif result_collision_mask == DECK_COLLISION_MASK:
+			## Deck clicked
+			#deck.draw_card()
+		elif result_collision_mask == ENEMY_COLLISTION_MASK:
+			pass

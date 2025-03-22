@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c3gfhhqrstnjr" path="res://Scenes/squirrel_node.tscn" id="1_c4lpk"]
 [ext_resource type="Script" path="res://Scripts/genealogy_tree.gd" id="1_d7iie"]
-[ext_resource type="Texture2D" uid="uid://c10avg6h3eykn" path="res://Assets/OakTree.png" id="2_f4i05"]
+[ext_resource type="Texture2D" uid="uid://busqo62a1yptk" path="res://Assets/OakTree.png" id="2_dh04f"]
 [ext_resource type="Texture2D" uid="uid://cu26d5ahfs0uh" path="res://Assets/icon.svg" id="4_20p7n"]
 [ext_resource type="Texture2D" uid="uid://cstxjdfedut4j" path="res://Assets/StatPerso.png" id="5_8slth"]
 [ext_resource type="Texture2D" uid="uid://cgg0fhxiuyt7l" path="res://Assets/Squirrel_avatar/BlockFaceEcureuil.png" id="5_h4al0"]
@@ -13,7 +13,7 @@ script = ExtResource("1_d7iie")
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 965.0
 offset_bottom = 652.0
-texture = ExtResource("2_f4i05")
+texture = ExtResource("2_dh04f")
 metadata/_edit_lock_ = true
 
 [node name="tree_container" type="Node2D" parent="."]
