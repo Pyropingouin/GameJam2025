@@ -51,3 +51,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hiqfo")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_051ta")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kvhwk")
 text = "BOUTON"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 115.0
+offset_right = 105.0
+offset_bottom = 138.0
