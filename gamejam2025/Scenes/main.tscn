@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=10 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://cfhb0oqftay68" path="res://Assets/card_temporaire.png" id="4_n7ktf"]
 [ext_resource type="Script" path="res://Scripts/player_hand.gd" id="4_pwind"]
 [ext_resource type="Script" path="res://Scripts/deck.gd" id="4_t3xfq"]
+[ext_resource type="Script" path="res://Scripts/ennemi_temporaire.gd" id="7_oksmg"]
+[ext_resource type="Texture2D" uid="uid://c5xajxqo7murm" path="res://Assets/ecureuil_base.png" id="7_vaebe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
+size = Vector2(240, 244)
 
 [node name="Main" type="Node2D"]
 
@@ -38,34 +43,53 @@ offset_bottom = 16.0
 scale = Vector2(2, 2)
 text = "0"
 
-[node name="DiscardPile" type="Node2D" parent="Deck"]
-position = Vector2(2053.75, 61.25)
-scale = Vector2(1, 1)
+[node name="DiscardPile" type="Node2D" parent="."]
+position = Vector2(1763, 1004)
+scale = Vector2(0.8, 0.8)
 
-[node name="Sprite2D3" type="Sprite2D" parent="Deck/DiscardPile"]
+[node name="Sprite2D3" type="Sprite2D" parent="DiscardPile"]
 position = Vector2(-4.99986, 22.5)
 rotation = 0.523599
 scale = Vector2(0.8, 0.8)
 skew = 1.0472
 texture = ExtResource("4_n7ktf")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Deck/DiscardPile"]
+[node name="Sprite2D2" type="Sprite2D" parent="DiscardPile"]
 position = Vector2(-3.74986, 9.99999)
 rotation = 0.523599
 scale = Vector2(0.8, 0.8)
 skew = 1.0472
 texture = ExtResource("4_n7ktf")
 
-[node name="Sprite2D" type="Sprite2D" parent="Deck/DiscardPile"]
+[node name="Sprite2D" type="Sprite2D" parent="DiscardPile"]
 rotation = 0.523599
 scale = Vector2(0.8, 0.8)
 skew = 1.0472
 texture = ExtResource("4_n7ktf")
 
-[node name="CardCounter" type="RichTextLabel" parent="Deck/DiscardPile"]
+[node name="CardCounter" type="RichTextLabel" parent="DiscardPile"]
 offset_left = -9.0
 offset_top = -24.0
 offset_right = 31.0
 offset_bottom = 16.0
 scale = Vector2(2, 2)
 text = "0"
+
+[node name="EnnemiTemporaire" type="Node2D" parent="."]
+position = Vector2(1417, 711)
+scale = Vector2(-1, 1)
+script = ExtResource("7_oksmg")
+
+[node name="Sprite2D" type="Sprite2D" parent="EnnemiTemporaire"]
+texture = ExtResource("7_vaebe")
+
+[node name="Area2D" type="Area2D" parent="EnnemiTemporaire"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnnemiTemporaire/Area2D"]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_f3501")
+
+[connection signal="mouse_entered" from="EnnemiTemporaire/Area2D" to="EnnemiTemporaire" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="EnnemiTemporaire/Area2D" to="EnnemiTemporaire" method="_on_area_2d_mouse_exited"]

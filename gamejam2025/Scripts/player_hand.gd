@@ -10,6 +10,7 @@ const DEFAULT_CARD_MOVE_SPEED = 0.1
 var player_hand = []
 var center_screen_x
 
+
 func _ready() -> void:
 	center_screen_x = get_viewport_rect().size.x / 2
 

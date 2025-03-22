@@ -21,7 +21,7 @@ func _ready() -> void:
 		draw_card()
 
 func draw_card():
-	print("Draw card")
+	#print("Draw card")
 	
 	var card_drawn_name = player_deck[0]
 	player_deck.erase(card_drawn_name)
