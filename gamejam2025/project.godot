@@ -11,13 +11,7 @@ config_version=5
 [application]
 
 config/name="GameJam2025"
-<<<<<<< Updated upstream
-run/main_scene="res://Scenes/Squirrels/squirrel1.tscn"
-run/main_scene="res://Scenes/genealogy_tree.tscn"
 run/main_scene="res://Scenes/main.tscn"
-=======
-run/main_scene="res://Scenes/Squirrels/squirrel.tscn"
->>>>>>> Stashed changes
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
