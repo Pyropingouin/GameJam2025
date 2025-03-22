@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=18 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
