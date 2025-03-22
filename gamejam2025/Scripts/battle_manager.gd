@@ -4,6 +4,7 @@ const DEFAULT_CARD_MOVE_SPEED = 0.1
 const CARD_MOVE_SPEED = 0.3
 const MAX_MANA = 5.0
 const CARD_TYPE_OFFENSE = "Offense"
+const CARD_TYPE_DEFENSE = "Defense"
 const ennemyMoves = [
 	{"type": "Attack", "damage": 10},
 	{"type": "Attack", "damage": 15},
@@ -32,7 +33,7 @@ var ennemyNextAttack
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	mana_counter.get_node("Counter").text = str(MAX_MANA) + " / " + str(MAX_MANA)
+	mana_counter.get_node("Counter").text = str(MAX_MANA) + "/" + str(MAX_MANA)
 	current_mana = MAX_MANA
 	
 	button_show_tree.pressed.connect(_on_button_show_tree_pressed)
@@ -54,7 +55,7 @@ func play_a_card(card):
 		card_being_played = card
 		# Retirer la mana
 		current_mana = max(0, current_mana - card.mana)
-		mana_counter.get_node("Counter").text = str(current_mana) + " / " + str(MAX_MANA)
+		mana_counter.get_node("Counter").text = str(current_mana) + "/" + str(MAX_MANA)
 		# Ajouter la carte dans la DiscardPile
 		discard_pile.append(card)
 		# Enlever la carte du player_hand
@@ -64,6 +65,9 @@ func play_a_card(card):
 		# Faire l'effet
 		if card.card_type == CARD_TYPE_OFFENSE:
 			squirrel_enemy.reduceHealth(card.damage)
+		elif card.card_type == CARD_TYPE_DEFENSE:
+			# TODO Ajouter de l'armure au player
+			print("Defense")
 			
 		# Déplacer la carte dans la DiscardPile
 		var new_pos = discard_pile_reference.position
@@ -121,6 +125,8 @@ func _on_combat_requested(squirrel: SquirrelNode):
 func on_end_turn_pressed():
 	end_turn_button.visible = false
 	
+	empty_player_hand()
+	
 	attack_allies()
 
 	await get_tree().create_timer(1).timeout
@@ -128,9 +134,13 @@ func on_end_turn_pressed():
 
 	await get_tree().create_timer(1).timeout
 	current_mana = MAX_MANA
-	mana_counter.get_node("Counter").text = str(current_mana) + " / " + str(MAX_MANA)
+	mana_counter.get_node("Counter").text = str(current_mana) + "/" + str(MAX_MANA)
 
 	end_turn_button.visible = true
+	print(discard_pile)
+	discard_pile.clear()
+	discard_pile_reference.get_node("CardCounter").text = str(discard_pile.size())
+	deck.draw_all_cards()
 
 func attack_allies():
 	for ally in allies:
@@ -148,3 +158,22 @@ func setNextAttack():
 
 func _on_end_turn_button_pressed() -> void:
 	on_end_turn_pressed()
+	
+func empty_player_hand():
+	#print("Empty!!!")
+	#print(player_hand.player_hand)
+	#var real_player_hand = player_hand.player_hand
+	if player_hand.player_hand.size() > 0:
+		for i in player_hand.player_hand:
+			# Déplacer la carte dans la DiscardPile
+			var new_pos = discard_pile_reference.position
+			var tween = get_tree().create_tween()
+			tween.tween_property(i, "position", new_pos, CARD_MOVE_SPEED)
+			tween.connect("finished", on_tween_finished_empty_hand)
+			discard_pile.append(i)
+	
+func on_tween_finished_empty_hand():
+	discard_pile_reference.get_node("CardCounter").text = str(discard_pile.size())
+	for card in player_hand.player_hand:
+		card.queue_free()
+	player_hand.player_hand.clear()

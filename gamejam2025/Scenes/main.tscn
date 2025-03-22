@@ -1,16 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=16 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_pow3f"]
-[ext_resource type="Texture2D" uid="uid://cfhb0oqftay68" path="res://Assets/card_temporaire.png" id="4_n7ktf"]
 [ext_resource type="Script" path="res://Scripts/player_hand.gd" id="4_pwind"]
 [ext_resource type="Script" path="res://Scripts/deck.gd" id="4_t3xfq"]
+[ext_resource type="Texture2D" uid="uid://blhyvhoxoyt3k" path="res://Assets/Cards/CarteDos.png" id="6_ln601"]
 [ext_resource type="Script" path="res://Scripts/ennemi_temporaire.gd" id="7_oksmg"]
 [ext_resource type="Texture2D" uid="uid://c5xajxqo7murm" path="res://Assets/ecureuil_base.png" id="7_vaebe"]
 [ext_resource type="PackedScene" uid="uid://bk8ny1bk7sxim" path="res://Scenes/player.tscn" id="9_6gpg3"]
 [ext_resource type="Script" path="res://Scripts/battle_manager.gd" id="9_fj1c1"]
 [ext_resource type="PackedScene" uid="uid://br13jqyfb661s" path="res://Scenes/genealogy_tree.tscn" id="10_av65l"]
+[ext_resource type="Texture2D" uid="uid://bi4yhcsx82f36" path="res://Assets/GlandMana.png" id="10_bghhq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -46,14 +47,15 @@ scale = Vector2(0.8, 0.8)
 script = ExtResource("4_t3xfq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Deck"]
-texture = ExtResource("4_n7ktf")
+texture = ExtResource("6_ln601")
 
 [node name="CardCounter" type="RichTextLabel" parent="Deck"]
-offset_left = -9.0
-offset_top = -24.0
-offset_right = 31.0
-offset_bottom = 16.0
-scale = Vector2(2, 2)
+modulate = Color(0, 0, 0, 1)
+offset_left = -25.0
+offset_top = -47.5
+offset_right = 15.0
+offset_bottom = -7.49998
+scale = Vector2(4, 4)
 text = "0"
 
 [node name="DiscardPile" type="Node2D" parent="."]
@@ -65,27 +67,28 @@ position = Vector2(-4.99986, 22.5)
 rotation = 0.523599
 scale = Vector2(0.8, 0.8)
 skew = 1.0472
-texture = ExtResource("4_n7ktf")
+texture = ExtResource("6_ln601")
 
 [node name="Sprite2D2" type="Sprite2D" parent="DiscardPile"]
 position = Vector2(-3.74986, 9.99999)
 rotation = 0.523599
 scale = Vector2(0.8, 0.8)
 skew = 1.0472
-texture = ExtResource("4_n7ktf")
+texture = ExtResource("6_ln601")
 
 [node name="Sprite2D" type="Sprite2D" parent="DiscardPile"]
 rotation = 0.523599
 scale = Vector2(0.8, 0.8)
 skew = 1.0472
-texture = ExtResource("4_n7ktf")
+texture = ExtResource("6_ln601")
 
 [node name="CardCounter" type="RichTextLabel" parent="DiscardPile"]
-offset_left = -9.0
-offset_top = -24.0
-offset_right = 31.0
-offset_bottom = 16.0
-scale = Vector2(2, 2)
+modulate = Color(0, 0, 0, 1)
+offset_left = -22.5001
+offset_top = -50.0
+offset_right = 17.4999
+offset_bottom = -9.99998
+scale = Vector2(4, 4)
 text = "0"
 
 [node name="SquirrelEnemy" type="Node2D" parent="."]
@@ -133,13 +136,16 @@ offset_bottom = 566.0
 text = "Show Tree"
 
 [node name="ManaCounter" type="Node2D" parent="."]
+position = Vector2(327, 582)
+
+[node name="Sprite2D" type="Sprite2D" parent="ManaCounter"]
+texture = ExtResource("10_bghhq")
 
 [node name="Counter" type="RichTextLabel" parent="ManaCounter"]
-modulate = Color(0, 0, 0, 1)
-offset_left = 311.0
-offset_top = 669.0
-offset_right = 351.0
-offset_bottom = 709.0
+offset_left = -27.0
+offset_top = -29.0
+offset_right = 13.0
+offset_bottom = 11.0
 scale = Vector2(3, 3)
 text = "5/5"
 
