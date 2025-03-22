@@ -37,3 +37,35 @@ offset_right = 31.0
 offset_bottom = 16.0
 scale = Vector2(2, 2)
 text = "0"
+
+[node name="DiscardPile" type="Node2D" parent="Deck"]
+position = Vector2(2053.75, 61.25)
+scale = Vector2(1, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Deck/DiscardPile"]
+position = Vector2(-4.99986, 22.5)
+rotation = 0.523599
+scale = Vector2(0.8, 0.8)
+skew = 1.0472
+texture = ExtResource("4_n7ktf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Deck/DiscardPile"]
+position = Vector2(-3.74986, 9.99999)
+rotation = 0.523599
+scale = Vector2(0.8, 0.8)
+skew = 1.0472
+texture = ExtResource("4_n7ktf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck/DiscardPile"]
+rotation = 0.523599
+scale = Vector2(0.8, 0.8)
+skew = 1.0472
+texture = ExtResource("4_n7ktf")
+
+[node name="CardCounter" type="RichTextLabel" parent="Deck/DiscardPile"]
+offset_left = -9.0
+offset_top = -24.0
+offset_right = 31.0
+offset_bottom = 16.0
+scale = Vector2(2, 2)
+text = "0"
