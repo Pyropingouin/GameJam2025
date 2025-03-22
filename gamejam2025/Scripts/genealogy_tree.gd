@@ -7,8 +7,11 @@ extends Node
 @onready var description = $info_panel/description
 @onready var button_combat = $info_panel/button_combat
 @onready var button_cancel = $info_panel/button_cancel
+@onready var genealogy_tree = $"."
 
 var selected_squirrel: SquirrelNode = null
+signal combat_requested(squirrel: SquirrelNode)
+
 
 
 
@@ -33,9 +36,11 @@ func _ready():
 	
 func _on_button_combat_pressed():
 	if selected_squirrel:
-		print("Combat contre :", selected_squirrel.squirrel_name)
-		print("HP :", selected_squirrel.hp)
-		print("Avatar :", selected_squirrel.squirrel_avatar)
+		print("Combat demandé contre :", selected_squirrel.squirrel_name)
+		emit_signal("combat_requested", selected_squirrel)
+		
+		genealogy_tree.visible = false
+		
 		
 	else:
 		print("Aucun écureuil sélectionné !")

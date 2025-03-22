@@ -96,6 +96,13 @@ shape = SubResource("RectangleShape2D_f3501")
 [node name="BattleManager" type="Node" parent="."]
 script = ExtResource("9_fj1c1")
 
+[node name="button_show_tree" type="Button" parent="BattleManager"]
+offset_left = 920.0
+offset_top = 413.0
+offset_right = 1146.0
+offset_bottom = 566.0
+text = "Show Tree"
+
 [node name="ManaCounter" type="Node2D" parent="."]
 
 [node name="Counter" type="RichTextLabel" parent="ManaCounter"]
@@ -108,6 +115,7 @@ scale = Vector2(3, 3)
 text = "5/5"
 
 [node name="GenealogyTree" parent="." instance=ExtResource("10_av65l")]
+visible = false
 position = Vector2(0, -52)
 
 [connection signal="mouse_entered" from="EnnemiTemporaire/Area2D" to="EnnemiTemporaire" method="_on_area_2d_mouse_entered"]
