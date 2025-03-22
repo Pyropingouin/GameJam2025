@@ -138,3 +138,12 @@ func on_hovered_off_squirrel(enemy):
 	enemy_sprite.modulate = DEFAULT_ENEMY_HOVER_COLOR
 	
 	is_hovering_enemy_with_card = false
+
+
+
+#func resetCard():
+	#player hand dans deck
+	#discard pile dans le deck
+	#clear l'array hand 
+	#clear array discard
+	

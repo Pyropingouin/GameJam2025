@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=16 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c5xajxqo7murm" path="res://Assets/ecureuil_base.png" id="7_vaebe"]
 [ext_resource type="PackedScene" uid="uid://bk8ny1bk7sxim" path="res://Scenes/player.tscn" id="9_6gpg3"]
 [ext_resource type="Script" path="res://Scripts/battle_manager.gd" id="9_fj1c1"]
+[ext_resource type="PackedScene" uid="uid://ka0g8mqtomq5" path="res://Scenes/win_screen.tscn" id="10_761jn"]
 [ext_resource type="PackedScene" uid="uid://br13jqyfb661s" path="res://Scenes/genealogy_tree.tscn" id="10_av65l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
@@ -126,6 +127,7 @@ text = "100/100"
 script = ExtResource("9_fj1c1")
 
 [node name="button_show_tree" type="Button" parent="BattleManager"]
+visible = false
 offset_left = 920.0
 offset_top = 413.0
 offset_right = 1146.0
@@ -142,6 +144,10 @@ offset_right = 351.0
 offset_bottom = 709.0
 scale = Vector2(3, 3)
 text = "5/5"
+
+[node name="WinScreen" parent="." instance=ExtResource("10_761jn")]
+visible = false
+position = Vector2(683, 339)
 
 [node name="GenealogyTree" parent="." instance=ExtResource("10_av65l")]
 visible = false
