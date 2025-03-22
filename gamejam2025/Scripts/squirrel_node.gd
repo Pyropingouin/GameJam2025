@@ -12,6 +12,7 @@ extends Panel
 @onready var avatar: TextureRect = $avatar
 @onready var button = $Button
 @onready var button2 = $Button2
+
 @onready var connection_point_start: Node2D = $connection_point_start
 @onready var connection_point_end: Node2D = $connection_point_end
 
@@ -32,6 +33,7 @@ func _on_button_pressed():
 	print("Squirrel sélectionné :", squirrel_name)
 	print(self)
 	emit_signal("show_info_requested", self)
+	
 
 
 func _on_button2_pressed():

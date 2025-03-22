@@ -5,13 +5,15 @@ extends Node
 @onready var name_label = $info_panel/name_label
 @onready var squirrel_avatar = $info_panel/squirrel_avatar
 @onready var description = $info_panel/description
+@onready var button_combat = $info_panel/button_combat
+@onready var button_cancel = $info_panel/button_cancel
 
 
 
 
 func _ready():
-	
-	
+	button_combat.pressed.connect(_on_button_combat_pressed)
+	button_cancel.pressed.connect(_on_button_cancel_pressed)
 	# dans _ready() par exemple
 	for sn in $tree_container.get_children():
 		sn.show_info_requested.connect(_on_squirrel_info_requested)
@@ -26,6 +28,12 @@ func _ready():
 					
 
 			
+	
+func _on_button_combat_pressed():
+	print("combat")
+	
+func _on_button_cancel_pressed():
+	print("cancel")				
 			
 func _on_squirrel_info_requested(sn: SquirrelNode):
 	print("yup")
@@ -49,7 +57,3 @@ func draw_link(from_node: SquirrelNode, to_node: SquirrelNode) -> Line2D:
 
 	add_child(line)
 	return line
-
-
-func _on_squirrel_node_3_show_info_requested(squirrel: SquirrelNode) -> void:
-	pass # Replace with function body.
