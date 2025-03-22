@@ -9,17 +9,11 @@
 [node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("1_jcl2g")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 320.0
-offset_top = 276.0
-offset_right = 545.0
-offset_bottom = 373.0
-scale = Vector2(4, 4)
-text = "GameJam2025 !!!
-"
-
-[node name="Card" parent="." instance=ExtResource("1_qwpo6")]
+[node name="Card" parent="CardManager" instance=ExtResource("1_qwpo6")]
 position = Vector2(107, 524)
+
+[node name="Card2" parent="CardManager" instance=ExtResource("1_qwpo6")]
+position = Vector2(310, 520)
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("2_pow3f")
