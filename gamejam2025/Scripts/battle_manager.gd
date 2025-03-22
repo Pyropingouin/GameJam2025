@@ -9,7 +9,7 @@ const ennemyMoves = [
 	{"type": "Attack", "damage": 10},
 	{"type": "Attack", "damage": 15},
 	{"type": "Attack", "damage": 20},
-	{"type": "Defense", "damage": 0}
+	{"type": "Defense", "damage": 5}
 ]
 
 @onready var player_hand: Node2D = $"../PlayerHand"
@@ -23,12 +23,14 @@ const ennemyMoves = [
 @onready var squirrel_enemy: Node2D = $"../SquirrelEnemy"
 @onready var end_turn_button: Button = $"../EndTurnButton"
 @onready var player: Node2D = $"../Player"
+@onready var enemy_shield: Sprite2D = $"../EnemyShield"
+@onready var enemy_sword: Sprite2D = $"../EnemySword"
 
 var discard_pile = []
 var card_being_played
 var current_mana
 var allies = []
-var ennemyNextAttack
+var ennemyNextMove
 
 
 # Called when the node enters the scene tree for the first time.
@@ -39,9 +41,7 @@ func _ready() -> void:
 	button_show_tree.pressed.connect(_on_button_show_tree_pressed)
 	genealogy_tree.combat_requested.connect(_on_combat_requested)
 	
-	setNextAttack()
-	
-	print(ennemyNextAttack)
+	setNextMove()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -146,14 +146,20 @@ func attack_allies():
 		squirrel_enemy.reduceHealth(10)
 
 func attack_enemies():
-		print(ennemyNextAttack.damage * squirrel_enemy.damageMultiplier)
-		print(ennemyNextAttack.damage)
-		print(squirrel_enemy.damageMultiplier)
-		player.reduceHealth(ennemyNextAttack.damage * squirrel_enemy.damageMultiplier)
-		setNextAttack()
+	if ennemyNextMove.type == "Attack":
+		player.reduceHealth(ennemyNextMove.damage * squirrel_enemy.damageMultiplier)
+	else:
+		squirrel_enemy.defense = ennemyNextMove.damage
+	setNextMove()
 
-func setNextAttack():
-	ennemyNextAttack = ennemyMoves.pick_random()
+func setNextMove():
+	ennemyNextMove = ennemyMoves.pick_random()
+	if ennemyNextMove.type == "Attack":
+		enemy_shield.visible = false
+		enemy_sword.visible = true
+	if ennemyNextMove.type == "Defense":
+		enemy_shield.visible = true
+		enemy_sword.visible = false
 
 func _on_end_turn_button_pressed() -> void:
 	on_end_turn_pressed()
