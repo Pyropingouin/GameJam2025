@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=17 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -10,8 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://c5xajxqo7murm" path="res://Assets/ecureuil_base.png" id="7_vaebe"]
 [ext_resource type="PackedScene" uid="uid://bk8ny1bk7sxim" path="res://Scenes/player.tscn" id="9_6gpg3"]
 [ext_resource type="Script" path="res://Scripts/battle_manager.gd" id="9_fj1c1"]
+[ext_resource type="Texture2D" uid="uid://dyeu1ufbss37v" path="res://Assets/shield.png" id="9_wrptr"]
 [ext_resource type="PackedScene" uid="uid://br13jqyfb661s" path="res://Scenes/genealogy_tree.tscn" id="10_av65l"]
 [ext_resource type="Texture2D" uid="uid://bi4yhcsx82f36" path="res://Assets/GlandMana.png" id="10_bghhq"]
+[ext_resource type="Texture2D" uid="uid://rqcrnjinekom" path="res://Assets/temp_sword.png" id="10_r83n6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -124,6 +126,17 @@ offset_top = -2.0
 offset_right = 114.0
 offset_bottom = 31.0
 text = "100/100"
+
+[node name="EnemyShield" type="Sprite2D" parent="."]
+position = Vector2(1413, 557)
+scale = Vector2(1.144, 1)
+texture = ExtResource("9_wrptr")
+
+[node name="EnemySword" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1413, 551)
+scale = Vector2(0.056891, 0.0616776)
+texture = ExtResource("10_r83n6")
 
 [node name="BattleManager" type="Node" parent="."]
 script = ExtResource("9_fj1c1")
