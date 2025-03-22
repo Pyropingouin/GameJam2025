@@ -3,6 +3,7 @@ extends Node
 const DEFAULT_CARD_MOVE_SPEED = 0.1
 const CARD_MOVE_SPEED = 0.3
 const MAX_MANA = 5.0
+const CARD_TYPE_OFFENSE = "Offense"
 
 @onready var player_hand: Node2D = $"../PlayerHand"
 @onready var deck: Node2D = $"../Deck"
@@ -12,7 +13,7 @@ const MAX_MANA = 5.0
 @onready var button_show_tree = $button_show_tree
 @onready var genealogy_tree = $"../GenealogyTree"
 @onready var battle_background = $"../BattleBackground"
-@onready var ennemi_temporaire = $"../EnnemiTemporaire"
+@onready var squirrel_enemy: Node2D = $"../SquirrelEnemy"
 
 var discard_pile = []
 var card_being_played
@@ -47,13 +48,16 @@ func play_a_card(card):
 		player_hand.remove_card_from_hand(card)
 		# Enlever la carte du deck
 		deck.player_deck.erase(card)
+		# Faire l'effet
+		if card.card_type == CARD_TYPE_OFFENSE:
+			squirrel_enemy.reduceHealth(card.damage)
+			
 		# Déplacer la carte dans la DiscardPile
 		var new_pos = discard_pile_reference.position
 		var tween = get_tree().create_tween()
 		tween.tween_property(card, "position", new_pos, CARD_MOVE_SPEED)
 		tween.connect("finished", on_tween_finished)
 		
-		# Faire l'effet
 	# Sinon, remettre la carte dans la main
 	else:
 		player_hand.add_card_to_hand(card, DEFAULT_CARD_MOVE_SPEED)
@@ -76,7 +80,7 @@ func _on_button_show_tree_pressed():
 	card_manager.visible = false
 	card_manager.set_physics_process(false)
 	card_manager.set_process(false)
-	ennemi_temporaire.visible = false
+	squirrel_enemy.visible = false
 	
 	
 func _on_combat_requested(squirrel: SquirrelNode):
@@ -91,5 +95,5 @@ func _on_combat_requested(squirrel: SquirrelNode):
 	card_manager.visible = true
 	card_manager.set_physics_process(true)
 	card_manager.set_process(true)
-	ennemi_temporaire.visible = true
+	squirrel_enemy.visible = true
 	
