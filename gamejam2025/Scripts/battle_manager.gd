@@ -66,8 +66,7 @@ func play_a_card(card):
 		if card.card_type == CARD_TYPE_OFFENSE:
 			squirrel_enemy.reduceHealth(card.damage)
 		elif card.card_type == CARD_TYPE_DEFENSE:
-			# TODO Ajouter de l'armure au player
-			print("Defense")
+			player.addDefense(card.armor)
 			
 		# Déplacer la carte dans la DiscardPile
 		var new_pos = discard_pile_reference.position
@@ -137,7 +136,7 @@ func on_end_turn_pressed():
 	mana_counter.get_node("Counter").text = str(current_mana) + "/" + str(MAX_MANA)
 
 	end_turn_button.visible = true
-	print(discard_pile)
+	#print(discard_pile)
 	discard_pile.clear()
 	discard_pile_reference.get_node("CardCounter").text = str(discard_pile.size())
 	deck.draw_all_cards()
