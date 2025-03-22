@@ -10,6 +10,7 @@ const CARD_DRAW_SPEED = 0.5
 @onready var discard_pile_reference: Node2D = $"../DiscardPile"
 
 var player_deck = ["Armor1", "CarteQueue", "CarteGriffe", "CarteQueue", "CarteGriffe"]
+var player_deck_copy = ["Armor1", "CarteQueue", "CarteGriffe", "CarteQueue", "CarteGriffe"]
 var card_database_reference
 
 func _ready() -> void:
@@ -27,19 +28,27 @@ func draw_card():
 	#print("Draw card")
 	
 	# Si on a plus de cartes dans le deck
-	if player_deck.size() == 0:
-		# Aller chercher la discard_pile
-		var discard_pile = battle_manager.discard_pile
-		# Mettre la discard_pile dans le player_deck
-		player_deck = discard_pile.duplicate()
-		# Vider la discard_pile
-		battle_manager.discard_pile.clear()
-		# Mélanger le player_deck
-		player_deck.shuffle()
-		# Update les compteurs de deck
-		$CardCounter.text = str(player_deck.size())
-		discard_pile_reference.get_node("CardCounter").text = str(battle_manager.discard_pile.size())
+	#if player_deck.size() == 0:
+		#print("Vide")
+		#
+		## Aller chercher la discard_pile
+		#var discard_pile = battle_manager.discard_pile
+		#print(battle_manager.discard_pile)
+		## Mettre la discard_pile dans le player_deck
+		#player_deck = discard_pile.duplicate()
+		#print(player_deck)
+		## Vider la discard_pile
+		#battle_manager.discard_pile.clear()
+		## Mélanger le player_deck
+		#player_deck.shuffle()
+		## Update les compteurs de deck
+		#$CardCounter.text = str(player_deck.size())
+		#discard_pile_reference.get_node("CardCounter").text = str(battle_manager.discard_pile.size())
+		#print(player_deck)
+		#return
 	
+	#player_deck = player_deck_copy.duplicate()
+	#player_deck.shuffle()
 	var card_drawn_name = player_deck[0]
 	player_deck.erase(card_drawn_name)
 	
@@ -67,6 +76,12 @@ func draw_card():
 	
 func draw_all_cards():
 	print("Draw all")
+	print(player_deck)
+	player_deck = player_deck_copy.duplicate()
+	player_deck.shuffle()
 	for i in range(HAND_SIZE):
 		print(i)
 		draw_card()
+	#draw_card()
+	#draw_card()
+	
