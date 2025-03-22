@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=7 format=3 uid="uid://dhi4ubpsbjwht"]
 
+[ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_pow3f"]
 [ext_resource type="Texture2D" uid="uid://cfhb0oqftay68" path="res://Assets/card_temporaire.png" id="4_n7ktf"]
@@ -7,6 +8,10 @@
 [ext_resource type="Script" path="res://Scripts/deck.gd" id="4_t3xfq"]
 
 [node name="Main" type="Node2D"]
+
+[node name="BattleBackground" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_8vpiy")
 
 [node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("1_jcl2g")
