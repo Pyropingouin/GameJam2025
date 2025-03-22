@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://busqo62a1yptk"
-path="res://.godot/imported/OakTree.png-be4896476e50de27921eea48e3a5d440.ctex"
+uid="uid://ct6a87cxhhcvs"
+path="res://.godot/imported/cadre_squirrel.png-ac7765cefbb026aff749f5370d78f188.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/OakTree.png"
-dest_files=["res://.godot/imported/OakTree.png-be4896476e50de27921eea48e3a5d440.ctex"]
+source_file="res://Assets/cadre_squirrel.png"
+dest_files=["res://.godot/imported/cadre_squirrel.png-ac7765cefbb026aff749f5370d78f188.ctex"]
 
 [params]
 

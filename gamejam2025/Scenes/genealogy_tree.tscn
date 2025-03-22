@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://br13jqyfb661s"]
+[gd_scene load_steps=7 format=3 uid="uid://br13jqyfb661s"]
 
 [ext_resource type="PackedScene" uid="uid://c3gfhhqrstnjr" path="res://Scenes/squirrel_node.tscn" id="1_c4lpk"]
 [ext_resource type="Script" path="res://Scripts/genealogy_tree.gd" id="1_d7iie"]
-[ext_resource type="Texture2D" uid="uid://c10avg6h3eykn" path="res://Assets/OakTree.png" id="2_f4i05"]
+[ext_resource type="Texture2D" uid="uid://busqo62a1yptk" path="res://Assets/OakTree.png" id="2_dh04f"]
+[ext_resource type="Texture2D" uid="uid://cu26d5ahfs0uh" path="res://Assets/icon.svg" id="4_20p7n"]
+[ext_resource type="Texture2D" uid="uid://cstxjdfedut4j" path="res://Assets/StatPerso.png" id="5_8slth"]
+[ext_resource type="Texture2D" uid="uid://cgg0fhxiuyt7l" path="res://Assets/Squirrel_avatar/BlockFaceEcureuil.png" id="5_h4al0"]
 
 [node name="GenealogyTree" type="Node2D"]
 script = ExtResource("1_d7iie")
@@ -10,34 +13,70 @@ script = ExtResource("1_d7iie")
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 965.0
 offset_bottom = 652.0
-texture = ExtResource("2_f4i05")
+texture = ExtResource("2_dh04f")
+metadata/_edit_lock_ = true
 
 [node name="tree_container" type="Node2D" parent="."]
 
+[node name="SquirrelNode3" parent="tree_container" instance=ExtResource("1_c4lpk")]
+offset_left = 376.0
+offset_top = 33.0
+offset_right = 376.0
+offset_bottom = 33.0
+squirrel_name = "Nouvelle Node Pas Deg"
+squirrel_avatar = ExtResource("5_h4al0")
+description = "Je suis le grand père squirrel"
+descendants = Array[NodePath]([NodePath("../SquirrelNode"), NodePath("../SquirrelNode2")])
+
 [node name="SquirrelNode" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 157.0
-offset_top = 168.0
-offset_right = 306.0
-offset_bottom = 268.0
-descendants = Array[NodePath]([NodePath("../SquirrelNode2")])
+offset_left = 163.0
+offset_top = 353.0
+offset_right = 163.0
+offset_bottom = 353.0
+descendants = Array[NodePath]([NodePath("../SquirrelNode4")])
 
 [node name="SquirrelNode2" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 636.0
-offset_top = 182.0
-offset_right = 785.0
-offset_bottom = 282.0
+offset_left = 595.0
+offset_top = 356.0
+offset_right = 595.0
+offset_bottom = 356.0
 
-[node name="info_panel" type="ColorRect" parent="."]
-visible = false
-offset_left = 725.0
-offset_top = 90.0
-offset_right = 1042.0
-offset_bottom = 268.0
-color = Color(0.10342, 0.392735, 0.399587, 1)
+[node name="SquirrelNode4" parent="tree_container" instance=ExtResource("1_c4lpk")]
+offset_left = 5.0
+offset_top = 673.0
+offset_right = 5.0
+offset_bottom = 673.0
+
+[node name="info_panel" type="TextureRect" parent="."]
+offset_left = 1121.0
+offset_top = 200.0
+offset_right = 1819.0
+offset_bottom = 573.0
+texture = ExtResource("5_8slth")
+expand_mode = 1
 
 [node name="name_label" type="Label" parent="info_panel"]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 5.0
-offset_right = 121.0
-offset_bottom = 97.0
+offset_left = 72.0
+offset_top = 225.0
+offset_right = 266.0
+offset_bottom = 287.0
+text = "Roi du jambon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="squirrel_avatar" type="TextureRect" parent="info_panel"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 92.0
+offset_right = 245.0
+offset_bottom = 220.0
+texture = ExtResource("4_20p7n")
+
+[node name="description" type="RichTextLabel" parent="info_panel"]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 93.0
+offset_right = 624.0
+offset_bottom = 186.0
+text = "gefoe"

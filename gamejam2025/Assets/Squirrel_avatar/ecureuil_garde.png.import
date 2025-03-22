@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://busqo62a1yptk"
-path="res://.godot/imported/OakTree.png-be4896476e50de27921eea48e3a5d440.ctex"
+uid="uid://bhrfamamghury"
+path="res://.godot/imported/ecureuil_garde.png-75ccd25cd843bee7c35053f2b8c3e461.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/OakTree.png"
-dest_files=["res://.godot/imported/OakTree.png-be4896476e50de27921eea48e3a5d440.ctex"]
+source_file="res://Assets/Squirrel_avatar/ecureuil_garde.png"
+dest_files=["res://.godot/imported/ecureuil_garde.png-75ccd25cd843bee7c35053f2b8c3e461.ctex"]
 
 [params]
 

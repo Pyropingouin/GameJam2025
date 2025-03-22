@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://busqo62a1yptk"
-path="res://.godot/imported/OakTree.png-be4896476e50de27921eea48e3a5d440.ctex"
+uid="uid://cstxjdfedut4j"
+path="res://.godot/imported/StatPerso.png-27d4d56cdb15d2e7d9287e44c7d33a53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/OakTree.png"
-dest_files=["res://.godot/imported/OakTree.png-be4896476e50de27921eea48e3a5d440.ctex"]
+source_file="res://Assets/StatPerso.png"
+dest_files=["res://.godot/imported/StatPerso.png-27d4d56cdb15d2e7d9287e44c7d33a53.ctex"]
 
 [params]
 

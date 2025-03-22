@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://busqo62a1yptk"
-path="res://.godot/imported/OakTree.png-be4896476e50de27921eea48e3a5d440.ctex"
+uid="uid://cpdm76e67t0du"
+path="res://.godot/imported/ecureuil_coeur.png-22cee37a7d7ab296b5a3d29b7909f950.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/OakTree.png"
-dest_files=["res://.godot/imported/OakTree.png-be4896476e50de27921eea48e3a5d440.ctex"]
+source_file="res://Assets/Squirrel_avatar/ecureuil_coeur.png"
+dest_files=["res://.godot/imported/ecureuil_coeur.png-22cee37a7d7ab296b5a3d29b7909f950.ctex"]
 
 [params]
 

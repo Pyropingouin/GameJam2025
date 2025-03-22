@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://busqo62a1yptk"
-path="res://.godot/imported/OakTree.png-be4896476e50de27921eea48e3a5d440.ctex"
+uid="uid://cgg0fhxiuyt7l"
+path="res://.godot/imported/BlockFaceEcureuil.png-dae0ff45ff6fd6b4faaef5dfa3fc540a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/OakTree.png"
-dest_files=["res://.godot/imported/OakTree.png-be4896476e50de27921eea48e3a5d440.ctex"]
+source_file="res://Assets/Squirrel_avatar/BlockFaceEcureuil.png"
+dest_files=["res://.godot/imported/BlockFaceEcureuil.png-dae0ff45ff6fd6b4faaef5dfa3fc540a.ctex"]
 
 [params]
 
