@@ -120,6 +120,8 @@ func on_hovered_over_squirrel(enemy):
 		enemy.scale = Vector2(-ENEMY_BIGGER_SCALE, ENEMY_BIGGER_SCALE)
 		enemy.get_node("Sprite2D").modulate = ENEMY_HOVER_COLOR
 		card_being_dragged.modulate.a = CARD_HOVER_OPACITY
+		
+		# Play la carte
 	
 func on_hovered_off_squirrel(enemy):
 	if card_being_dragged:

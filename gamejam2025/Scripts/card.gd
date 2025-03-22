@@ -4,6 +4,7 @@ signal hovered
 signal hovered_off
 
 var hand_position
+var mana
 var damage
 var armor
 var heal

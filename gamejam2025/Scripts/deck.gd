@@ -34,12 +34,14 @@ func draw_card():
 	var card_image_path = str("res://Assets/card_temporaire.png")
 	new_card.get_node("CardImage").texture = load(card_image_path)
 	# Populer les propriétés de la carte
-	new_card.damage = card_database_reference.CARDS[card_drawn_name][0]
-	new_card.armor = card_database_reference.CARDS[card_drawn_name][1]
-	new_card.heal = card_database_reference.CARDS[card_drawn_name][2]
-	new_card.card_effect = card_database_reference.CARDS[card_drawn_name][3]
-	new_card.card_type = card_database_reference.CARDS[card_drawn_name][4]
+	new_card.mana = card_database_reference.CARDS[card_drawn_name][0]
+	new_card.damage = card_database_reference.CARDS[card_drawn_name][1]
+	new_card.armor = card_database_reference.CARDS[card_drawn_name][2]
+	new_card.heal = card_database_reference.CARDS[card_drawn_name][3]
+	new_card.card_effect = card_database_reference.CARDS[card_drawn_name][4]
+	new_card.card_type = card_database_reference.CARDS[card_drawn_name][5]
 	
+	new_card.get_node("Mana").text = str(new_card.mana)
 	new_card.get_node("CardEffect").text = new_card.card_effect
 	
 	card_manager.add_child(new_card)
