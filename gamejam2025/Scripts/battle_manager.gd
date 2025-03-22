@@ -26,7 +26,7 @@ var allies = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	mana_counter.get_node("Counter").text = str(MAX_MANA) + " / " + str(MAX_MANA)
+	mana_counter.get_node("Counter").text = str(MAX_MANA) + "/" + str(MAX_MANA)
 	current_mana = MAX_MANA
 	
 	button_show_tree.pressed.connect(_on_button_show_tree_pressed)
@@ -45,7 +45,7 @@ func play_a_card(card):
 		card_being_played = card
 		# Retirer la mana
 		current_mana = max(0, current_mana - card.mana)
-		mana_counter.get_node("Counter").text = str(current_mana) + " / " + str(MAX_MANA)
+		mana_counter.get_node("Counter").text = str(current_mana) + "/" + str(MAX_MANA)
 		# Ajouter la carte dans la DiscardPile
 		discard_pile.append(card)
 		# Enlever la carte du player_hand
@@ -117,7 +117,7 @@ func on_end_turn_pressed():
 
 	await get_tree().create_timer(1).timeout
 	current_mana = MAX_MANA
-	mana_counter.get_node("Counter").text = str(current_mana) + " / " + str(MAX_MANA)
+	mana_counter.get_node("Counter").text = str(current_mana) + "/" + str(MAX_MANA)
 
 	end_turn_button.visible = true
 	#deck.draw_all_cards()
