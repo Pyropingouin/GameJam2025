@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3gfhhqrstnjr"]
+[gd_scene load_steps=9 format=3 uid="uid://c3gfhhqrstnjr"]
 
 [ext_resource type="Script" path="res://Scripts/squirrel_node.gd" id="1_n44ba"]
+[ext_resource type="Texture2D" uid="uid://dj0pxyviwe0bn" path="res://Assets/BlockName.png" id="2_rtdcv"]
+[ext_resource type="Texture2D" uid="uid://cgg0fhxiuyt7l" path="res://Assets/Squirrel_avatar/BlockFaceEcureuil.png" id="3_y62s3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ptre"]
 border_width_left = 2
@@ -20,32 +22,44 @@ bg_color = Color(0.2, 0.6, 1, 0.4)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvhwk"]
 
 [node name="SquirrelNode" type="Panel"]
-offset_right = 149.0
-offset_bottom = 100.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2ptre")
 script = ExtResource("1_n44ba")
 
+[node name="name_texture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 110.0
+offset_right = 194.0
+offset_bottom = 196.0
+texture = ExtResource("2_rtdcv")
+expand_mode = 1
+
 [node name="avatar" type="TextureRect" parent="."]
 layout_mode = 2
-offset_left = 20.0
-offset_top = 5.0
-offset_right = 132.0
-offset_bottom = 77.0
+offset_left = 37.0
+offset_top = 11.0
+offset_right = 149.0
+offset_bottom = 100.0
+texture = ExtResource("3_y62s3")
 expand_mode = 2
 
 [node name="name_label" type="Label" parent="."]
 layout_mode = 2
-offset_left = 23.0
-offset_top = 74.0
-offset_right = 128.0
-offset_bottom = 97.0
+offset_left = 27.0
+offset_top = 130.0
+offset_right = 174.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "JAMBON"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 149.0
-offset_bottom = 100.0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 193.0
+offset_bottom = 195.0
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_q727i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hiqfo")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_051ta")
@@ -54,7 +68,13 @@ text = "BOUTON"
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 115.0
-offset_right = 105.0
-offset_bottom = 138.0
+offset_left = 70.0
+offset_top = 217.0
+offset_right = 138.0
+offset_bottom = 240.0
+
+[node name="connection_point_start" type="Node2D" parent="."]
+position = Vector2(97, 196)
+
+[node name="connection_point_end" type="Node2D" parent="."]
+position = Vector2(93, 11)
