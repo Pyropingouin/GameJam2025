@@ -2,6 +2,7 @@ extends Node2D
 
 signal left_mouse_button_clicked
 signal left_mouse_button_released
+signal right_mouse_button_clicked
 
 const CARD_COLLISION_MASK = 1
 const DECK_COLLISION_MASK = 2
@@ -20,6 +21,8 @@ func _input(event: InputEvent) -> void:
 			raycast_at_cursor()
 		else:
 			emit_signal("left_mouse_button_released")
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
+		emit_signal("right_mouse_button_clicked")
 
 func raycast_at_cursor():
 	var space_state = get_world_2d().direct_space_state

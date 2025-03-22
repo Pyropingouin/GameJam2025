@@ -25,6 +25,7 @@ var is_hovering_enemy_with_card = false
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	input_manager.connect("left_mouse_button_released", on_left_click_released)
+	input_manager.connect("right_mouse_button_clicked", on_right_click)
 
 func _process(delta: float) -> void:
 	if card_being_dragged:
@@ -37,6 +38,12 @@ func _process(delta: float) -> void:
 func on_left_click_released():
 	if card_being_dragged:
 		finish_drag()
+	
+func on_right_click():
+	if card_being_dragged:
+		player_hand.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
+		card_being_dragged.modulate.a = DEFAULT_CARD_OPACITY
+		card_being_dragged = null
 
 func raycast_check_for_card():
 	var space_state = get_world_2d().direct_space_state
