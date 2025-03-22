@@ -118,6 +118,7 @@ func on_end_turn_pressed():
 	mana_counter.get_node("Counter").text = str(current_mana) + " / " + str(MAX_MANA)
 
 	end_turn_button.visible = true
+	#deck.draw_all_cards()
 
 func attack_allies():
 	for ally in allies:

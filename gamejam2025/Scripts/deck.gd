@@ -19,8 +19,9 @@ func _ready() -> void:
 	card_database_reference = preload("res://Scripts/card_database.gd")
 	
 	# Main de départ
-	for i in range(HAND_SIZE):
-		draw_card()
+	#for i in range(HAND_SIZE):
+		#draw_card()
+	draw_all_cards()
 
 func draw_card():
 	#print("Draw card")
@@ -64,3 +65,8 @@ func draw_card():
 	new_card.name = "Card"
 	player_hand.add_card_to_hand(new_card, CARD_DRAW_SPEED)
 	
+func draw_all_cards():
+	print("Draw all")
+	for i in range(HAND_SIZE):
+		print(i)
+		draw_card()
