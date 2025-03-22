@@ -1,6 +1,13 @@
-[gd_scene format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=4 format=3 uid="uid://dhi4ubpsbjwht"]
+
+[ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
+[ext_resource type="PackedScene" uid="uid://e6jxvndb0jae" path="res://Scenes/card.tscn" id="1_qwpo6"]
+[ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_pow3f"]
 
 [node name="Main" type="Node2D"]
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("1_jcl2g")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 320.0
@@ -10,3 +17,9 @@ offset_bottom = 373.0
 scale = Vector2(4, 4)
 text = "GameJam2025 !!!
 "
+
+[node name="Card" parent="." instance=ExtResource("1_qwpo6")]
+position = Vector2(107, 524)
+
+[node name="InputManager" type="Node2D" parent="."]
+script = ExtResource("2_pow3f")
