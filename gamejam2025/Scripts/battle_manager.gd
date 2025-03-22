@@ -84,10 +84,16 @@ func _on_button_show_tree_pressed():
 	card_manager.set_physics_process(false)
 	card_manager.set_process(false)
 	squirrel_enemy.visible = false
+	player.visible = false
 	
 	
 func _on_combat_requested(squirrel: SquirrelNode):
 	print("BattleManager a reçu :", squirrel.squirrel_name)
+	
+	squirrel_enemy.setEnnemy(squirrel)
+
+	
+	
 	
 	
 	genealogy_tree.visible = false
@@ -99,6 +105,7 @@ func _on_combat_requested(squirrel: SquirrelNode):
 	card_manager.set_physics_process(true)
 	card_manager.set_process(true)
 	squirrel_enemy.visible = true
+	player.visible = true
 	
 
 func on_end_turn_pressed():

@@ -7,6 +7,9 @@ signal hovered_off
 @onready var healthBar : ProgressBar = $HealthBar
 @onready var healthStatus: RichTextLabel = $HealthBar/HealthStatus
 
+
+
+
 @export var maxHealth: int = 100
 @export var currentHealth: int = 100
 @export var damageMultiplier: float = 1.0
@@ -46,3 +49,16 @@ func reduceHealth(damage: int) -> void:
 		currentHealth = 0
 	healthBar.value = currentHealth
 	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
+	
+	
+func setEnnemy(sn):
+	get_node("Sprite2D").texture = sn.squirrel_image
+	maxHealth = sn.hp
+	currentHealth = maxHealth
+
+	
+	healthBar.value = currentHealth
+	healthBar.max_value = maxHealth
+	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
+	
+	
