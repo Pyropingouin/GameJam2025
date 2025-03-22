@@ -3,6 +3,8 @@ extends Node2D
 signal hovered
 signal hovered_off
 
+var hand_position
+
 func _ready() -> void:
 	# !! Toutes les cartes doivent être enfant de CardManager !!
 	get_parent().connect_card_signals(self)

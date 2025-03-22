@@ -3,8 +3,10 @@ extends Node2D
 const CARD_COLLISION_MASK = 1
 const DEFAULT_CARD_SCALE = 0.8
 const CARD_BIGGER_SCALE = 1.05
+const DEFAULT_CARD_MOVE_SPEED = 0.1
 
 @onready var input_manager: Node2D = $"../InputManager"
+@onready var player_hand: Node2D = $"../PlayerHand"
 
 var screen_size
 var card_being_dragged
@@ -61,10 +63,13 @@ func start_drag(card):
 
 func finish_drag():
 	print("Finish drag")
+	
+	# Si on ne sélectionne pas l'ennemi?
+	var jambon = false
+	if !jambon:
+		player_hand.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
+	
 	card_being_dragged = null
-
-func draw_card():
-	pass
 
 func connect_card_signals(card):
 	card.connect("hovered", on_hovered_over_card)
@@ -97,3 +102,6 @@ func highlight_card(card, hovered):
 	else:
 		card.scale = Vector2(DEFAULT_CARD_SCALE, DEFAULT_CARD_SCALE)
 		card.z_index = 1
+
+func draw_card():
+	pass
