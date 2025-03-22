@@ -10,6 +10,8 @@ const ENEMY_HOVER_COLOR = Color("ff0000")
 const DEFAULT_ENEMY_HOVER_COLOR = Color("ffffff")
 const CARD_HOVER_OPACITY = 0.5
 const DEFAULT_CARD_OPACITY = 1.0
+const CARD_TYPE_OFFENSE = "Offense"
+const CARD_TYPE_DEFENSE = "Defense"
 
 @onready var input_manager: Node2D = $"../InputManager"
 @onready var player_hand: Node2D = $"../PlayerHand"
@@ -71,11 +73,14 @@ func start_drag(card):
 func finish_drag():
 	#print("Finish drag")
 	
-	if is_hovering_enemy_with_card:
+	if is_hovering_enemy_with_card && card_being_dragged.card_type == CARD_TYPE_OFFENSE:
 		# Play la carte
 		battle_manager.play_a_card(card_being_dragged)
+	
+	elif card_being_dragged.card_type == CARD_TYPE_DEFENSE:
+		battle_manager.play_a_card(card_being_dragged)
 		
-	# Si on ne sélectionne pas l'ennemi
+	# Si on ne sélectionne pas l'ennemi et que ce n'est pas une carte défense
 	else:
 		player_hand.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
 	

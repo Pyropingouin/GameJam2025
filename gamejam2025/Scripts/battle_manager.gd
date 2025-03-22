@@ -4,6 +4,7 @@ const DEFAULT_CARD_MOVE_SPEED = 0.1
 const CARD_MOVE_SPEED = 0.3
 const MAX_MANA = 5.0
 const CARD_TYPE_OFFENSE = "Offense"
+const CARD_TYPE_DEFENSE = "Defense"
 
 @onready var player_hand: Node2D = $"../PlayerHand"
 @onready var deck: Node2D = $"../Deck"
@@ -44,6 +45,9 @@ func play_a_card(card):
 		# Faire l'effet
 		if card.card_type == CARD_TYPE_OFFENSE:
 			squirrel_enemy.reduceHealth(card.damage)
+		elif card.card_type == CARD_TYPE_DEFENSE:
+			# TODO Ajouter de l'armure au player
+			print("Defense")
 			
 		# Déplacer la carte dans la DiscardPile
 		var new_pos = discard_pile_reference.position

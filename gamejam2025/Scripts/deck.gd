@@ -7,7 +7,7 @@ const CARD_DRAW_SPEED = 0.5
 @onready var card_manager: Node2D = $"../CardManager"
 @onready var player_hand: Node2D = $"../PlayerHand"
 
-var player_deck = ["CarteGriffe", "CarteQueue", "CarteGriffe", "CarteQueue", "CarteGriffe"]
+var player_deck = ["Armor1", "CarteQueue", "CarteGriffe", "CarteQueue", "CarteGriffe"]
 var card_database_reference
 
 func _ready() -> void:
