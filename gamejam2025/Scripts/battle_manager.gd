@@ -101,6 +101,7 @@ func _on_combat_requested(squirrel: SquirrelNode):
 	print("BattleManager a reçu :", squirrel.squirrel_name)
 	
 	squirrel_enemy.setEnnemy(squirrel)
+	player.resetPlayer()
 
 	
 	
