@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhi4ubpsbjwht"]
-
-[ext_resource type="PackedScene" uid="uid://c3gfhhqrstnjr" path="res://Scenes/squirrel_node.tscn" id="1_2s5oq"]
+[gd_scene format=3 uid="uid://dhi4ubpsbjwht"]
 
 [node name="Main" type="Node2D"]
 
@@ -12,12 +10,3 @@ offset_bottom = 373.0
 scale = Vector2(4, 4)
 text = "GameJam2025 !!!
 "
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="SquirrelNode" parent="Control" instance=ExtResource("1_2s5oq")]
-layout_mode = 0
