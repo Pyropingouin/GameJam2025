@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bj5i14b2qt5xb"
-path="res://.godot/imported/Deck.png-cb3d1c592304fc1ee94cbc1c8488aff0.ctex"
+path="res://.godot/imported/Deck.png-0c4120f3c3acab84c205a98c43aaeb33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Deck.png"
-dest_files=["res://.godot/imported/Deck.png-cb3d1c592304fc1ee94cbc1c8488aff0.ctex"]
+source_file="res://tutorial/Assets/Deck.png"
+dest_files=["res://.godot/imported/Deck.png-0c4120f3c3acab84c205a98c43aaeb33.ctex"]
 
 [params]
 

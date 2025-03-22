@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1numjwjq3d5a"
-path="res://.godot/imported/KnightCard.png-c4e1cb491f2b3ffd8ce23f44c1ce3b7f.ctex"
+path="res://.godot/imported/KnightCard.png-d916507eaae35d9a366884a023643c5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/KnightCard.png"
-dest_files=["res://.godot/imported/KnightCard.png-c4e1cb491f2b3ffd8ce23f44c1ce3b7f.ctex"]
+source_file="res://tutorial/Assets/KnightCard.png"
+dest_files=["res://.godot/imported/KnightCard.png-d916507eaae35d9a366884a023643c5f.ctex"]
 
 [params]
 
