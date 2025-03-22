@@ -122,8 +122,9 @@ func connect_enemy_signals(enemy):
 func on_hovered_over_squirrel(enemy):
 	if card_being_dragged:
 		#print("Hover")
-		enemy.scale = Vector2(-ENEMY_BIGGER_SCALE, ENEMY_BIGGER_SCALE)
-		enemy.get_node("Sprite2D").modulate = ENEMY_HOVER_COLOR
+		var enemy_sprite = enemy.get_node("Sprite2D")
+		enemy_sprite.scale = Vector2(ENEMY_BIGGER_SCALE, ENEMY_BIGGER_SCALE)
+		enemy_sprite.modulate = ENEMY_HOVER_COLOR
 		card_being_dragged.modulate.a = CARD_HOVER_OPACITY
 		
 		is_hovering_enemy_with_card = true
@@ -132,7 +133,8 @@ func on_hovered_off_squirrel(enemy):
 	if card_being_dragged:
 		card_being_dragged.modulate.a = DEFAULT_CARD_OPACITY
 	
-	enemy.scale = Vector2(-DEFAULT_ENEMY_SCALE, DEFAULT_ENEMY_SCALE)
-	enemy.get_node("Sprite2D").modulate = DEFAULT_ENEMY_HOVER_COLOR
+	var enemy_sprite = enemy.get_node("Sprite2D")
+	enemy_sprite.scale = Vector2(DEFAULT_ENEMY_SCALE, DEFAULT_ENEMY_SCALE)
+	enemy_sprite.modulate = DEFAULT_ENEMY_HOVER_COLOR
 	
 	is_hovering_enemy_with_card = false
