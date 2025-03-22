@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://1denxygaek28"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_x4eu8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rixip"]
+bg_color = Color(0.165656, 0.165656, 0.165656, 0.694118)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kega"]
+bg_color = Color(0.811765, 0, 0, 1)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_x4eu8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+z_index = 1
+offset_left = -140.0
+offset_top = 127.0
+offset_right = 140.0
+offset_bottom = 154.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_rixip")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3kega")
+value = 100.0
+show_percentage = false
+
+[node name="HealthStatus" type="RichTextLabel" parent="HealthBar"]
+z_index = 1
+offset_left = 109.0
+offset_right = 174.0
+offset_bottom = 26.0
+text = "100/100"
