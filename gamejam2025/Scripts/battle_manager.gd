@@ -4,6 +4,12 @@ const DEFAULT_CARD_MOVE_SPEED = 0.1
 const CARD_MOVE_SPEED = 0.3
 const MAX_MANA = 5.0
 const CARD_TYPE_OFFENSE = "Offense"
+const ennemyMoves = [
+	{"type": "Attack", "damage": 10},
+	{"type": "Attack", "damage": 15},
+	{"type": "Attack", "damage": 20},
+	{"type": "Defense", "damage": 0}
+]
 
 @onready var player_hand: Node2D = $"../PlayerHand"
 @onready var deck: Node2D = $"../Deck"
@@ -21,6 +27,7 @@ var discard_pile = []
 var card_being_played
 var current_mana
 var allies = []
+var ennemyNextAttack
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,7 +37,10 @@ func _ready() -> void:
 	
 	button_show_tree.pressed.connect(_on_button_show_tree_pressed)
 	genealogy_tree.combat_requested.connect(_on_combat_requested)
-
+	
+	setNextAttack()
+	
+	print(ennemyNextAttack)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -127,8 +137,14 @@ func attack_allies():
 		squirrel_enemy.reduceHealth(10)
 
 func attack_enemies():
-		player.reduceHealth(10)
+		print(ennemyNextAttack.damage * squirrel_enemy.damageMultiplier)
+		print(ennemyNextAttack.damage)
+		print(squirrel_enemy.damageMultiplier)
+		player.reduceHealth(ennemyNextAttack.damage * squirrel_enemy.damageMultiplier)
+		setNextAttack()
 
+func setNextAttack():
+	ennemyNextAttack = ennemyMoves.pick_random()
 
 func _on_end_turn_button_pressed() -> void:
 	on_end_turn_pressed()
