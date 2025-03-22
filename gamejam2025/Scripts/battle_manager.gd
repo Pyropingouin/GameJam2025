@@ -108,6 +108,8 @@ func _on_combat_requested(squirrel: SquirrelNode):
 func on_end_turn_pressed():
 	end_turn_button.visible = false
 	
+	empty_player_hand()
+	
 	attack_allies()
 
 	await get_tree().create_timer(1).timeout
@@ -130,3 +132,22 @@ func attack_enemies():
 
 func _on_end_turn_button_pressed() -> void:
 	on_end_turn_pressed()
+	
+func empty_player_hand():
+	#print("Empty!!!")
+	#print(player_hand.player_hand)
+	#var real_player_hand = player_hand.player_hand
+	if player_hand.player_hand.size() > 0:
+		for i in player_hand.player_hand:
+			# Déplacer la carte dans la DiscardPile
+			var new_pos = discard_pile_reference.position
+			var tween = get_tree().create_tween()
+			tween.tween_property(i, "position", new_pos, CARD_MOVE_SPEED)
+			tween.connect("finished", on_tween_finished_empty_hand)
+			discard_pile.append(i)
+	
+func on_tween_finished_empty_hand():
+	discard_pile_reference.get_node("CardCounter").text = str(discard_pile.size())
+	for card in player_hand.player_hand:
+		card.queue_free()
+	player_hand.player_hand.clear()
