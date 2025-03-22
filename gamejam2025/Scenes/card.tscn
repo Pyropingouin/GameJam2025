@@ -14,6 +14,10 @@ script = ExtResource("1_1g4or")
 [node name="CardImage" type="Sprite2D" parent="."]
 texture = ExtResource("2_1w4oy")
 
+[node name="BackCardImage" type="Sprite2D" parent="."]
+position = Vector2(-1.25001, -1.25001)
+scale = Vector2(0.591667, 1.78333)
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
