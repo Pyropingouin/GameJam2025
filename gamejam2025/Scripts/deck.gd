@@ -7,7 +7,7 @@ const CARD_DRAW_SPEED = 0.5
 @onready var card_manager: Node2D = $"../CardManager"
 @onready var player_hand: Node2D = $"../PlayerHand"
 
-var player_deck = ["Attack1", "Attack2", "Armor1", "Attack1", "Heal1"]
+var player_deck = ["CarteGriffe", "CarteQueue", "CarteGriffe", "CarteQueue", "CarteGriffe"]
 var card_database_reference
 
 func _ready() -> void:
@@ -30,8 +30,8 @@ func draw_card():
 	
 	var card_scene = preload(CARD_SCENE_PATH)
 	var new_card = card_scene.instantiate()
-	#var card_image_path = str("res://Assets/" + card_drawn_name + ".png")
-	var card_image_path = str("res://Assets/card_temporaire.png")
+	var card_image_path = str("res://Assets/Cards/" + card_drawn_name + ".png")
+	#var card_image_path = str("res://Assets/card_temporaire.png")
 	new_card.get_node("CardImage").texture = load(card_image_path)
 	# Populer les propriétés de la carte
 	new_card.mana = card_database_reference.CARDS[card_drawn_name][0]
