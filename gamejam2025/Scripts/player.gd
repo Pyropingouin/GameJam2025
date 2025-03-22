@@ -9,11 +9,16 @@ var acorn = 0
 
 @onready var healthBar: ProgressBar = $HealthBar
 @onready var healthStatus: RichTextLabel = $HealthBar/HealthStatus
+@onready var shield: Sprite2D = $HealthBar/Shield
+@onready var shield_text: RichTextLabel = $HealthBar/ShieldText
 
 func _ready() -> void:
 	healthBar.max_value = maxHealth
 	healthBar.value = currentHealth
 	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
+	if defense == 0:
+		shield.visible = false
+		shield_text.visible = false
 
 func addHealth(healthToAdd: int) -> void:
 	currentHealth += healthToAdd
@@ -26,6 +31,9 @@ func addHealth(healthToAdd: int) -> void:
 
 func reduceHealth(damage: int) -> void:
 	currentHealth -= (damage - defense)
+	defense = 0
+	shield.visible = false
+	shield_text.visible = false
 	if currentHealth < 0:
 		currentHealth = 0
 	healthBar.value = currentHealth
@@ -42,6 +50,8 @@ func addMaxHealth(healthToAdd: int) -> void:
 
 func addDefense(amount: int) -> void:
 	defense += amount
+	shield.visible = true
+	shield_text.text = str(defense)
 
 func regenerateEnergy(amount: int) -> void:
 	currentEnergy += amount
