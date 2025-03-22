@@ -48,6 +48,7 @@ offset_right = 5.0
 offset_bottom = 673.0
 
 [node name="info_panel" type="TextureRect" parent="."]
+visible = false
 offset_left = 1121.0
 offset_top = 200.0
 offset_right = 1819.0
@@ -80,3 +81,20 @@ offset_top = 93.0
 offset_right = 624.0
 offset_bottom = 186.0
 text = "gefoe"
+
+[node name="button_combat" type="Button" parent="info_panel"]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 233.0
+offset_right = 428.0
+offset_bottom = 264.0
+text = "Entre combat"
+
+[node name="button_cancel" type="Button" parent="info_panel"]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 234.0
+offset_right = 573.0
+offset_bottom = 265.0
+text = "Cancel
+"

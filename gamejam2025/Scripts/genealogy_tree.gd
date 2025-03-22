@@ -5,13 +5,20 @@ extends Node
 @onready var name_label = $info_panel/name_label
 @onready var squirrel_avatar = $info_panel/squirrel_avatar
 @onready var description = $info_panel/description
+@onready var button_combat = $info_panel/button_combat
+@onready var button_cancel = $info_panel/button_cancel
+@onready var genealogy_tree = $"."
+
+var selected_squirrel: SquirrelNode = null
+signal combat_requested(squirrel: SquirrelNode)
+
 
 
 
 
 func _ready():
-	
-	
+	button_combat.pressed.connect(_on_button_combat_pressed)
+	button_cancel.pressed.connect(_on_button_cancel_pressed)
 	# dans _ready() par exemple
 	for sn in $tree_container.get_children():
 		sn.show_info_requested.connect(_on_squirrel_info_requested)
@@ -26,9 +33,30 @@ func _ready():
 					
 
 			
+	
+func _on_button_combat_pressed():
+	if selected_squirrel:
+		print("Combat demandé contre :", selected_squirrel.squirrel_name)
+		emit_signal("combat_requested", selected_squirrel)
+		
+		genealogy_tree.visible = false
+		
+		
+	else:
+		print("Aucun écureuil sélectionné !")
+	
+	
+func _on_button_cancel_pressed():
+	if selected_squirrel:
+		selected_squirrel = null
+	
+	info_panel.visible = false	
+	
+	print("cancel")				
 			
 func _on_squirrel_info_requested(sn: SquirrelNode):
 	print("yup")
+	selected_squirrel = sn  # ← Stocke le node sélectionné
 	name_label.text = sn.squirrel_name
 	squirrel_avatar.texture = sn.squirrel_avatar
 	description.text = sn.description
@@ -49,7 +77,3 @@ func draw_link(from_node: SquirrelNode, to_node: SquirrelNode) -> Line2D:
 
 	add_child(line)
 	return line
-
-
-func _on_squirrel_node_3_show_info_requested(squirrel: SquirrelNode) -> void:
-	pass # Replace with function body.
