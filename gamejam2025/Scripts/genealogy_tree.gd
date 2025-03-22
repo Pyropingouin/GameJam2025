@@ -10,8 +10,12 @@ extends Node
 
 
 func _ready():
+	
+	
 	# dans _ready() par exemple
 	for sn in $tree_container.get_children():
+		sn.show_info_requested.connect(_on_squirrel_info_requested)
+
 		if sn is SquirrelNode:
 			for path in sn.descendants:
 				var descendant = sn.get_node_or_null(path)
@@ -45,3 +49,7 @@ func draw_link(from_node: SquirrelNode, to_node: SquirrelNode) -> Line2D:
 
 	add_child(line)
 	return line
+
+
+func _on_squirrel_node_3_show_info_requested(squirrel: SquirrelNode) -> void:
+	pass # Replace with function body.
