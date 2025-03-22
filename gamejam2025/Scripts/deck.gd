@@ -9,8 +9,8 @@ const CARD_DRAW_SPEED = 0.5
 @onready var battle_manager: Node = $"../BattleManager"
 @onready var discard_pile_reference: Node2D = $"../DiscardPile"
 
-var player_deck = ["Armor1", "CarteQueue", "CarteGriffe", "CarteQueue", "CarteGriffe"]
-var player_deck_copy = ["Armor1", "CarteQueue", "CarteGriffe", "CarteQueue", "CarteGriffe"]
+var player_deck = ["CarteGland", "CarteQueue", "CarteGriffe", "CarteQueue", "CarteGriffe"]
+var player_deck_copy = ["CarteGland", "CarteQueue", "CarteGriffe", "CarteQueue", "CarteGriffe"]
 var card_database_reference
 
 func _ready() -> void:
