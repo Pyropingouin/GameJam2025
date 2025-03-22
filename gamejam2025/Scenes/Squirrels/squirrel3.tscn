@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqolu82pkt4ud"]
+
+[ext_resource type="Script" path="res://Scripts/squirrel.gd" id="1_k4exx"]
+
+[node name="Squirrel" type="Node2D"]
+script = ExtResource("1_k4exx")
+maxHealth = 150
+currentHealth = 150
+damageMultiplier = 1.4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
