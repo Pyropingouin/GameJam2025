@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=14 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/ennemi_temporaire.gd" id="7_oksmg"]
 [ext_resource type="Texture2D" uid="uid://c5xajxqo7murm" path="res://Assets/ecureuil_base.png" id="7_vaebe"]
 [ext_resource type="Script" path="res://Scripts/battle_manager.gd" id="9_fj1c1"]
+[ext_resource type="PackedScene" uid="uid://br13jqyfb661s" path="res://Scenes/genealogy_tree.tscn" id="10_av65l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -123,6 +124,13 @@ text = "100/100"
 [node name="BattleManager" type="Node" parent="."]
 script = ExtResource("9_fj1c1")
 
+[node name="button_show_tree" type="Button" parent="BattleManager"]
+offset_left = 920.0
+offset_top = 413.0
+offset_right = 1146.0
+offset_bottom = 566.0
+text = "Show Tree"
+
 [node name="ManaCounter" type="Node2D" parent="."]
 
 [node name="Counter" type="RichTextLabel" parent="ManaCounter"]
@@ -133,6 +141,10 @@ offset_right = 351.0
 offset_bottom = 709.0
 scale = Vector2(3, 3)
 text = "5/5"
+
+[node name="GenealogyTree" parent="." instance=ExtResource("10_av65l")]
+visible = false
+position = Vector2(0, -52)
 
 [connection signal="mouse_entered" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_exited"]
