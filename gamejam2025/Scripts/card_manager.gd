@@ -13,10 +13,12 @@ const DEFAULT_CARD_OPACITY = 1.0
 
 @onready var input_manager: Node2D = $"../InputManager"
 @onready var player_hand: Node2D = $"../PlayerHand"
+@onready var battle_manager: Node = $"../BattleManager"
 
 var screen_size
 var card_being_dragged
 var is_hovering_on_card
+var is_hovering_enemy_with_card = false
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -70,13 +72,17 @@ func start_drag(card):
 func finish_drag():
 	#print("Finish drag")
 	
-	# Si on ne sélectionne pas l'ennemi?
-	var jambon = false
-	if !jambon:
+	if is_hovering_enemy_with_card:
+		# Play la carte
+		battle_manager.play_a_card(card_being_dragged)
+		
+	# Si on ne sélectionne pas l'ennemi
+	else:
 		player_hand.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
 	
 	card_being_dragged.modulate.a = DEFAULT_CARD_OPACITY
 	card_being_dragged = null
+	
 
 func connect_card_signals(card):
 	card.connect("hovered", on_hovered_over_card)
@@ -116,12 +122,12 @@ func connect_enemy_signals(enemy):
 	
 func on_hovered_over_squirrel(enemy):
 	if card_being_dragged:
-		print("Hover")
+		#print("Hover")
 		enemy.scale = Vector2(-ENEMY_BIGGER_SCALE, ENEMY_BIGGER_SCALE)
 		enemy.get_node("Sprite2D").modulate = ENEMY_HOVER_COLOR
 		card_being_dragged.modulate.a = CARD_HOVER_OPACITY
 		
-		# Play la carte
+		is_hovering_enemy_with_card = true
 	
 func on_hovered_off_squirrel(enemy):
 	if card_being_dragged:
@@ -129,3 +135,5 @@ func on_hovered_off_squirrel(enemy):
 	
 	enemy.scale = Vector2(-DEFAULT_ENEMY_SCALE, DEFAULT_ENEMY_SCALE)
 	enemy.get_node("Sprite2D").modulate = DEFAULT_ENEMY_HOVER_COLOR
+	
+	is_hovering_enemy_with_card = false
