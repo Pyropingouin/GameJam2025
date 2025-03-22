@@ -14,10 +14,13 @@ const CARD_TYPE_OFFENSE = "Offense"
 @onready var genealogy_tree = $"../GenealogyTree"
 @onready var battle_background = $"../BattleBackground"
 @onready var squirrel_enemy: Node2D = $"../SquirrelEnemy"
+@onready var end_turn_button: Button = $"../EndTurnButton"
+@onready var player: Node2D = $"../Player"
 
 var discard_pile = []
 var card_being_played
 var current_mana
+var allies = []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -97,3 +100,28 @@ func _on_combat_requested(squirrel: SquirrelNode):
 	card_manager.set_process(true)
 	squirrel_enemy.visible = true
 	
+
+func on_end_turn_pressed():
+	end_turn_button.visible = false
+	
+	attack_allies()
+
+	await get_tree().create_timer(1).timeout
+	attack_enemies()
+
+	await get_tree().create_timer(1).timeout
+	current_mana = MAX_MANA
+	mana_counter.get_node("Counter").text = str(current_mana) + " / " + str(MAX_MANA)
+
+	end_turn_button.visible = true
+
+func attack_allies():
+	for ally in allies:
+		squirrel_enemy.reduceHealth(10)
+
+func attack_enemies():
+		player.reduceHealth(10)
+
+
+func _on_end_turn_button_pressed() -> void:
+	on_end_turn_pressed()
