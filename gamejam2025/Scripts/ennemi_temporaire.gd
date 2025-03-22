@@ -14,6 +14,8 @@ signal hovered_off
 @export var currentHealth: int = 100
 @export var damageMultiplier: float = 1.0
 
+
+
 func _ready() -> void:
 	card_manager.connect_enemy_signals(self)
 	
@@ -55,6 +57,10 @@ func setEnnemy(sn):
 	get_node("Sprite2D").texture = sn.squirrel_image
 	maxHealth = sn.hp
 	currentHealth = maxHealth
+	
+	damageMultiplier= sn.dmgMult
+	
+	
 
 	
 	healthBar.value = currentHealth
