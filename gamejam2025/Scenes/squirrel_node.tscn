@@ -68,6 +68,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_051ta")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kvhwk")
 
 [node name="Button2" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 70.0
 offset_top = 217.0
@@ -75,7 +76,7 @@ offset_right = 138.0
 offset_bottom = 240.0
 
 [node name="connection_point_start" type="Node2D" parent="."]
-position = Vector2(97, 196)
+position = Vector2(102, 191)
 
 [node name="connection_point_end" type="Node2D" parent="."]
-position = Vector2(93, 11)
+position = Vector2(92, 17)
