@@ -41,6 +41,7 @@ var allies = []
 var ennemyNextMove
 var current_enemy: SquirrelNode
 var player_pos_copy
+var enemy_pos_copy
 
 
 
@@ -245,10 +246,21 @@ func attack_allies():
 
 func attack_enemies():
 	if ennemyNextMove.type == "Attack":
+		enemy_pos_copy = squirrel_enemy.position
+		print(enemy_pos_copy)
+		var new_pos = Vector2(enemy_pos_copy.x - 60, enemy_pos_copy.y)
+		print(new_pos)
+		var tween = get_tree().create_tween()
+		tween.tween_property(squirrel_enemy, "position", new_pos, ATTACK_MOVE_SPEED)
+		tween.connect("finished", on_tween_attack_enemy_finished)
 		player.reduceHealth(ennemyNextMove.damage * squirrel_enemy.damageMultiplier)
 	else:
 		squirrel_enemy.defense = ennemyNextMove.damage
 	setNextMove()
+
+func on_tween_attack_enemy_finished():
+	var tween2 = get_tree().create_tween()
+	tween2.tween_property(squirrel_enemy, "position", enemy_pos_copy, ATTACK_MOVE_SPEED)
 
 func setNextMove():
 	ennemyNextMove = ennemyMoves.pick_random()
