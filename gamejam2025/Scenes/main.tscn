@@ -518,6 +518,10 @@ libraries = {
 
 [node name="AudioManager" type="Node2D" parent="."]
 
+[node name="BattleMusic" type="AudioStreamPlayer2D" parent="AudioManager"]
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="AudioManager"]
+
 [node name="Forest" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("20_4sdj5")
 volume_db = -10.0

@@ -220,6 +220,7 @@ func _on_button_show_tree_pressed():
 	
 func _on_combat_requested(squirrel: SquirrelNode):
 	audio_manager.get_node("EngageBattle").play()
+	audio_manager.get_node("BattleMusic").play() # TODO
 	
 	print("BattleManager a reçu :", squirrel.squirrel_name)
 	current_enemy = squirrel  
