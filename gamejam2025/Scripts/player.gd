@@ -73,3 +73,9 @@ func spendAcorns(amount: int) -> bool:
 		return true
 	else:
 		return false
+
+func resetPlayer():
+	currentHealth = maxHealth
+	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
+	healthBar.value = maxHealth
+	healthBar.max_value = maxHealth

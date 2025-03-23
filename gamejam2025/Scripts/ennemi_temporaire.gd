@@ -48,8 +48,6 @@ func _on_area_2d_mouse_exited() -> void:
 
 func attack(target: Node2D, damage: int) -> void:
 	var damageDealt = damage * damageMultiplier
-	
-	
 
 	if target.has_method("reduceHealth"):
 		target.reduceHealth(damageDealt)
@@ -77,13 +75,14 @@ func setDefense(amount: int):
 	shield_text.text = "[center]"+str(defense)+"[center]"
 	
 func setEnnemy(sn):
-	get_node("Sprite2D").texture = sn.squirrel_image
+	get_node("Sprite2D").sprite_frames = sn.squirrel_frames
+	get_node("Sprite2D").play("idle")
 	maxHealth = sn.hp
 	currentHealth = maxHealth
 	
 	damageMultiplier= sn.dmgMult
 	
-	
+	print(get_node("Sprite2D"))
 
 	
 	healthBar.value = currentHealth
