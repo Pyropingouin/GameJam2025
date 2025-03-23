@@ -8,9 +8,10 @@ extends Panel
 @export var hp: int = 12
 @export var attack_array: Array[int]
 @export var description: String
-@export var dmgMult: int
 @export var attack_audio: AudioStream
 @export var type: String
+@export var dmgMult: int = 1
+@export var win_text: String = "Avec cette défaite, je vais perdre mon héritage de la pépinière de CHÊNES"
 
 @export var descendants: Array[NodePath]  # Tu pourras assigner les descendants dans l'éditeur
 
