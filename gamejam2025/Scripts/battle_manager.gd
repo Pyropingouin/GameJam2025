@@ -25,12 +25,20 @@ const ennemyMoves = [
 @onready var player: Node2D = $"../Player"
 @onready var enemy_shield: Sprite2D = $"../EnemyShield"
 @onready var enemy_sword: Sprite2D = $"../EnemySword"
+@onready var win_screen = $"../WinScreen"
+@onready var win_scree_final = $"../WinScreenFinal"
+
+
+
+
 
 var discard_pile = []
 var card_being_played
 var current_mana
 var allies = []
 var ennemyNextMove
+var current_enemy: SquirrelNode
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,8 +48,22 @@ func _ready() -> void:
 	
 	button_show_tree.pressed.connect(_on_button_show_tree_pressed)
 	genealogy_tree.combat_requested.connect(_on_combat_requested)
+	squirrel_enemy.died.connect(_on_squirrel_enemy_died)
+	win_screen.get_node("button").pressed.connect(_on_button_show_tree_pressed)
 	
 	setNextMove()
+	################# TEST AVEC ECUREIL DE DÉBUT
+	var test_squirrel = preload("res://Scenes/squirrel_node.tscn").instantiate()
+	test_squirrel.squirrel_name = "Test McNutty"
+	test_squirrel.squirrel_avatar = preload("res://Assets/icon.svg")
+	test_squirrel.description = "Un écureuil redoutable de test."
+	test_squirrel.hp = 20
+	# Stocker dans current_enemy pour simuler un vrai
+	current_enemy = test_squirrel
+	##################### FIN DU TEST AVEC ÉCUREIL DÉBUT
+	
+	
+	
 	
 	# Si on a des allies, les faire apparaitre
 
@@ -86,9 +108,46 @@ func on_tween_finished():
 	# Détruire la carte
 	card_being_played.queue_free()
 	
+func _on_squirrel_enemy_died():
+	print("L'ennemi est mort ! 🎉")
+	win_screen.set_squirrel(current_enemy) 
+	
+	if current_enemy.squirrel_name == "chef":
+		print("win")
+		battle_background.visible = false
+		mana_counter.visible = false
+		deck.visible = false
+		discard_pile_reference.visible = false
+		card_manager.visible = false
+		card_manager.set_physics_process(false)
+		card_manager.set_process(false)
+		squirrel_enemy.visible = false
+		player.visible = false
+		end_turn_button.visible = false
+		win_scree_final.visible = true
+	
+		
+		
+	else:		
+		battle_background.modulate.a = 0.2
+		mana_counter.visible = false
+		deck.visible = false
+		discard_pile_reference.visible = false
+		card_manager.visible = false
+		card_manager.set_physics_process(false)
+		card_manager.set_process(false)
+		squirrel_enemy.visible = false
+		player.visible = false
+		end_turn_button.visible = false
+		win_screen.visible = true
+	
+	
+	
 	
 
 func _on_button_show_tree_pressed():
+	
+	
 	print("Show Tree")	
 	genealogy_tree.visible = true
 	battle_background.modulate.a = 0.2
@@ -100,12 +159,19 @@ func _on_button_show_tree_pressed():
 	card_manager.set_process(false)
 	squirrel_enemy.visible = false
 	player.visible = false
+	end_turn_button.visible = false
+	win_screen.visible = false
+	enemy_shield.visible = false
+	enemy_sword.visible = false
 	
 	
 func _on_combat_requested(squirrel: SquirrelNode):
 	print("BattleManager a reçu :", squirrel.squirrel_name)
-	
+	current_enemy = squirrel  
 	squirrel_enemy.setEnnemy(squirrel)
+	player.resetPlayer()
+
+
 
 	
 	
@@ -121,6 +187,7 @@ func _on_combat_requested(squirrel: SquirrelNode):
 	card_manager.set_process(true)
 	squirrel_enemy.visible = true
 	player.visible = true
+	end_turn_button.visible = true
 	
 
 func on_end_turn_pressed():

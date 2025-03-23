@@ -2,6 +2,7 @@ extends Node2D
 
 signal hovered
 signal hovered_off
+signal died
 
 @onready var card_manager: Node2D = $"../CardManager"
 @onready var healthBar : ProgressBar = $HealthBar
@@ -10,7 +11,7 @@ signal hovered_off
 
 
 @export var maxHealth: int = 100
-@export var currentHealth: int = 100
+@export var currentHealth: int = 2
 @export var damageMultiplier: float = 1.0
 
 
@@ -52,6 +53,11 @@ func reduceHealth(damage: int) -> void:
 		currentHealth = 0
 	healthBar.value = currentHealth
 	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
+	
+	if currentHealth <= 0:
+		emit_signal("died")
+		
+		
 	
 	
 func setEnnemy(sn):

@@ -24,9 +24,10 @@ offset_left = 376.0
 offset_top = 33.0
 offset_right = 376.0
 offset_bottom = 33.0
-squirrel_name = "Nouvelle Node Pas Deg"
+squirrel_name = "chef"
 squirrel_avatar = ExtResource("5_h4al0")
 squirrel_image = ExtResource("5_neqip")
+hp = 1
 description = "Je suis le grand père squirrel"
 descendants = Array[NodePath]([NodePath("../SquirrelNode"), NodePath("../SquirrelNode2")])
 
