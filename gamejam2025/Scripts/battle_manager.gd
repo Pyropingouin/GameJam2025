@@ -37,7 +37,8 @@ const ennemyMoves = [
 @onready var start_button = $"../MainMenuSplash/start_game_button"
 @onready var credit_button = $"../MainMenuSplash/credit_button"
 @onready var credit = $"../Credit"
-
+@onready var button_credit_back_menu = $"../Credit/button_credit_back_to_menu"
+@onready var button_lose_back_menu = $"../LoseScreen/lose_screen_back_to_menu_button"
 
 var discard_pile = []
 var card_being_played
@@ -75,6 +76,8 @@ func _ready() -> void:
 	player.died.connect(_on_player_died)
 	start_button.pressed.connect(_on_start_game_pressed)
 	credit_button.pressed.connect(_on_credit_pressed)
+	button_credit_back_menu.pressed.connect(_on_credit_back_to_menu_pressed)
+	button_lose_back_menu.pressed.connect(_on_credit_back_to_menu_pressed)
 
 	setNextMove()
 	enemy_shield.visible = false
@@ -163,7 +166,7 @@ func _on_squirrel_enemy_died():
 	print("L'ennemi est mort ! 🎉")
 	win_screen.set_squirrel(current_enemy) 
 	
-	if current_enemy.squirrel_name == "chef":
+	if current_enemy.squirrel_name == "dwdwdwd":
 		print("win")
 		battle_background.visible = false
 		mana_counter.visible = false
@@ -397,6 +400,8 @@ func all_invisible():
 	enemy_shield.visible = false
 	enemy_sword.visible = false
 	main_menu_splash.visible = false
+	credit.visible = false
+	lose_screen.visible = false
 	
 func all_visible():
 	pass 	
@@ -404,6 +409,7 @@ func all_visible():
 func start_game():
 	all_invisible()
 	main_menu_splash.visible = true
+	
 	
 	
 	
@@ -415,3 +421,21 @@ func _on_credit_pressed():
 	all_invisible()
 	print("credit")
 	credit.visible = true
+	
+func _on_credit_back_to_menu_pressed():
+	start_game()	
+	
+	
+func endGame():
+	print("win")
+	battle_background.visible = false
+	mana_counter.visible = false
+	deck.visible = false
+	discard_pile_reference.visible = false
+	card_manager.visible = false
+	card_manager.set_physics_process(false)
+	card_manager.set_process(false)
+	squirrel_enemy.visible = false
+	player.visible = false
+	end_turn_button.visible = false
+	win_scree_final.visible = true
