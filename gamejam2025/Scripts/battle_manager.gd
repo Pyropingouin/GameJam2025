@@ -37,7 +37,8 @@ const ennemyMoves = [
 @onready var start_button = $"../MainMenuSplash/start_game_button"
 @onready var credit_button = $"../MainMenuSplash/credit_button"
 @onready var credit = $"../Credit"
-
+@onready var button_credit_back_menu = $"../Credit/button_credit_back_to_menu"
+@onready var button_lose_back_menu = $"../LoseScreen/lose_screen_back_to_menu_button"
 
 var discard_pile = []
 var card_being_played
@@ -74,6 +75,8 @@ func _ready() -> void:
 	player.died.connect(_on_player_died)
 	start_button.pressed.connect(_on_start_game_pressed)
 	credit_button.pressed.connect(_on_credit_pressed)
+	button_credit_back_menu.pressed.connect(_on_credit_back_to_menu_pressed)
+	button_lose_back_menu.pressed.connect(_on_credit_back_to_menu_pressed)
 
 	setNextMove()
 	################# TEST AVEC ECUREIL DE DÉBUT
@@ -386,6 +389,8 @@ func all_invisible():
 	enemy_shield.visible = false
 	enemy_sword.visible = false
 	main_menu_splash.visible = false
+	credit.visible = false
+	lose_screen.visible = false
 	
 func all_visible():
 	pass 	
@@ -393,6 +398,7 @@ func all_visible():
 func start_game():
 	all_invisible()
 	main_menu_splash.visible = true
+	
 	
 	
 	
@@ -404,3 +410,8 @@ func _on_credit_pressed():
 	all_invisible()
 	print("credit")
 	credit.visible = true
+	
+func _on_credit_back_to_menu_pressed():
+	start_game()	
+	
+	

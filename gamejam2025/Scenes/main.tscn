@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=46 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://p70o7283jo5" path="res://Assets/Audio/Ennemi_Hochet.wav" id="30_71724"]
 [ext_resource type="AudioStream" uid="uid://cas8jgpddj4nq" path="res://Assets/Audio/Ennemi_Queue.wav" id="31_j4dvt"]
 [ext_resource type="AudioStream" uid="uid://b5r6mkk8rvxno" path="res://Assets/Audio/Ennemi_Slingshot.wav" id="32_qiweo"]
+[ext_resource type="Texture2D" uid="uid://djxr3dqjvjct5" path="res://Assets/SplashCredit.png" id="34_cve46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -487,6 +488,13 @@ text = "End turn"
 visible = false
 position = Vector2(4, 4)
 
+[node name="lose_screen_back_to_menu_button" type="Button" parent="LoseScreen"]
+offset_left = 851.0
+offset_top = 664.0
+offset_right = 1105.0
+offset_bottom = 768.0
+text = "Back to main menu"
+
 [node name="WinScreenFinal" parent="." instance=ExtResource("13_sop7h")]
 visible = false
 
@@ -578,8 +586,17 @@ offset_bottom = 733.0
 
 [node name="Credit" type="TextureRect" parent="."]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1081.0
+texture = ExtResource("34_cve46")
+
+[node name="button_credit_back_to_menu" type="Button" parent="Credit"]
+layout_mode = 0
+offset_left = 951.0
+offset_top = 620.0
+offset_right = 1174.0
+offset_bottom = 716.0
+text = "Back to main menu"
 
 [connection signal="mouse_entered" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_exited"]
