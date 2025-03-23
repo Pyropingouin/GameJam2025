@@ -1,6 +1,7 @@
 extends Node
 
 const DEFAULT_CARD_MOVE_SPEED = 0.1
+const ATTACK_MOVE_SPEED = 0.1
 const CARD_MOVE_SPEED = 0.3
 const MAX_MANA = 5.0
 const CARD_TYPE_OFFENSE = "Offense"
@@ -27,6 +28,7 @@ const ennemyMoves = [
 @onready var enemy_sword: Sprite2D = $"../EnemySword"
 @onready var win_screen = $"../WinScreen"
 @onready var win_scree_final = $"../WinScreenFinal"
+@onready var animations: Node2D = $"../Animations"
 @onready var lose_screen = $"../LoseScreen"
 @onready var shield: Sprite2D = $HealthBar/Shield
 @onready var shield_text: RichTextLabel = $HealthBar/ShieldText
@@ -37,11 +39,18 @@ var current_mana
 var allies = []
 var ennemyNextMove
 var current_enemy: SquirrelNode
+var player_pos_copy
+var enemy_pos_copy
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	animations.get_node("Claw").visible = false
+	animations.get_node("Tail").visible = false
+	animations.get_node("Shield").visible = false
+	animations.get_node("ShieldEnemy").visible = false
+
 	mana_counter.get_node("Counter").text = str(MAX_MANA) + "/" + str(MAX_MANA)
 	current_mana = MAX_MANA
 	
@@ -64,6 +73,8 @@ func _ready() -> void:
 	
 	
 	
+	
+	# Si on a des allies, les faire apparaitre
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -96,10 +107,32 @@ func play_a_card(card):
 		tween.tween_property(card, "position", new_pos, CARD_MOVE_SPEED)
 		tween.connect("finished", on_tween_finished)
 		
+		if card_being_played.card_type == CARD_TYPE_OFFENSE:
+			player_pos_copy = player.position
+			print(player_pos_copy)
+			var new_player_pos = Vector2(player_pos_copy.x + 60, player_pos_copy.y)
+			#var new_player_pos = Vector2(squirrel_enemy.position.x - 100, squirrel_enemy.position.y)
+			var tween2 = get_tree().create_tween()
+			tween2.tween_property(player, "position", new_player_pos, ATTACK_MOVE_SPEED)
+			tween2.connect("finished", on_tween_attack_finished)
+		elif card_being_played.card_type == CARD_TYPE_DEFENSE:
+			animations.get_node("Shield").visible = true
+			animations.get_node("AnimationPlayer").play("shield_buff")
 	# Sinon, remettre la carte dans la main
 	else:
 		player_hand.add_card_to_hand(card, DEFAULT_CARD_MOVE_SPEED)
 	
+func on_tween_attack_finished():
+	#print("Atack")
+	if card_being_played.card_name == "Griffe":
+		animations.get_node("Claw").visible = true
+		animations.get_node("AnimationPlayer").play("claw_hit")
+	elif card_being_played.card_name == "Tail":
+		animations.get_node("Tail").visible = true
+		animations.get_node("AnimationPlayer").play("tail_hit")
+	print(player.position)
+	var tween3 = get_tree().create_tween()
+	tween3.tween_property(player, "position", player_pos_copy, ATTACK_MOVE_SPEED)
 
 func on_tween_finished():
 	discard_pile_reference.get_node("CardCounter").text = str(discard_pile.size())
@@ -227,12 +260,27 @@ func attack_allies():
 
 func attack_enemies():
 	if ennemyNextMove.type == "Attack":
+		enemy_pos_copy = squirrel_enemy.position
+		print(enemy_pos_copy)
+		var new_pos = Vector2(enemy_pos_copy.x - 60, enemy_pos_copy.y)
+		print(new_pos)
+		var tween = get_tree().create_tween()
+		tween.tween_property(squirrel_enemy, "position", new_pos, ATTACK_MOVE_SPEED)
+		tween.connect("finished", on_tween_attack_enemy_finished)
 		player.reduceHealth(ennemyNextMove.damage * squirrel_enemy.damageMultiplier)
+	else:
+		animations.get_node("ShieldEnemy").visible = true
+		animations.get_node("AnimationPlayer").play("shield_buff_enemy")
+		squirrel_enemy.defense = ennemyNextMove.damage
 	setNextMove()
 	
 	
 	print("damage", ennemyNextMove.damage)
 	print("mult", squirrel_enemy.damageMultiplier)
+
+func on_tween_attack_enemy_finished():
+	var tween2 = get_tree().create_tween()
+	tween2.tween_property(squirrel_enemy, "position", enemy_pos_copy, ATTACK_MOVE_SPEED)
 
 func setNextMove():
 	ennemyNextMove = ennemyMoves.pick_random()

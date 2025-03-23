@@ -132,7 +132,7 @@ func connect_enemy_signals(enemy):
 	enemy.connect("hovered_off", on_hovered_off_squirrel)
 	
 func on_hovered_over_squirrel(enemy):
-	if card_being_dragged:
+	if card_being_dragged && card_being_dragged.card_type == CARD_TYPE_OFFENSE:
 		#print("Hover")
 		var enemy_sprite = enemy.get_node("Sprite2D")
 		enemy_sprite.scale = Vector2(ENEMY_BIGGER_SCALE, ENEMY_BIGGER_SCALE)
