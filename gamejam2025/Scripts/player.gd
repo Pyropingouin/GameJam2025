@@ -1,5 +1,8 @@
 extends Node2D
 
+const PLAYER_HIT_COLOR = Color("ff0000")
+const DEFAULT_PLAYER_COLOR = Color("ffffff")
+
 var maxHealth = 100
 var currentHealth = 100
 var defense = 0
@@ -32,6 +35,9 @@ func addHealth(healthToAdd: int) -> void:
 	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
 
 func reduceHealth(damage: int) -> void:
+	get_node("Sprite2D").modulate = PLAYER_HIT_COLOR
+	await get_tree().create_timer(0.2).timeout
+	get_node("Sprite2D").modulate = DEFAULT_PLAYER_COLOR
 	if damage > defense:
 		currentHealth -= (damage - defense)
 	defense = max(0, defense - damage)
