@@ -46,6 +46,8 @@ var enemy_pos_copy
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	enter_tree_mode()
+	
 	animations.get_node("Claw").visible = false
 	animations.get_node("Tail").visible = false
 	animations.get_node("Shield").visible = false
@@ -62,13 +64,13 @@ func _ready() -> void:
 
 	setNextMove()
 	################# TEST AVEC ECUREIL DE DÉBUT
-	var test_squirrel = preload("res://Scenes/squirrel_node.tscn").instantiate()
-	test_squirrel.squirrel_name = "Test McNutty"
-	test_squirrel.squirrel_avatar = preload("res://Assets/icon.svg")
-	test_squirrel.description = "Un écureuil redoutable de test."
-	test_squirrel.hp = 20
+	#var test_squirrel = preload("res://Scenes/squirrel_node.tscn").instantiate()
+	#test_squirrel.squirrel_name = "Test McNutty"
+	#test_squirrel.squirrel_avatar = preload("res://Assets/icon.svg")
+	#test_squirrel.description = "Un écureuil redoutable de test."
+	#test_squirrel.hp = 20
 	# Stocker dans current_enemy pour simuler un vrai
-	current_enemy = test_squirrel
+	#current_enemy = test_squirrel 
 	##################### FIN DU TEST AVEC ÉCUREIL DÉBUT
 	
 	
@@ -172,6 +174,12 @@ func _on_squirrel_enemy_died():
 		end_turn_button.visible = false
 		win_screen.visible = true
 		
+		
+	# Active la suppression récursive sur l'écureuil battu
+	#if is_instance_valid(current_enemy):
+		#await get_tree().create_timer(1.0).timeout
+		#current_enemy._on_button2_pressed()	
+		
 	empty_player_hand()
 	
 	discard_pile.clear()
@@ -194,22 +202,7 @@ func _on_player_died():
 
 func _on_button_show_tree_pressed():
 	
-	
-	print("Show Tree")	
-	genealogy_tree.visible = true
-	battle_background.modulate.a = 0.2
-	mana_counter.visible = false
-	deck.visible = false
-	discard_pile_reference.visible = false
-	card_manager.visible = false
-	card_manager.set_physics_process(false)
-	card_manager.set_process(false)
-	squirrel_enemy.visible = false
-	player.visible = false
-	end_turn_button.visible = false
-	win_screen.visible = false
-	enemy_shield.visible = false
-	enemy_sword.visible = false
+	enter_tree_mode()
 	
 	
 func _on_combat_requested(squirrel: SquirrelNode):
@@ -218,23 +211,16 @@ func _on_combat_requested(squirrel: SquirrelNode):
 	squirrel_enemy.setEnnemy(squirrel)
 	setNextMove()
 	
+	enter_combat_mode()
+	
 	player.resetPlayer()
 	current_mana = MAX_MANA
 	mana_counter.get_node("Counter").text = str(MAX_MANA) + "/" + str(MAX_MANA)
-	
+	print("combat_requested")
 	deck.draw_all_cards()
 	
-	genealogy_tree.visible = false
-	battle_background.modulate.a = 1
-	mana_counter.visible = true
-	deck.visible = true
-	discard_pile_reference.visible = true
-	card_manager.visible = true
-	card_manager.set_physics_process(true)
-	card_manager.set_process(true)
-	squirrel_enemy.visible = true
-	player.visible = true
-	end_turn_button.visible = true
+	
+	
 	
 
 func on_end_turn_pressed():
@@ -255,7 +241,9 @@ func on_end_turn_pressed():
 	#print(discard_pile)
 	discard_pile.clear()
 	discard_pile_reference.get_node("CardCounter").text = str(discard_pile.size())
+	print("endTurn")
 	deck.draw_all_cards()
+	print("endTurn")
 
 func attack_allies():
 	for ally in allies:
@@ -316,3 +304,36 @@ func on_tween_finished_empty_hand():
 	for card in player_hand.player_hand:
 		card.queue_free()
 	player_hand.player_hand.clear()
+
+
+
+func enter_tree_mode():
+	print("Show Tree")	
+	genealogy_tree.visible = true
+	battle_background.modulate.a = 0.2
+	mana_counter.visible = false
+	deck.visible = false
+	discard_pile_reference.visible = false
+	card_manager.visible = false
+	card_manager.set_physics_process(false)
+	card_manager.set_process(false)
+	squirrel_enemy.visible = false
+	player.visible = false
+	end_turn_button.visible = false
+	win_screen.visible = false
+	enemy_shield.visible = false
+	enemy_sword.visible = false
+		
+func	 enter_combat_mode():	
+	genealogy_tree.visible = false
+	battle_background.modulate.a = 1
+	mana_counter.visible = true
+	deck.visible = true
+	discard_pile_reference.visible = true
+	card_manager.visible = true
+	card_manager.set_physics_process(true)
+	card_manager.set_process(true)
+	squirrel_enemy.visible = true
+	player.visible = true
+	end_turn_button.visible = true
+	

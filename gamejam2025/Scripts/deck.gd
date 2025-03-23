@@ -22,7 +22,7 @@ func _ready() -> void:
 	# Main de départ
 	#for i in range(HAND_SIZE):
 		#draw_card()
-	draw_all_cards()
+	#draw_all_cards()
 
 func draw_card():
 	#print("Draw card")
