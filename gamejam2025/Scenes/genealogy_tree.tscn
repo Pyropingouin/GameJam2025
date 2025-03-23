@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://br13jqyfb661s"]
+[gd_scene load_steps=38 format=3 uid="uid://br13jqyfb661s"]
 
 [ext_resource type="PackedScene" uid="uid://c3gfhhqrstnjr" path="res://Scenes/squirrel_node.tscn" id="1_c4lpk"]
 [ext_resource type="Script" path="res://Scripts/genealogy_tree.gd" id="1_d7iie"]
@@ -36,6 +36,20 @@
 [ext_resource type="SpriteFrames" uid="uid://ci4sprpwls88v" path="res://Assets/Animations/SpriteFrames/bebe-slingshot-frames.tres" id="31_567qm"]
 [ext_resource type="AudioStream" uid="uid://b5r6mkk8rvxno" path="res://Assets/Audio/Ennemi_Slingshot.wav" id="33_5hxvt"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esc44"]
+bg_color = Color(0.169245, 0.169245, 0.169245, 0.482353)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1pq8"]
+bg_color = Color(0.168627, 0.168627, 0.168627, 0.482353)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="GenealogyTree" type="Node2D"]
 script = ExtResource("1_d7iie")
 
@@ -55,11 +69,11 @@ squirrel_name = "chef"
 squirrel_avatar = ExtResource("4_5hyie")
 squirrel_image = ExtResource("5_neqip")
 squirrel_frames = ExtResource("6_kh0rv")
-description = "Le patriarche de la famille. Personne ne connaît son véritable âge (probablement 2-3 ans, ça reste un écureuil tout de même.) Il ne laisserais jamais tombé la pépinière de chênes"
 hp = 120
+description = "Le patriarche de la famille. Personne ne connaît son véritable âge (probablement 2-3 ans, ça reste un écureuil tout de même.) Il ne laisserais jamais tombé la pépinière de chênes"
 type = "Baton"
-win_text = "De toute façon, je n'ai jamais aimé les glands. J'ai toujours été plus de type noisettes (clin d'oeil forcé qui exprime tout de même qu'il a toujours été de type gland)  La pépinière est à toi. Prend bien soin de mes glands, que je n'aime pas et que je n'ai JAMAIS aimé. (sniff)"
 dmgMult = 2
+win_text = "De toute façon, je n'ai jamais aimé les glands. J'ai toujours été plus de type noisettes (clin d'oeil forcé qui exprime tout de même qu'il a toujours été de type gland)  La pépinière est à toi. Prend bien soin de mes glands, que je n'aime pas et que je n'ai JAMAIS aimé. (sniff)"
 descendants = Array[NodePath]([NodePath("../Tier1-1"), NodePath("../Tier1-2")])
 
 [node name="Tier1-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
@@ -90,8 +104,8 @@ squirrel_frames = ExtResource("12_d1iid")
 hp = 100
 description = "Ayant pris le chemin de la prêtrise il y a des années, ce mystérieux écureuil détient des pouvoir mystique"
 type = "Normal"
-win_text = "Je dois être honnête avec vous, je n'ai pas de pouvoirs mystiques. Je ne suis pas prêtre non plus. J'aimais simplement la capuche. Voila mon héritage qui part en fumée :("
 dmgMult = 2
+win_text = "Je dois être honnête avec vous, je n'ai pas de pouvoirs mystiques. Je ne suis pas prêtre non plus. J'aimais simplement la capuche. Voila mon héritage qui part en fumée :("
 descendants = Array[NodePath]([NodePath("../Tier-2-3"), NodePath("../Tier-2-2")])
 
 [node name="Tier-2-3" parent="tree_container" instance=ExtResource("1_c4lpk")]
@@ -228,7 +242,7 @@ offset_top = 108.0
 offset_right = 655.0
 offset_bottom = 249.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "gefoe"
+text = "Lorem ipsum gland"
 
 [node name="button_combat" type="Button" parent="info_panel"]
 layout_mode = 0
@@ -237,13 +251,16 @@ offset_top = 280.0
 offset_right = 430.0
 offset_bottom = 311.0
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
-text = "Entre combat"
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_esc44")
+theme_override_styles/normal = SubResource("StyleBoxFlat_esc44")
+text = "Attaquer"
 
 [node name="button_cancel" type="Button" parent="info_panel"]
 layout_mode = 0
-offset_left = 539.0
-offset_top = 283.0
-offset_right = 599.0
-offset_bottom = 314.0
-text = "Cancel
-"
+offset_left = 453.0
+offset_top = 233.0
+offset_right = 566.0
+offset_bottom = 264.0
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_q1pq8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q1pq8")
+text = "Annuler"
