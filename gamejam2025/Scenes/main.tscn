@@ -20,8 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_rutlw"]
 [ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_3tnsj"]
 [ext_resource type="AudioStream" uid="uid://b7l8rnvyovh6d" path="res://Assets/Audio/Background 1_Forest.wav" id="20_4sdj5"]
-[ext_resource type="AudioStream" uid="uid://c5j7jxhvi37u3" path="res://Assets/Audio/Background 2_Écureuils.wav" id="21_4b2jd"]
 [ext_resource type="AudioStream" uid="uid://c8bktbi5bnaym" path="res://Assets/Audio/Carte_1.wav" id="22_jmqhj"]
+[ext_resource type="AudioStream" uid="uid://c5j7jxhvi37u3" path="res://Assets/Audio/Background 2_Ecureuils.wav" id="22_l0pe1"]
 [ext_resource type="AudioStream" uid="uid://i5d2f6xqp8gg" path="res://Assets/Audio/Carte_2.wav" id="23_u6pyn"]
 [ext_resource type="AudioStream" uid="uid://clp10gnmpocui" path="res://Assets/Audio/Carte_3.wav" id="24_tsytl"]
 [ext_resource type="AudioStream" uid="uid://bsueikq1us2gk" path="res://Assets/Audio/Carte_4.wav" id="25_omr60"]
@@ -527,7 +527,7 @@ stream = ExtResource("20_4sdj5")
 volume_db = -10.0
 
 [node name="Squirrel" type="AudioStreamPlayer2D" parent="AudioManager"]
-stream = ExtResource("21_4b2jd")
+stream = ExtResource("22_l0pe1")
 volume_db = -10.0
 
 [node name="PlayingCard" type="AudioStreamPlayer2D" parent="AudioManager"]
