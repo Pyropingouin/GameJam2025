@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ci06c1udvgjvp"
+path="res://.godot/imported/Engage Battle.wav-f77ed6467a5bf1da1b39292f2ebfd9ab.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/sfx_v2/Engage Battle.wav"
+dest_files=["res://.godot/imported/Engage Battle.wav-f77ed6467a5bf1da1b39292f2ebfd9ab.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

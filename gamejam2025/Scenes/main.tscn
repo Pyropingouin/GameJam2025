@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=58 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -19,27 +19,28 @@
 [ext_resource type="PackedScene" uid="uid://cy5hygrw2p2jq" path="res://Scenes/lose_screen.tscn" id="16_xxiqe"]
 [ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_rutlw"]
 [ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_3tnsj"]
-[ext_resource type="AudioStream" uid="uid://b7l8rnvyovh6d" path="res://Assets/Audio/Background 1_Forest.wav" id="20_4sdj5"]
 [ext_resource type="Texture2D" uid="uid://b6dgi4xpsr06d" path="res://Assets/Animation/ecureuil_ancetre_Arme.png" id="21_m6gpq"]
-[ext_resource type="AudioStream" uid="uid://c8bktbi5bnaym" path="res://Assets/Audio/Carte_1.wav" id="22_jmqhj"]
-[ext_resource type="AudioStream" uid="uid://c5j7jxhvi37u3" path="res://Assets/Audio/Background 2_Ecureuils.wav" id="22_l0pe1"]
 [ext_resource type="Texture2D" uid="uid://ghjexvfrju0y" path="res://Assets/Animation/ecureuil_bebe_fleur_Arme.png" id="22_s5ntu"]
 [ext_resource type="Texture2D" uid="uid://lo8s1mlrx0rc" path="res://Assets/Animation/ecureuil_bebe_slingshot_Arme.png" id="23_cku4j"]
-[ext_resource type="AudioStream" uid="uid://i5d2f6xqp8gg" path="res://Assets/Audio/Carte_2.wav" id="23_u6pyn"]
-[ext_resource type="AudioStream" uid="uid://clp10gnmpocui" path="res://Assets/Audio/Carte_3.wav" id="24_tsytl"]
 [ext_resource type="AudioStream" uid="uid://bh03uw6snueb6" path="res://Assets/Audio/Music/SquirrelWarrior_niveau_loop.wav" id="25_21laf"]
-[ext_resource type="AudioStream" uid="uid://bsueikq1us2gk" path="res://Assets/Audio/Carte_4.wav" id="25_omr60"]
-[ext_resource type="AudioStream" uid="uid://c8ehur37evhox" path="res://Assets/Audio/Carte_5.wav" id="26_7to74"]
 [ext_resource type="AudioStream" uid="uid://67trjrdfl1vx" path="res://Assets/Audio/Music/SquirrelWarrior_menu.wav" id="26_pd02e"]
+[ext_resource type="AudioStream" uid="uid://smyu14dcapbp" path="res://Assets/Audio/sfx_v2/Background 1_Forest.wav" id="27_f58ca"]
 [ext_resource type="Texture2D" uid="uid://dsltxeqaxymk5" path="res://Assets/SplashStart.png" id="27_iwfyl"]
-[ext_resource type="AudioStream" uid="uid://bny2g1o8a5hne" path="res://Assets/Audio/Engage Battle.wav" id="27_vi0jc"]
-[ext_resource type="AudioStream" uid="uid://mk10futh3h3x" path="res://Assets/Audio/Ennemi_Autre.wav" id="28_001ck"]
+[ext_resource type="AudioStream" uid="uid://c4en3ygogfdkh" path="res://Assets/Audio/sfx_v2/Background 2_Ecureuils.wav" id="28_qm1hg"]
 [ext_resource type="AudioStream" uid="uid://blk6u4e1t2532" path="res://Assets/Audio/Ennemi_Griffe.wav" id="29_7tjo5"]
-[ext_resource type="AudioStream" uid="uid://p70o7283jo5" path="res://Assets/Audio/Ennemi_Hochet.wav" id="30_71724"]
-[ext_resource type="AudioStream" uid="uid://cas8jgpddj4nq" path="res://Assets/Audio/Ennemi_Queue.wav" id="31_j4dvt"]
-[ext_resource type="AudioStream" uid="uid://b5r6mkk8rvxno" path="res://Assets/Audio/Ennemi_Slingshot.wav" id="32_qiweo"]
+[ext_resource type="AudioStream" uid="uid://w2om1whgbwb5" path="res://Assets/Audio/sfx_v2/Carte_1.wav" id="29_hl3qb"]
+[ext_resource type="AudioStream" uid="uid://dbbkvwdaes2m3" path="res://Assets/Audio/sfx_v2/Carte_2.wav" id="30_7cv1t"]
+[ext_resource type="AudioStream" uid="uid://tgdytk6p75cw" path="res://Assets/Audio/sfx_v2/Carte_3.wav" id="31_atu2v"]
+[ext_resource type="AudioStream" uid="uid://8yjee5w4ajgw" path="res://Assets/Audio/sfx_v2/Carte_4.wav" id="32_6ueh7"]
+[ext_resource type="AudioStream" uid="uid://c02gr57bvn7bq" path="res://Assets/Audio/sfx_v2/Carte_5.wav" id="33_55pkj"]
+[ext_resource type="AudioStream" uid="uid://ci06c1udvgjvp" path="res://Assets/Audio/sfx_v2/Engage Battle.wav" id="34_bx343"]
 [ext_resource type="Texture2D" uid="uid://djxr3dqjvjct5" path="res://Assets/SplashCredit.png" id="34_cve46"]
+[ext_resource type="AudioStream" uid="uid://b1yndqvo1n5k5" path="res://Assets/Audio/sfx_v2/Ennemi_Autre.wav" id="35_7li20"]
+[ext_resource type="AudioStream" uid="uid://dgrfhihjh2ogd" path="res://Assets/Audio/sfx_v2/Ennemi_Hochet.wav" id="36_2eohc"]
+[ext_resource type="AudioStream" uid="uid://u6wj8oe22gyv" path="res://Assets/Audio/sfx_v2/Ennemi_Slingshot.wav" id="37_htnvu"]
 [ext_resource type="StyleBox" uid="uid://cvbqr8ncd81fr" path="res://Assets/button.tres" id="38_hcwcr"]
+[ext_resource type="AudioStream" uid="uid://csv4vvkl2v8xr" path="res://Assets/Audio/sfx_v2/Ennemi_Griffe.wav" id="38_k2uak"]
+[ext_resource type="AudioStream" uid="uid://be40oomafpihj" path="res://Assets/Audio/sfx_v2/Ennemi_Queue.wav" id="39_50rkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -507,16 +508,16 @@ _data = {
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7f86e"]
 streams_count = 5
-stream_0/stream = ExtResource("22_jmqhj")
-stream_1/stream = ExtResource("23_u6pyn")
-stream_2/stream = ExtResource("24_tsytl")
-stream_3/stream = ExtResource("25_omr60")
-stream_4/stream = ExtResource("26_7to74")
+stream_0/stream = ExtResource("29_hl3qb")
+stream_1/stream = ExtResource("30_7cv1t")
+stream_2/stream = ExtResource("31_atu2v")
+stream_3/stream = ExtResource("32_6ueh7")
+stream_4/stream = ExtResource("33_55pkj")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0shl2"]
 streams_count = 2
-stream_0/stream = ExtResource("29_7tjo5")
-stream_1/stream = ExtResource("31_j4dvt")
+stream_0/stream = ExtResource("38_k2uak")
+stream_1/stream = ExtResource("39_50rkn")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_542va"]
 
@@ -783,31 +784,31 @@ stream = ExtResource("26_pd02e")
 volume_db = 5.0
 
 [node name="Forest" type="AudioStreamPlayer2D" parent="AudioManager"]
-stream = ExtResource("20_4sdj5")
-volume_db = -10.0
+stream = ExtResource("27_f58ca")
+volume_db = -5.0
 
 [node name="Squirrel" type="AudioStreamPlayer2D" parent="AudioManager"]
-stream = ExtResource("22_l0pe1")
-volume_db = -10.0
+stream = ExtResource("28_qm1hg")
+volume_db = -5.0
 
 [node name="PlayingCard" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = SubResource("AudioStreamRandomizer_7f86e")
 volume_db = 10.0
 
 [node name="EngageBattle" type="AudioStreamPlayer2D" parent="AudioManager"]
-stream = ExtResource("27_vi0jc")
+stream = ExtResource("34_bx343")
 volume_db = 10.0
 
 [node name="EnemyAutre" type="AudioStreamPlayer2D" parent="AudioManager"]
-stream = ExtResource("28_001ck")
+stream = ExtResource("35_7li20")
 volume_db = 10.0
 
 [node name="EnemyHochet" type="AudioStreamPlayer2D" parent="AudioManager"]
-stream = ExtResource("30_71724")
+stream = ExtResource("36_2eohc")
 volume_db = 10.0
 
 [node name="EnemySlingshot" type="AudioStreamPlayer2D" parent="AudioManager"]
-stream = ExtResource("32_qiweo")
+stream = ExtResource("37_htnvu")
 volume_db = 10.0
 
 [node name="EnemyNormalAttack" type="AudioStreamPlayer2D" parent="AudioManager"]
