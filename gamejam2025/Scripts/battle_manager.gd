@@ -65,6 +65,7 @@ func _ready() -> void:
 	animations.get_node("ShieldEnemy").visible = false
 	animations.get_node("BatonChefEnemy").visible = false
 	animations.get_node("FleurEnemy").visible = false
+	animations.get_node("RockEnemy").visible = false
 
 	mana_counter.get_node("Counter").text = str(MAX_MANA) + "/" + str(MAX_MANA)
 	current_mana = MAX_MANA
@@ -285,6 +286,9 @@ func attack_enemies():
 		elif squirrel_enemy.squirrel_type == "Hochet":
 			audio_manager.get_node("EnemyHochet").play()
 		elif squirrel_enemy.squirrel_type == "Slingshot":
+			if squirrel_enemy.squirrel_name == "Slingshot":
+				animations.get_node("RockEnemy").visible = true
+				animations.get_node("AnimationPlayer").play("rock_hit")
 			audio_manager.get_node("EnemySlingshot").play()
 		
 		enemy_pos_copy = squirrel_enemy.position
@@ -326,6 +330,7 @@ func setNextMove():
 		
 		animations.get_node("BatonChefEnemy").visible = false
 		animations.get_node("FleurEnemy").visible = false
+		animations.get_node("RockEnemy").visible = false
 
 func _on_end_turn_button_pressed() -> void:
 	on_end_turn_pressed()
