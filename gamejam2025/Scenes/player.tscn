@@ -46,6 +46,7 @@ scale = Vector2(0.889556, 0.833333)
 texture = ExtResource("3_pwqoc")
 
 [node name="ShieldText" type="RichTextLabel" parent="HealthBar"]
+modulate = Color(0, 0, 0, 1)
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
