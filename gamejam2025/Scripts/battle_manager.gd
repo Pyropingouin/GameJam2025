@@ -289,8 +289,8 @@ func attack_enemies():
 		tween.connect("finished", on_tween_attack_enemy_finished)
 		player.reduceHealth(ennemyNextMove.damage * squirrel_enemy.damageMultiplier)
 	else:
-		animations.get_node("ShieldEnemy").visible = true
-		animations.get_node("AnimationPlayer").play("shield_buff_enemy")
+		#animations.get_node("ShieldEnemy").visible = true
+		#animations.get_node("AnimationPlayer").play("shield_buff_enemy")
 		squirrel_enemy.defense = ennemyNextMove.damage
 	setNextMove()
 	
@@ -311,6 +311,9 @@ func setNextMove():
 		enemy_shield.visible = true
 		enemy_sword.visible = false
 		squirrel_enemy.setDefense(ennemyNextMove.damage)
+		
+		animations.get_node("ShieldEnemy").visible = true
+		animations.get_node("AnimationPlayer").play("shield_buff_enemy")
 
 func _on_end_turn_button_pressed() -> void:
 	on_end_turn_pressed()
