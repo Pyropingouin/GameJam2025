@@ -26,3 +26,7 @@ window/vsync/vsync_mode=0
 2d_render/layer_1="Card"
 2d_render/layer_2="Deck"
 2d_render/layer_3="Enemy"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
