@@ -7,9 +7,9 @@ const MAX_MANA = 5.0
 const CARD_TYPE_OFFENSE = "Offense"
 const CARD_TYPE_DEFENSE = "Defense"
 const ennemyMoves = [
+	{"type": "Attack", "damage": 5},
 	{"type": "Attack", "damage": 10},
 	{"type": "Attack", "damage": 15},
-	{"type": "Attack", "damage": 20},
 	{"type": "Defense", "damage": 5}
 ]
 
@@ -29,10 +29,9 @@ const ennemyMoves = [
 @onready var win_screen = $"../WinScreen"
 @onready var win_scree_final = $"../WinScreenFinal"
 @onready var animations: Node2D = $"../Animations"
-
-
-
-
+@onready var lose_screen = $"../LoseScreen"
+@onready var shield: Sprite2D = $HealthBar/Shield
+@onready var shield_text: RichTextLabel = $HealthBar/ShieldText
 
 var discard_pile = []
 var card_being_played
@@ -59,7 +58,8 @@ func _ready() -> void:
 	genealogy_tree.combat_requested.connect(_on_combat_requested)
 	squirrel_enemy.died.connect(_on_squirrel_enemy_died)
 	win_screen.get_node("button").pressed.connect(_on_button_show_tree_pressed)
-	
+	player.died.connect(_on_player_died)
+
 	setNextMove()
 	################# TEST AVEC ECUREIL DE DÉBUT
 	var test_squirrel = preload("res://Scenes/squirrel_node.tscn").instantiate()
@@ -174,6 +174,19 @@ func _on_squirrel_enemy_died():
 	
 	
 	
+func _on_player_died():
+	print("💀 Le joueur est mort ! GAME OVER")
+	battle_background.visible = false
+	mana_counter.visible = false
+	deck.visible = false
+	discard_pile_reference.visible = false
+	card_manager.visible = false
+	card_manager.set_physics_process(false)
+	card_manager.set_process(false)
+	squirrel_enemy.visible = false
+	player.visible = false
+	end_turn_button.visible = false
+	lose_screen.visible = true
 	
 
 func _on_button_show_tree_pressed():
@@ -260,6 +273,10 @@ func attack_enemies():
 		animations.get_node("AnimationPlayer").play("shield_buff_enemy")
 		squirrel_enemy.defense = ennemyNextMove.damage
 	setNextMove()
+	
+	
+	print("damage", ennemyNextMove.damage)
+	print("mult", squirrel_enemy.damageMultiplier)
 
 func on_tween_attack_enemy_finished():
 	var tween2 = get_tree().create_tween()
@@ -273,6 +290,7 @@ func setNextMove():
 	if ennemyNextMove.type == "Defense":
 		enemy_shield.visible = true
 		enemy_sword.visible = false
+		squirrel_enemy.setDefense(ennemyNextMove.damage)
 
 func _on_end_turn_button_pressed() -> void:
 	on_end_turn_pressed()
