@@ -47,6 +47,8 @@ var player_pos_copy
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animations.get_node("Claw").visible = false
+	animations.get_node("Tail").visible = false
+
 	mana_counter.get_node("Counter").text = str(MAX_MANA) + "/" + str(MAX_MANA)
 	current_mana = MAX_MANA
 	
@@ -119,6 +121,9 @@ func on_tween_attack_finished():
 	if card_being_played.card_name == "Griffe":
 		animations.get_node("Claw").visible = true
 		animations.get_node("AnimationPlayer").play("claw_hit")
+	elif card_being_played.card_name == "Tail":
+		animations.get_node("Tail").visible = true
+		animations.get_node("AnimationPlayer").play("tail_hit")
 	print(player.position)
 	var tween3 = get_tree().create_tween()
 	tween3.tween_property(player, "position", player_pos_copy, ATTACK_MOVE_SPEED)

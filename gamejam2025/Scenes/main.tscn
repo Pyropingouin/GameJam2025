@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=26 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://rqcrnjinekom" path="res://Assets/temp_sword.png" id="10_r83n6"]
 [ext_resource type="PackedScene" uid="uid://cpmpj2xq1q82o" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
 [ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_rutlw"]
+[ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_3tnsj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -85,11 +86,88 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tail:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.705113]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tail:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1384, 707)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tail:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_3lg0h"]
+resource_name = "tail_hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tail:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.705113, 1.13097]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tail:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1384, 707), Vector2(1383, 740)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tail:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u30wn"]
 _data = {
 "RESET": SubResource("Animation_ey12e"),
-"claw_hit": SubResource("Animation_wbus0")
+"claw_hit": SubResource("Animation_wbus0"),
+"tail_hit": SubResource("Animation_3lg0h")
 }
 
 [node name="Main" type="Node2D"]
@@ -254,6 +332,12 @@ text = "End turn"
 position = Vector2(1456, 671)
 scale = Vector2(6, 6)
 texture = ExtResource("17_rutlw")
+
+[node name="Tail" type="Sprite2D" parent="Animations"]
+position = Vector2(1384, 707)
+rotation = -0.705113
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("18_3tnsj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Animations"]
 libraries = {
