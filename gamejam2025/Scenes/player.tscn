@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1002l"]
 [ext_resource type="Texture2D" uid="uid://c5xajxqo7murm" path="res://Assets/ecureuil_base.png" id="2_yeoy4"]
-[ext_resource type="Texture2D" uid="uid://cuo53i16x0wap" path="res://Assets/temp_shield.png" id="3_hscb7"]
+[ext_resource type="Texture2D" uid="uid://dyeu1ufbss37v" path="res://Assets/shield.png" id="3_pwqoc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugcfe"]
 bg_color = Color(0.20871, 0.20871, 0.20871, 0.745098)
@@ -41,9 +41,9 @@ text = "100/100"
 metadata/_edit_use_anchors_ = true
 
 [node name="Shield" type="Sprite2D" parent="HealthBar"]
-position = Vector2(-0.5, 9.5)
-scale = Vector2(0.0275, 0.0258333)
-texture = ExtResource("3_hscb7")
+position = Vector2(-1, 9)
+scale = Vector2(0.889556, 0.833333)
+texture = ExtResource("3_pwqoc")
 
 [node name="ShieldText" type="RichTextLabel" parent="HealthBar"]
 z_index = 1

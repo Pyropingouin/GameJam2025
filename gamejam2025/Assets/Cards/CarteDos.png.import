@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuo53i16x0wap"
-path="res://.godot/imported/temp_shield.png-5e87f53856590ecc9812da25def5d1a3.ctex"
+uid="uid://blhyvhoxoyt3k"
+path="res://.godot/imported/CarteDos.png-1b403530b5f3cdbfda62dcb08d009cb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/temp_shield.png"
-dest_files=["res://.godot/imported/temp_shield.png-5e87f53856590ecc9812da25def5d1a3.ctex"]
+source_file="res://Assets/Cards/CarteDos.png"
+dest_files=["res://.godot/imported/CarteDos.png-1b403530b5f3cdbfda62dcb08d009cb8.ctex"]
 
 [params]
 

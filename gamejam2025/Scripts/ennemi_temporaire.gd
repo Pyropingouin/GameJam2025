@@ -10,11 +10,12 @@ signal died
 
 
 
-
 @export var maxHealth: int = 100
 @export var currentHealth: int = 2
 @export var damageMultiplier: float = 1.0
 
+
+var defense = 0
 
 
 func _ready() -> void:
@@ -47,7 +48,7 @@ func attack(target: Node2D, damage: int) -> void:
 		target.reduceHealth(damageDealt)
 
 func reduceHealth(damage: int) -> void:
-	currentHealth -= damage
+	currentHealth -= (damage - defense)
 	if currentHealth < 0:
 		currentHealth = 0
 	healthBar.value = currentHealth
