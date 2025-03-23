@@ -171,8 +171,11 @@ func _on_squirrel_enemy_died():
 		player.visible = false
 		end_turn_button.visible = false
 		win_screen.visible = true
+		
+	empty_player_hand()
 	
-	
+	discard_pile.clear()
+	discard_pile_reference.get_node("CardCounter").text = str(discard_pile.size())
 	
 func _on_player_died():
 	print("💀 Le joueur est mort ! GAME OVER")
@@ -213,13 +216,13 @@ func _on_combat_requested(squirrel: SquirrelNode):
 	print("BattleManager a reçu :", squirrel.squirrel_name)
 	current_enemy = squirrel  
 	squirrel_enemy.setEnnemy(squirrel)
+	setNextMove()
+	
 	player.resetPlayer()
-
-
-
+	current_mana = MAX_MANA
+	mana_counter.get_node("Counter").text = str(MAX_MANA) + "/" + str(MAX_MANA)
 	
-	
-	
+	deck.draw_all_cards()
 	
 	genealogy_tree.visible = false
 	battle_background.modulate.a = 1
