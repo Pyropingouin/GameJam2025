@@ -29,6 +29,7 @@ squirrel_avatar = ExtResource("5_h4al0")
 squirrel_image = ExtResource("5_neqip")
 hp = 1
 description = "Je suis le grand père squirrel"
+dmgMult = 50
 descendants = Array[NodePath]([NodePath("../SquirrelNode"), NodePath("../SquirrelNode2")])
 
 [node name="SquirrelNode" parent="tree_container" instance=ExtResource("1_c4lpk")]

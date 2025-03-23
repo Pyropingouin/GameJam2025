@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=21 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bi4yhcsx82f36" path="res://Assets/GlandMana.png" id="10_bghhq"]
 [ext_resource type="Texture2D" uid="uid://rqcrnjinekom" path="res://Assets/temp_sword.png" id="10_r83n6"]
 [ext_resource type="PackedScene" uid="uid://cpmpj2xq1q82o" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
+[ext_resource type="PackedScene" uid="uid://cy5hygrw2p2jq" path="res://Scenes/lose_screen.tscn" id="16_xxiqe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -182,6 +183,10 @@ offset_top = 555.0
 offset_right = 1690.0
 offset_bottom = 563.0
 text = "End turn"
+
+[node name="LoseScreen" parent="." instance=ExtResource("16_xxiqe")]
+visible = false
+position = Vector2(52, 48)
 
 [node name="WinScreenFinal" parent="." instance=ExtResource("13_sop7h")]
 

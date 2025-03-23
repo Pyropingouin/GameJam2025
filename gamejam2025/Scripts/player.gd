@@ -10,6 +10,10 @@ var acorn = 0
 @onready var shield: Sprite2D = $HealthBar/Shield
 @onready var shield_text: RichTextLabel = $HealthBar/ShieldText
 
+signal died
+
+
+
 func _ready() -> void:
 	healthBar.max_value = maxHealth
 	healthBar.value = currentHealth
@@ -37,6 +41,11 @@ func reduceHealth(damage: int) -> void:
 	healthBar.value = currentHealth
 	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
 
+
+	if currentHealth <=0:
+		print("Dead")
+		emit_signal("died") 
+		
 func addMaxHealth(healthToAdd: int) -> void:
 	maxHealth += healthToAdd
 	if currentHealth > maxHealth: 

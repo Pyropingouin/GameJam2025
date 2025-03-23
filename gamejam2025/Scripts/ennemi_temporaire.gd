@@ -43,6 +43,8 @@ func _on_area_2d_mouse_exited() -> void:
 
 func attack(target: Node2D, damage: int) -> void:
 	var damageDealt = damage * damageMultiplier
+	
+	
 
 	if target.has_method("reduceHealth"):
 		target.reduceHealth(damageDealt)
