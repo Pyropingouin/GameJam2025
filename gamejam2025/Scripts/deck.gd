@@ -66,6 +66,7 @@ func draw_card():
 	new_card.heal = card_database_reference.CARDS[card_drawn_name][3]
 	new_card.card_effect = card_database_reference.CARDS[card_drawn_name][4]
 	new_card.card_type = card_database_reference.CARDS[card_drawn_name][5]
+	new_card.card_name = card_database_reference.CARDS[card_drawn_name][6]
 	
 	new_card.get_node("Mana").text = str(new_card.mana)
 	new_card.get_node("CardEffect").text = new_card.card_effect

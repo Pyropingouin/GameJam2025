@@ -10,6 +10,7 @@ var armor
 var heal
 var card_effect
 var card_type
+var card_name
 
 func _ready() -> void:
 	# !! Toutes les cartes doivent être enfant de CardManager !!
