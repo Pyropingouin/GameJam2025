@@ -220,7 +220,11 @@ func _on_button_show_tree_pressed():
 	enter_tree_mode()
 	
 	
+	
 func _on_combat_requested(squirrel: SquirrelNode):
+	audio_manager.get_node("EngageBattle").play()
+	audio_manager.get_node("BattleMusic").play() # TODO
+	
 	print("BattleManager a reçu :", squirrel.squirrel_name)
 	current_enemy = squirrel  
 	squirrel_enemy.setEnnemy(squirrel)
@@ -266,6 +270,15 @@ func attack_allies():
 
 func attack_enemies():
 	if ennemyNextMove.type == "Attack":
+		if squirrel_enemy.squirrel_type == "Normal":
+			audio_manager.get_node("EnemyNormalAttack").play()
+		elif squirrel_enemy.squirrel_type == "Baton":
+			audio_manager.get_node("EnemyAutre").play()
+		elif squirrel_enemy.squirrel_type == "Hochet":
+			audio_manager.get_node("EnemyHochet").play()
+		elif squirrel_enemy.squirrel_type == "Slingshot":
+			audio_manager.get_node("EnemySlingshot").play()
+		
 		enemy_pos_copy = squirrel_enemy.position
 		print(enemy_pos_copy)
 		var new_pos = Vector2(enemy_pos_copy.x - 60, enemy_pos_copy.y)
@@ -275,8 +288,8 @@ func attack_enemies():
 		tween.connect("finished", on_tween_attack_enemy_finished)
 		player.reduceHealth(ennemyNextMove.damage * squirrel_enemy.damageMultiplier)
 	else:
-		animations.get_node("ShieldEnemy").visible = true
-		animations.get_node("AnimationPlayer").play("shield_buff_enemy")
+		#animations.get_node("ShieldEnemy").visible = true
+		#animations.get_node("AnimationPlayer").play("shield_buff_enemy")
 		squirrel_enemy.defense = ennemyNextMove.damage
 	setNextMove()
 	
@@ -297,6 +310,9 @@ func setNextMove():
 		enemy_shield.visible = true
 		enemy_sword.visible = false
 		squirrel_enemy.setDefense(ennemyNextMove.damage)
+		
+		animations.get_node("ShieldEnemy").visible = true
+		animations.get_node("AnimationPlayer").play("shield_buff_enemy")
 
 func _on_end_turn_button_pressed() -> void:
 	on_end_turn_pressed()

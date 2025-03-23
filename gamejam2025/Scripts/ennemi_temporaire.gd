@@ -15,6 +15,8 @@ signal died
 @export var maxHealth: int = 100
 @export var currentHealth: int = 100
 @export var damageMultiplier: float = 1.0
+@export var audio_attack: AudioStream
+@export var squirrel_type: String = "Normal"
 
 
 var defense = 0
@@ -81,6 +83,8 @@ func setEnnemy(sn):
 	currentHealth = maxHealth
 	
 	damageMultiplier= sn.dmgMult
+	audio_attack = sn.attack_audio
+	squirrel_type = sn.type
 	
 	print(get_node("Sprite2D"))
 
