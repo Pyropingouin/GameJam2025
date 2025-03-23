@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_rutlw"]
 [ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_3tnsj"]
 [ext_resource type="AudioStream" uid="uid://b7l8rnvyovh6d" path="res://Assets/Audio/Background 1_Forest.wav" id="20_4sdj5"]
-[ext_resource type="AudioStream" uid="uid://c5j7jxhvi37u3" path="res://Assets/Audio/Background 2_Écureuils.wav" id="21_4b2jd"]
+[ext_resource type="AudioStream" uid="uid://c5j7jxhvi37u3" path="res://Assets/Audio/Background 2_Écureuils.wav" id="21_4b2jd"]
 [ext_resource type="AudioStream" uid="uid://c8bktbi5bnaym" path="res://Assets/Audio/Carte_1.wav" id="22_jmqhj"]
 [ext_resource type="AudioStream" uid="uid://i5d2f6xqp8gg" path="res://Assets/Audio/Carte_2.wav" id="23_u6pyn"]
 [ext_resource type="AudioStream" uid="uid://clp10gnmpocui" path="res://Assets/Audio/Carte_3.wav" id="24_tsytl"]
