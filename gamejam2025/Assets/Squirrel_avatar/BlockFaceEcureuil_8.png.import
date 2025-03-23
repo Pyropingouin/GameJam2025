@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj06i7wvqqter"
-path="res://.godot/imported/BlockFaceEcureuil.png-dae0ff45ff6fd6b4faaef5dfa3fc540a.ctex"
+uid="uid://6hm40nh5e6t4"
+path="res://.godot/imported/BlockFaceEcureuil_8.png-411997bf876df7b7bf53fb39ff02cebd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Squirrel_avatar/BlockFaceEcureuil.png"
-dest_files=["res://.godot/imported/BlockFaceEcureuil.png-dae0ff45ff6fd6b4faaef5dfa3fc540a.ctex"]
+source_file="res://Assets/Squirrel_avatar/BlockFaceEcureuil_8.png"
+dest_files=["res://.godot/imported/BlockFaceEcureuil_8.png-411997bf876df7b7bf53fb39ff02cebd.ctex"]
 
 [params]
 

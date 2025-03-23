@@ -27,6 +27,7 @@ const ennemyMoves = [
 @onready var enemy_sword: Sprite2D = $"../EnemySword"
 @onready var win_screen = $"../WinScreen"
 @onready var win_scree_final = $"../WinScreenFinal"
+@onready var lose_screen = $"../LoseScreen"
 @onready var shield: Sprite2D = $HealthBar/Shield
 @onready var shield_text: RichTextLabel = $HealthBar/ShieldText
 
@@ -48,7 +49,8 @@ func _ready() -> void:
 	genealogy_tree.combat_requested.connect(_on_combat_requested)
 	squirrel_enemy.died.connect(_on_squirrel_enemy_died)
 	win_screen.get_node("button").pressed.connect(_on_button_show_tree_pressed)
-	
+	player.died.connect(_on_player_died)
+
 	setNextMove()
 	################# TEST AVEC ECUREIL DE DÉBUT
 	var test_squirrel = preload("res://Scenes/squirrel_node.tscn").instantiate()
@@ -139,6 +141,19 @@ func _on_squirrel_enemy_died():
 	
 	
 	
+func _on_player_died():
+	print("💀 Le joueur est mort ! GAME OVER")
+	battle_background.visible = false
+	mana_counter.visible = false
+	deck.visible = false
+	discard_pile_reference.visible = false
+	card_manager.visible = false
+	card_manager.set_physics_process(false)
+	card_manager.set_process(false)
+	squirrel_enemy.visible = false
+	player.visible = false
+	end_turn_button.visible = false
+	lose_screen.visible = true
 	
 
 func _on_button_show_tree_pressed():
@@ -214,6 +229,10 @@ func attack_enemies():
 	if ennemyNextMove.type == "Attack":
 		player.reduceHealth(ennemyNextMove.damage * squirrel_enemy.damageMultiplier)
 	setNextMove()
+	
+	
+	print("damage", ennemyNextMove.damage)
+	print("mult", squirrel_enemy.damageMultiplier)
 
 func setNextMove():
 	ennemyNextMove = ennemyMoves.pick_random()

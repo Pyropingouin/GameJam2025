@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpdm76e67t0du"
-path="res://.godot/imported/ecureuil_coeur.png-22cee37a7d7ab296b5a3d29b7909f950.ctex"
+path="res://.godot/imported/ecureuil_coeur.png-e913476e0b750a3105f4c52d2c6a0d16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Squirrel_avatar/ecureuil_coeur.png"
-dest_files=["res://.godot/imported/ecureuil_coeur.png-22cee37a7d7ab296b5a3d29b7909f950.ctex"]
+source_file="res://Assets/Squirrel_image/ecureuil_coeur.png"
+dest_files=["res://.godot/imported/ecureuil_coeur.png-e913476e0b750a3105f4c52d2c6a0d16.ctex"]
 
 [params]
 
