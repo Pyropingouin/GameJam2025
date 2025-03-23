@@ -32,6 +32,7 @@ const ennemyMoves = [
 @onready var lose_screen = $"../LoseScreen"
 @onready var shield: Sprite2D = $HealthBar/Shield
 @onready var shield_text: RichTextLabel = $HealthBar/ShieldText
+@onready var audio_manager: Node2D = $"../AudioManager"
 
 var discard_pile = []
 var card_being_played
@@ -46,6 +47,9 @@ var enemy_pos_copy
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	audio_manager.get_node("Forest").play()
+	audio_manager.get_node("Squirrel").play()
+	
 	animations.get_node("Claw").visible = false
 	animations.get_node("Tail").visible = false
 	animations.get_node("Shield").visible = false
@@ -85,6 +89,8 @@ func play_a_card(card):
 	#print(card)
 	# Check si on peut jouer la carte (assez de mana)
 	if card.mana <= current_mana:
+		audio_manager.get_node("PlayingCard").play()
+		
 		card_being_played = card
 		# Retirer la mana
 		current_mana = max(0, current_mana - card.mana)
@@ -212,7 +218,7 @@ func _on_button_show_tree_pressed():
 	enemy_sword.visible = false
 	
 	
-func _on_combat_requested(squirrel: SquirrelNode):
+func _on_combat_requested(squirrel: SquirrelNode):	
 	print("BattleManager a reçu :", squirrel.squirrel_name)
 	current_enemy = squirrel  
 	squirrel_enemy.setEnnemy(squirrel)
