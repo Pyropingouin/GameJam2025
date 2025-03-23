@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=45 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://clp10gnmpocui" path="res://Assets/Audio/Carte_3.wav" id="24_tsytl"]
 [ext_resource type="AudioStream" uid="uid://bsueikq1us2gk" path="res://Assets/Audio/Carte_4.wav" id="25_omr60"]
 [ext_resource type="AudioStream" uid="uid://c8ehur37evhox" path="res://Assets/Audio/Carte_5.wav" id="26_7to74"]
+[ext_resource type="Texture2D" uid="uid://dsltxeqaxymk5" path="res://Assets/SplashStart.png" id="27_iwfyl"]
 [ext_resource type="AudioStream" uid="uid://bny2g1o8a5hne" path="res://Assets/Audio/Engage Battle.wav" id="27_vi0jc"]
 [ext_resource type="AudioStream" uid="uid://mk10futh3h3x" path="res://Assets/Audio/Ennemi_Autre.wav" id="28_001ck"]
 [ext_resource type="AudioStream" uid="uid://blk6u4e1t2532" path="res://Assets/Audio/Ennemi_Griffe.wav" id="29_7tjo5"]
@@ -484,9 +485,10 @@ text = "End turn"
 
 [node name="LoseScreen" parent="." instance=ExtResource("16_xxiqe")]
 visible = false
-position = Vector2(52, 48)
+position = Vector2(4, 4)
 
 [node name="WinScreenFinal" parent="." instance=ExtResource("13_sop7h")]
+visible = false
 
 [node name="Animations" type="Node2D" parent="."]
 
@@ -553,6 +555,31 @@ volume_db = 10.0
 [node name="EnemyNormalAttack" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = SubResource("AudioStreamRandomizer_0shl2")
 volume_db = 10.0
+
+[node name="MainMenuSplash" type="TextureRect" parent="."]
+visible = false
+offset_right = 1922.0
+offset_bottom = 1080.0
+texture = ExtResource("27_iwfyl")
+
+[node name="start_game_button" type="Button" parent="MainMenuSplash"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 651.0
+offset_right = 302.0
+offset_bottom = 736.0
+
+[node name="credit_button" type="Button" parent="MainMenuSplash"]
+layout_mode = 0
+offset_left = 1658.0
+offset_top = 648.0
+offset_right = 1827.0
+offset_bottom = 733.0
+
+[node name="Credit" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="mouse_entered" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_exited"]

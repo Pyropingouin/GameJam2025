@@ -43,15 +43,14 @@ script = ExtResource("1_d7iie")
 offset_right = 965.0
 offset_bottom = 652.0
 texture = ExtResource("2_dh04f")
-metadata/_edit_lock_ = true
 
 [node name="tree_container" type="Node2D" parent="."]
 
 [node name="chef" parent="tree_container" instance=ExtResource("1_c4lpk")]
 offset_left = 391.0
-offset_top = 10.0
+offset_top = 47.0
 offset_right = 391.0
-offset_bottom = 10.0
+offset_bottom = 47.0
 squirrel_name = "chef"
 squirrel_avatar = ExtResource("4_5hyie")
 squirrel_image = ExtResource("5_neqip")
@@ -61,10 +60,10 @@ type = "Baton"
 descendants = Array[NodePath]([NodePath("../Tier1-1"), NodePath("../Tier1-2")])
 
 [node name="Tier1-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 165.0
-offset_top = 240.0
-offset_right = 165.0
-offset_bottom = 240.0
+offset_left = 160.0
+offset_top = 279.0
+offset_right = 160.0
+offset_bottom = 279.0
 squirrel_name = "Lance"
 squirrel_avatar = ExtResource("5_h4al0")
 squirrel_image = ExtResource("7_n2il5")
@@ -74,10 +73,10 @@ type = "Baton"
 descendants = Array[NodePath]([NodePath("../Tier2-1")])
 
 [node name="Tier1-2" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 679.0
-offset_top = 254.0
-offset_right = 679.0
-offset_bottom = 254.0
+offset_left = 656.0
+offset_top = 289.0
+offset_right = 656.0
+offset_bottom = 289.0
 squirrel_name = "Prêtre"
 squirrel_avatar = ExtResource("6_bwecv")
 squirrel_image = ExtResource("9_y8iev")
@@ -87,10 +86,10 @@ type = "Normal"
 descendants = Array[NodePath]([NodePath("../Tier-2-3"), NodePath("../Tier-2-2")])
 
 [node name="Tier-2-3" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 888.0
-offset_top = 512.0
-offset_right = 888.0
-offset_bottom = 512.0
+offset_left = 892.0
+offset_top = 533.0
+offset_right = 892.0
+offset_bottom = 533.0
 squirrel_name = "Jambon"
 squirrel_avatar = ExtResource("9_3abaj")
 squirrel_image = ExtResource("11_eprea")
@@ -100,10 +99,10 @@ type = "Baton"
 descendants = Array[NodePath]([NodePath("../Tier3-4")])
 
 [node name="Tier-2-2" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 526.0
-offset_top = 515.0
-offset_right = 526.0
-offset_bottom = 515.0
+offset_left = 522.0
+offset_top = 555.0
+offset_right = 522.0
+offset_bottom = 555.0
 squirrel_name = "Fille"
 squirrel_avatar = ExtResource("7_hjcf3")
 squirrel_image = ExtResource("13_fjl8x")
@@ -112,10 +111,10 @@ description = "Rapide, agile, elle bondit de branche en branche pour frapper là
 type = "Normal"
 
 [node name="Tier2-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 177.0
-offset_top = 533.0
-offset_right = 177.0
-offset_bottom = 533.0
+offset_left = 149.0
+offset_top = 548.0
+offset_right = 149.0
+offset_bottom = 548.0
 squirrel_name = "Plume"
 squirrel_avatar = ExtResource("8_fwu1q")
 squirrel_image = ExtResource("15_22268")
@@ -136,10 +135,10 @@ description = "Peureux au départ, mais surprend avec des esquives éclairs et d
 type = "Hochet"
 
 [node name="Tier3-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = -10.0
-offset_top = 824.0
-offset_right = -10.0
-offset_bottom = 824.0
+offset_left = -22.0
+offset_top = 850.0
+offset_right = -22.0
+offset_bottom = 850.0
 squirrel_name = "Fleur"
 squirrel_avatar = ExtResource("10_66wfn")
 squirrel_image = ExtResource("18_qjpnt")
@@ -148,10 +147,10 @@ description = "Contrôle les vents et feuilles pour se camoufler, esquiver ou tr
 type = "Baton"
 
 [node name="Tier3-2" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 246.0
-offset_top = 819.0
-offset_right = 246.0
-offset_bottom = 819.0
+offset_left = 225.0
+offset_top = 839.0
+offset_right = 225.0
+offset_bottom = 839.0
 squirrel_name = "Ruban"
 squirrel_avatar = ExtResource("19_8vx0m")
 squirrel_image = ExtResource("20_lwkqn")
@@ -160,10 +159,10 @@ description = "Contrôle les vents et feuilles pour se camoufler, esquiver ou tr
 type = "Normal"
 
 [node name="Tier3-3" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 503.0
-offset_top = 822.0
-offset_right = 503.0
-offset_bottom = 822.0
+offset_left = 464.0
+offset_top = 839.0
+offset_right = 464.0
+offset_bottom = 839.0
 squirrel_name = "Slingshot"
 squirrel_avatar = ExtResource("11_bdvdf")
 squirrel_image = ExtResource("22_5j1b6")
