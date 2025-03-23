@@ -50,6 +50,7 @@ func _ready() -> void:
 	animations.get_node("Claw").visible = false
 	animations.get_node("Tail").visible = false
 	animations.get_node("Shield").visible = false
+	animations.get_node("ShieldEnemy").visible = false
 
 	mana_counter.get_node("Counter").text = str(MAX_MANA) + "/" + str(MAX_MANA)
 	current_mana = MAX_MANA
@@ -255,6 +256,8 @@ func attack_enemies():
 		tween.connect("finished", on_tween_attack_enemy_finished)
 		player.reduceHealth(ennemyNextMove.damage * squirrel_enemy.damageMultiplier)
 	else:
+		animations.get_node("ShieldEnemy").visible = true
+		animations.get_node("AnimationPlayer").play("shield_buff_enemy")
 		squirrel_enemy.defense = ennemyNextMove.damage
 	setNextMove()
 
