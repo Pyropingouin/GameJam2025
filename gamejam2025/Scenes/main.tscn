@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=45 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -15,17 +15,18 @@
 [ext_resource type="PackedScene" uid="uid://br13jqyfb661s" path="res://Scenes/genealogy_tree.tscn" id="10_av65l"]
 [ext_resource type="Texture2D" uid="uid://bi4yhcsx82f36" path="res://Assets/GlandMana.png" id="10_bghhq"]
 [ext_resource type="Texture2D" uid="uid://crvhrgnthtowx" path="res://Assets/Sword.png" id="10_ixkgl"]
-[ext_resource type="PackedScene" uid="uid://cpmpj2xq1q82o" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
-[ext_resource type="PackedScene" uid="uid://cy5hygrw2p2jq" path="res://Scenes/lose_screen.tscn" id="16_xxiqe"]
+[ext_resource type="PackedScene" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
+[ext_resource type="PackedScene" path="res://Scenes/lose_screen.tscn" id="16_xxiqe"]
 [ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_rutlw"]
 [ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_3tnsj"]
 [ext_resource type="AudioStream" uid="uid://b7l8rnvyovh6d" path="res://Assets/Audio/Background 1_Forest.wav" id="20_4sdj5"]
-[ext_resource type="AudioStream" uid="uid://c5j7jxhvi37u3" path="res://Assets/Audio/Background 2_Écureuils.wav" id="21_4b2jd"]
 [ext_resource type="AudioStream" uid="uid://c8bktbi5bnaym" path="res://Assets/Audio/Carte_1.wav" id="22_jmqhj"]
+[ext_resource type="AudioStream" uid="uid://c5j7jxhvi37u3" path="res://Assets/Audio/Background 2_Ecureuils.wav" id="22_l0pe1"]
 [ext_resource type="AudioStream" uid="uid://i5d2f6xqp8gg" path="res://Assets/Audio/Carte_2.wav" id="23_u6pyn"]
 [ext_resource type="AudioStream" uid="uid://clp10gnmpocui" path="res://Assets/Audio/Carte_3.wav" id="24_tsytl"]
 [ext_resource type="AudioStream" uid="uid://bsueikq1us2gk" path="res://Assets/Audio/Carte_4.wav" id="25_omr60"]
 [ext_resource type="AudioStream" uid="uid://c8ehur37evhox" path="res://Assets/Audio/Carte_5.wav" id="26_7to74"]
+[ext_resource type="Texture2D" uid="uid://dsltxeqaxymk5" path="res://Assets/SplashStart.png" id="27_iwfyl"]
 [ext_resource type="AudioStream" uid="uid://bny2g1o8a5hne" path="res://Assets/Audio/Engage Battle.wav" id="27_vi0jc"]
 [ext_resource type="AudioStream" uid="uid://mk10futh3h3x" path="res://Assets/Audio/Ennemi_Autre.wav" id="28_001ck"]
 [ext_resource type="AudioStream" uid="uid://blk6u4e1t2532" path="res://Assets/Audio/Ennemi_Griffe.wav" id="29_7tjo5"]
@@ -395,6 +396,7 @@ offset_right = 74.0
 offset_bottom = -95.0
 theme_override_styles/background = SubResource("StyleBoxFlat_n68kw")
 theme_override_styles/fill = SubResource("StyleBoxFlat_o4tk0")
+max_value = 120.0
 value = 100.0
 show_percentage = false
 
@@ -484,9 +486,10 @@ text = "End turn"
 
 [node name="LoseScreen" parent="." instance=ExtResource("16_xxiqe")]
 visible = false
-position = Vector2(52, 48)
+position = Vector2(4, 4)
 
 [node name="WinScreenFinal" parent="." instance=ExtResource("13_sop7h")]
+visible = false
 
 [node name="Animations" type="Node2D" parent="."]
 
@@ -527,7 +530,7 @@ stream = ExtResource("20_4sdj5")
 volume_db = -10.0
 
 [node name="Squirrel" type="AudioStreamPlayer2D" parent="AudioManager"]
-stream = ExtResource("21_4b2jd")
+stream = ExtResource("22_l0pe1")
 volume_db = -10.0
 
 [node name="PlayingCard" type="AudioStreamPlayer2D" parent="AudioManager"]
@@ -553,6 +556,31 @@ volume_db = 10.0
 [node name="EnemyNormalAttack" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = SubResource("AudioStreamRandomizer_0shl2")
 volume_db = 10.0
+
+[node name="MainMenuSplash" type="TextureRect" parent="."]
+visible = false
+offset_right = 1922.0
+offset_bottom = 1080.0
+texture = ExtResource("27_iwfyl")
+
+[node name="start_game_button" type="Button" parent="MainMenuSplash"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 651.0
+offset_right = 302.0
+offset_bottom = 736.0
+
+[node name="credit_button" type="Button" parent="MainMenuSplash"]
+layout_mode = 0
+offset_left = 1658.0
+offset_top = 648.0
+offset_right = 1827.0
+offset_bottom = 733.0
+
+[node name="Credit" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="mouse_entered" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_exited"]
