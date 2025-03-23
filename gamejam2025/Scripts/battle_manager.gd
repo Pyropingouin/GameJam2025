@@ -218,7 +218,9 @@ func _on_button_show_tree_pressed():
 	enemy_sword.visible = false
 	
 	
-func _on_combat_requested(squirrel: SquirrelNode):	
+func _on_combat_requested(squirrel: SquirrelNode):
+	audio_manager.get_node("EngageBattle").play()
+	
 	print("BattleManager a reçu :", squirrel.squirrel_name)
 	current_enemy = squirrel  
 	squirrel_enemy.setEnnemy(squirrel)
@@ -269,6 +271,15 @@ func attack_allies():
 
 func attack_enemies():
 	if ennemyNextMove.type == "Attack":
+		if squirrel_enemy.squirrel_type == "Normal":
+			audio_manager.get_node("EnemyNormalAttack").play()
+		elif squirrel_enemy.squirrel_type == "Baton":
+			audio_manager.get_node("EnemyAutre").play()
+		elif squirrel_enemy.squirrel_type == "Hochet":
+			audio_manager.get_node("EnemyHochet").play()
+		elif squirrel_enemy.squirrel_type == "Slingshot":
+			audio_manager.get_node("EnemySlingshot").play()
+		
 		enemy_pos_copy = squirrel_enemy.position
 		print(enemy_pos_copy)
 		var new_pos = Vector2(enemy_pos_copy.x - 60, enemy_pos_copy.y)

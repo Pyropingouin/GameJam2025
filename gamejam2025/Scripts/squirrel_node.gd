@@ -9,6 +9,8 @@ extends Panel
 @export var attack_array: Array[int]
 @export var description: String
 @export var dmgMult: int
+@export var attack_audio: AudioStream
+@export var type: String
 
 @export var descendants: Array[NodePath]  # Tu pourras assigner les descendants dans l'éditeur
 
