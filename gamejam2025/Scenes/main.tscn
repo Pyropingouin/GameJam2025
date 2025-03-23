@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://br13jqyfb661s" path="res://Scenes/genealogy_tree.tscn" id="10_av65l"]
 [ext_resource type="Texture2D" uid="uid://bi4yhcsx82f36" path="res://Assets/GlandMana.png" id="10_bghhq"]
 [ext_resource type="Texture2D" uid="uid://crvhrgnthtowx" path="res://Assets/Sword.png" id="10_ixkgl"]
-[ext_resource type="PackedScene" uid="uid://cpmpj2xq1q82o" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
-[ext_resource type="PackedScene" uid="uid://cy5hygrw2p2jq" path="res://Scenes/lose_screen.tscn" id="16_xxiqe"]
+[ext_resource type="PackedScene" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
+[ext_resource type="PackedScene" path="res://Scenes/lose_screen.tscn" id="16_xxiqe"]
 [ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_rutlw"]
 [ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_3tnsj"]
 [ext_resource type="AudioStream" uid="uid://b7l8rnvyovh6d" path="res://Assets/Audio/Background 1_Forest.wav" id="20_4sdj5"]
@@ -36,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://p70o7283jo5" path="res://Assets/Audio/Ennemi_Hochet.wav" id="30_71724"]
 [ext_resource type="AudioStream" uid="uid://cas8jgpddj4nq" path="res://Assets/Audio/Ennemi_Queue.wav" id="31_j4dvt"]
 [ext_resource type="AudioStream" uid="uid://b5r6mkk8rvxno" path="res://Assets/Audio/Ennemi_Slingshot.wav" id="32_qiweo"]
+[ext_resource type="Texture2D" uid="uid://djxr3dqjvjct5" path="res://Assets/SplashCredit.png" id="34_cve46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -606,6 +607,7 @@ offset_right = 74.0
 offset_bottom = -95.0
 theme_override_styles/background = SubResource("StyleBoxFlat_n68kw")
 theme_override_styles/fill = SubResource("StyleBoxFlat_o4tk0")
+max_value = 120.0
 value = 100.0
 show_percentage = false
 
@@ -677,7 +679,7 @@ text = "5/5"
 
 [node name="WinScreen" parent="." instance=ExtResource("10_761jn")]
 visible = false
-position = Vector2(683, 339)
+position = Vector2(205, 36)
 
 [node name="GenealogyTree" parent="." instance=ExtResource("10_av65l")]
 visible = false
@@ -696,6 +698,13 @@ text = "End turn"
 [node name="LoseScreen" parent="." instance=ExtResource("16_xxiqe")]
 visible = false
 position = Vector2(4, 4)
+
+[node name="lose_screen_back_to_menu_button" type="Button" parent="LoseScreen"]
+offset_left = 851.0
+offset_top = 664.0
+offset_right = 1105.0
+offset_bottom = 768.0
+text = "Back to main menu"
 
 [node name="WinScreenFinal" parent="." instance=ExtResource("13_sop7h")]
 visible = false
@@ -804,8 +813,17 @@ offset_bottom = 733.0
 
 [node name="Credit" type="TextureRect" parent="."]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1081.0
+texture = ExtResource("34_cve46")
+
+[node name="button_credit_back_to_menu" type="Button" parent="Credit"]
+layout_mode = 0
+offset_left = 951.0
+offset_top = 620.0
+offset_right = 1174.0
+offset_bottom = 716.0
+text = "Back to main menu"
 
 [connection signal="mouse_entered" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_exited"]

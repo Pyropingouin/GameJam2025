@@ -55,8 +55,11 @@ squirrel_name = "chef"
 squirrel_avatar = ExtResource("4_5hyie")
 squirrel_image = ExtResource("5_neqip")
 squirrel_frames = ExtResource("6_kh0rv")
-description = "Le stratège de la bande. Il booste ses alliés avec des cris de guerre et des plans aussi rusés qu’un renard (ou qu’un écureuil en hiver)."
+description = "Le patriarche de la famille. Personne ne connaît son véritable âge (probablement 2-3 ans, ça reste un écureuil tout de même.) Il ne laisserais jamais tombé la pépinière de chênes"
+hp = 120
 type = "Baton"
+win_text = "De toute façon, je n'ai jamais aimé les glands. J'ai toujours été plus de type noisettes (clin d'oeil forcé qui exprime tout de même qu'il a toujours été de type gland)  La pépinière est à toi. Prend bien soin de mes glands, que je n'aime pas et que je n'ai JAMAIS aimé. (sniff)"
+dmgMult = 2
 descendants = Array[NodePath]([NodePath("../Tier1-1"), NodePath("../Tier1-2")])
 
 [node name="Tier1-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
@@ -68,8 +71,11 @@ squirrel_name = "Lance"
 squirrel_avatar = ExtResource("5_h4al0")
 squirrel_image = ExtResource("7_n2il5")
 squirrel_frames = ExtResource("9_w28ce")
-description = "Solide comme un tronc d’arbre, il encaisse les coups avec son bouclier de noisettes. Il ne parle pas, il protège."
+hp = 100
+description = "Équipé d'une lance vibrante, spécialement conçue pour découper les noix, il ne fera qu'une bouché de ses adversaires."
 type = "Baton"
+dmgMult = 2
+win_text = "Arrrg, vous avez percez mes défenses sur-écureilliennes. Me voilà rayé du testament à tout jamais......."
 descendants = Array[NodePath]([NodePath("../Tier2-1")])
 
 [node name="Tier1-2" parent="tree_container" instance=ExtResource("1_c4lpk")]
@@ -81,8 +87,11 @@ squirrel_name = "Prêtre"
 squirrel_avatar = ExtResource("6_bwecv")
 squirrel_image = ExtResource("9_y8iev")
 squirrel_frames = ExtResource("12_d1iid")
-description = "Guérit les alliés avec des prières sacrées et lance des sorts mystiques à base de pollen ancien."
+hp = 100
+description = "Ayant pris le chemin de la prêtrise il y a des années, ce mystérieux écureuil détient des pouvoir mystique"
 type = "Normal"
+win_text = "Je dois être honnête avec vous, je n'ai pas de pouvoirs mystiques. Je ne suis pas prêtre non plus. J'aimais simplement la capuche. Voila mon héritage qui part en fumée :("
+dmgMult = 2
 descendants = Array[NodePath]([NodePath("../Tier-2-3"), NodePath("../Tier-2-2")])
 
 [node name="Tier-2-3" parent="tree_container" instance=ExtResource("1_c4lpk")]
@@ -94,8 +103,10 @@ squirrel_name = "Jambon"
 squirrel_avatar = ExtResource("9_3abaj")
 squirrel_image = ExtResource("11_eprea")
 squirrel_frames = ExtResource("15_lrw63")
-description = "Une montagne de muscles et de fourrure. Chaque attaque secoue la forêt. Il s’entraîne en soulevant des glands géants."
+hp = 80
+description = "On le surnome le \"saucé''. Il le corps et l'attitude d'un culturiste. La puissance de ses attaques n'a d'égal que la grosseur de son ego. "
 type = "Baton"
+win_text = "Nom d'une noix ! J'aurais du prendre plus de protèine de gland. Me voilà déshérité de la pépinière de chênes :("
 descendants = Array[NodePath]([NodePath("../Tier3-4")])
 
 [node name="Tier-2-2" parent="tree_container" instance=ExtResource("1_c4lpk")]
@@ -107,8 +118,10 @@ squirrel_name = "Fille"
 squirrel_avatar = ExtResource("7_hjcf3")
 squirrel_image = ExtResource("13_fjl8x")
 squirrel_frames = ExtResource("18_5mmp6")
-description = "Rapide, agile, elle bondit de branche en branche pour frapper là où ça fait mal. Parfaite pour les combos éclairs."
+hp = 80
+description = "Étudiante en administration des affaires, cette écureuil veut éliminer toute forme de gaspillage, à commencer par toi !"
 type = "Normal"
+win_text = "Je vais te rayer du conseil d'administration en moins de deux ! Tu me payerais bien cette défaite au prochain meeting des actionnaires!"
 
 [node name="Tier2-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
 offset_left = 149.0
@@ -119,8 +132,10 @@ squirrel_name = "Plume"
 squirrel_avatar = ExtResource("8_fwu1q")
 squirrel_image = ExtResource("15_22268")
 squirrel_frames = ExtResource("21_rt53a")
-description = "Un ancien ermite devenu imprévisible. Il peut soigner… ou exploser. Chaque tour avec lui est un pari."
+hp = 80
+description = "Cet écureuil à quitter la vie citadine il y à des années. Il habite en profondeur dans les bois et se nourrit exclusivement de racine de chêne "
 type = "Normal"
+win_text = "Mais je croyais que mon style de vie campagnard me protégerais de tous les maux. J'avais bien tord. De toute façon, je n'ai jamais voulu de cet héritage."
 descendants = Array[NodePath]([NodePath("../Tier3-1"), NodePath("../Tier3-2"), NodePath("../Tier3-3")])
 
 [node name="Tier3-4" parent="tree_container" instance=ExtResource("1_c4lpk")]
@@ -131,8 +146,10 @@ offset_bottom = 817.0
 squirrel_name = "Bébé"
 squirrel_image = ExtResource("16_frofj")
 squirrel_frames = ExtResource("23_32q81")
-description = "Peureux au départ, mais surprend avec des esquives éclairs et des contre-attaques grignotantes."
+hp = 50
+description = "Destiné à une carrière resplandissante dans le domaine de l'import/export, cet écureuil n'est pour l'instant qu'un bébé."
 type = "Hochet"
+win_text = ":( Ouuuaaaannnnnn !  :("
 
 [node name="Tier3-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
 offset_left = -22.0
@@ -143,7 +160,8 @@ squirrel_name = "Fleur"
 squirrel_avatar = ExtResource("10_66wfn")
 squirrel_image = ExtResource("18_qjpnt")
 squirrel_frames = ExtResource("25_csec1")
-description = "Contrôle les vents et feuilles pour se camoufler, esquiver ou trancher ses ennemis. Petit, mais insaisissable."
+hp = 50
+description = "L'amour pour les fleurs de cet écureuil n'a pas d'égal. Il sera probablement herboriste dans le futur, mais pour l'instant, tu devrais faire manger les pissenlits par la racine à cet enfant."
 type = "Baton"
 
 [node name="Tier3-2" parent="tree_container" instance=ExtResource("1_c4lpk")]
@@ -155,8 +173,10 @@ squirrel_name = "Ruban"
 squirrel_avatar = ExtResource("19_8vx0m")
 squirrel_image = ExtResource("20_lwkqn")
 squirrel_frames = ExtResource("28_h1hl3")
-description = "Contrôle les vents et feuilles pour se camoufler, esquiver ou trancher ses ennemis. Petit, mais insaisissable."
+hp = 50
+description = "Bien qu'elle soit encore en couche et qu'elle n'est jamais vu sans sa suce, ce bébé à déja une grande conscience des enjeux et des luttes de pouvoir. Du moins, c'est ce qu'elle croit."
 type = "Normal"
+win_text = "J'ai peut-être encore une couche, mais je sais reconnaître un tyrant quand j'en vois un. Jamais tu n'aurais la pépinière de chênes. JAMAIS ! "
 
 [node name="Tier3-3" parent="tree_container" instance=ExtResource("1_c4lpk")]
 offset_left = 464.0
@@ -167,25 +187,27 @@ squirrel_name = "Slingshot"
 squirrel_avatar = ExtResource("11_bdvdf")
 squirrel_image = ExtResource("22_5j1b6")
 squirrel_frames = ExtResource("31_567qm")
-description = "A découvert le feu par accident. Maintenant il enflamme tout, même les noisettes. Attention aux dégâts de zone !"
+hp = 50
+description = "La version écureuil de Bart Simpson, mais en plus ... écureuil. Il adore les mauvais coups et le nutelas de marque générique sans huile de palme. C'est bien mieux pour les singes"
 attack_audio = ExtResource("33_5hxvt")
 type = "Slingshot"
+win_text = "Aye-écureuil-ba ! Tu m'as écrasé alors que je ne suis qu'un enfant. Pas cool man, Pas cool."
 
 [node name="info_panel" type="TextureRect" parent="."]
 visible = false
 offset_left = 1121.0
 offset_top = 200.0
-offset_right = 1819.0
-offset_bottom = 573.0
+offset_right = 1870.0
+offset_bottom = 650.0
 texture = ExtResource("5_8slth")
 expand_mode = 1
 
 [node name="name_label" type="Label" parent="info_panel"]
 layout_mode = 0
-offset_left = 72.0
-offset_top = 225.0
-offset_right = 266.0
-offset_bottom = 287.0
+offset_left = 75.0
+offset_top = 259.0
+offset_right = 301.0
+offset_bottom = 336.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Roi du jambon"
 horizontal_alignment = 1
@@ -193,35 +215,35 @@ vertical_alignment = 1
 
 [node name="squirrel_avatar" type="TextureRect" parent="info_panel"]
 layout_mode = 0
-offset_left = 92.0
-offset_top = 92.0
-offset_right = 245.0
-offset_bottom = 220.0
+offset_left = 104.0
+offset_top = 108.0
+offset_right = 271.0
+offset_bottom = 249.0
 texture = ExtResource("4_20p7n")
 
 [node name="description" type="RichTextLabel" parent="info_panel"]
 layout_mode = 0
-offset_left = 313.0
-offset_top = 93.0
-offset_right = 624.0
-offset_bottom = 186.0
+offset_left = 324.0
+offset_top = 108.0
+offset_right = 655.0
+offset_bottom = 249.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "gefoe"
 
 [node name="button_combat" type="Button" parent="info_panel"]
 layout_mode = 0
-offset_left = 315.0
-offset_top = 233.0
-offset_right = 428.0
-offset_bottom = 264.0
+offset_left = 317.0
+offset_top = 280.0
+offset_right = 430.0
+offset_bottom = 311.0
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
 text = "Entre combat"
 
 [node name="button_cancel" type="Button" parent="info_panel"]
 layout_mode = 0
-offset_left = 513.0
-offset_top = 234.0
-offset_right = 573.0
-offset_bottom = 265.0
+offset_left = 539.0
+offset_top = 283.0
+offset_right = 599.0
+offset_bottom = 314.0
 text = "Cancel
 "

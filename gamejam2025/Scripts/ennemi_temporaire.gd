@@ -10,8 +10,6 @@ signal died
 @onready var shield: Sprite2D = $HealthBar/Shield
 @onready var shield_text: RichTextLabel = $HealthBar/ShieldText
 
-
-
 @export var maxHealth: int = 100
 @export var currentHealth: int = 100
 @export var damageMultiplier: float = 1.0
@@ -89,8 +87,8 @@ func setEnnemy(sn):
 	squirrel_name = sn.squirrel_name
 	
 	print(get_node("Sprite2D"))
+	damageMultiplier = sn.dmgMult
 
-	
 	healthBar.value = currentHealth
 	healthBar.max_value = maxHealth
 	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
