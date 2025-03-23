@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=48 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -20,8 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_rutlw"]
 [ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_3tnsj"]
 [ext_resource type="AudioStream" uid="uid://b7l8rnvyovh6d" path="res://Assets/Audio/Background 1_Forest.wav" id="20_4sdj5"]
+[ext_resource type="Texture2D" uid="uid://b6dgi4xpsr06d" path="res://Assets/Animation/ecureuil_ancetre_Arme.png" id="21_m6gpq"]
 [ext_resource type="AudioStream" uid="uid://c8bktbi5bnaym" path="res://Assets/Audio/Carte_1.wav" id="22_jmqhj"]
 [ext_resource type="AudioStream" uid="uid://c5j7jxhvi37u3" path="res://Assets/Audio/Background 2_Ecureuils.wav" id="22_l0pe1"]
+[ext_resource type="Texture2D" uid="uid://ghjexvfrju0y" path="res://Assets/Animation/ecureuil_bebe_fleur_Arme.png" id="22_s5ntu"]
 [ext_resource type="AudioStream" uid="uid://i5d2f6xqp8gg" path="res://Assets/Audio/Carte_2.wav" id="23_u6pyn"]
 [ext_resource type="AudioStream" uid="uid://clp10gnmpocui" path="res://Assets/Audio/Carte_3.wav" id="24_tsytl"]
 [ext_resource type="AudioStream" uid="uid://bsueikq1us2gk" path="res://Assets/Audio/Carte_4.wav" id="25_omr60"]
@@ -157,6 +159,42 @@ tracks/8/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BatonChefEnemy:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(648, 657)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BatonChefEnemy:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BatonChefEnemy:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_wbus0"]
 resource_name = "claw_hit"
@@ -282,9 +320,50 @@ tracks/2/keys = {
 "values": [true, true, false]
 }
 
+[sub_resource type="Animation" id="Animation_s04al"]
+resource_name = "baton_hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BatonChefEnemy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(648, 657), Vector2(632, 661), Vector2(591, 688)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BatonChefEnemy:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.558505, -1.40499]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BatonChefEnemy:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u30wn"]
 _data = {
 "RESET": SubResource("Animation_ey12e"),
+"baton_hit": SubResource("Animation_s04al"),
 "claw_hit": SubResource("Animation_wbus0"),
 "shield_buff": SubResource("Animation_y6myh"),
 "shield_buff_enemy": SubResource("Animation_v5yq0"),
@@ -512,6 +591,15 @@ texture = ExtResource("9_wrptr")
 position = Vector2(1322, 765)
 scale = Vector2(3, 3)
 texture = ExtResource("9_wrptr")
+
+[node name="BatonChefEnemy" type="Sprite2D" parent="Animations"]
+position = Vector2(648, 657)
+scale = Vector2(2, 2)
+texture = ExtResource("21_m6gpq")
+
+[node name="FleurEnemy" type="Sprite2D" parent="Animations"]
+position = Vector2(545, 654)
+texture = ExtResource("22_s5ntu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Animations"]
 libraries = {

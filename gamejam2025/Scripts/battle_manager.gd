@@ -63,6 +63,7 @@ func _ready() -> void:
 	animations.get_node("Tail").visible = false
 	animations.get_node("Shield").visible = false
 	animations.get_node("ShieldEnemy").visible = false
+	animations.get_node("BatonChefEnemy").visible = false
 
 	mana_counter.get_node("Counter").text = str(MAX_MANA) + "/" + str(MAX_MANA)
 	current_mana = MAX_MANA
@@ -273,6 +274,9 @@ func attack_enemies():
 		if squirrel_enemy.squirrel_type == "Normal":
 			audio_manager.get_node("EnemyNormalAttack").play()
 		elif squirrel_enemy.squirrel_type == "Baton":
+			if squirrel_enemy.squirrel_name == "chef":
+				animations.get_node("BatonChefEnemy").visible = true
+				animations.get_node("AnimationPlayer").play("baton_hit")
 			audio_manager.get_node("EnemyAutre").play()
 		elif squirrel_enemy.squirrel_type == "Hochet":
 			audio_manager.get_node("EnemyHochet").play()
