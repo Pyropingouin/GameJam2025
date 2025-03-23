@@ -163,7 +163,7 @@ func _on_squirrel_enemy_died():
 	print("L'ennemi est mort ! 🎉")
 	win_screen.set_squirrel(current_enemy) 
 	
-	if current_enemy.squirrel_name == "chef":
+	if current_enemy.squirrel_name == "dwdwdwd":
 		print("win")
 		battle_background.visible = false
 		mana_counter.visible = false
@@ -415,3 +415,16 @@ func _on_credit_back_to_menu_pressed():
 	start_game()	
 	
 	
+func endGame():
+	print("win")
+	battle_background.visible = false
+	mana_counter.visible = false
+	deck.visible = false
+	discard_pile_reference.visible = false
+	card_manager.visible = false
+	card_manager.set_physics_process(false)
+	card_manager.set_process(false)
+	squirrel_enemy.visible = false
+	player.visible = false
+	end_turn_button.visible = false
+	win_scree_final.visible = true

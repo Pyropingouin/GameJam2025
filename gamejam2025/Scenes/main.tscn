@@ -468,7 +468,7 @@ text = "5/5"
 
 [node name="WinScreen" parent="." instance=ExtResource("10_761jn")]
 visible = false
-position = Vector2(683, 339)
+position = Vector2(205, 36)
 
 [node name="GenealogyTree" parent="." instance=ExtResource("10_av65l")]
 visible = false

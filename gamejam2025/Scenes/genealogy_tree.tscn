@@ -57,7 +57,7 @@ squirrel_image = ExtResource("5_neqip")
 squirrel_frames = ExtResource("6_kh0rv")
 description = "Le patriarche de la famille. Personne ne connaît son véritable âge (probablement 2-3 ans, ça reste un écureuil tout de même.) Il ne laisserais jamais tombé la pépinière de chênes"
 type = "Baton"
-win_text = "De toute façon, je n'ai jamais aimé les glands. J'ai toujours été plus de type noisettes (clin d'oeil forcé qui exprime tout de même qu'il a toujours été de type gland)"
+win_text = "De toute façon, je n'ai jamais aimé les glands. J'ai toujours été plus de type noisettes (clin d'oeil forcé qui exprime tout de même qu'il a toujours été de type gland)  La pépinière est à toi. Prend bien soin de mes glands, que je n'aime pas et que je n'ai JAMAIS aimé. (sniff)"
 descendants = Array[NodePath]([NodePath("../Tier1-1"), NodePath("../Tier1-2")])
 
 [node name="Tier1-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
@@ -210,8 +210,8 @@ texture = ExtResource("4_20p7n")
 
 [node name="description" type="RichTextLabel" parent="info_panel"]
 layout_mode = 0
-offset_left = 313.0
-offset_top = 93.0
+offset_left = 324.0
+offset_top = 108.0
 offset_right = 655.0
 offset_bottom = 249.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -228,9 +228,9 @@ text = "Entre combat"
 
 [node name="button_cancel" type="Button" parent="info_panel"]
 layout_mode = 0
-offset_left = 533.0
-offset_top = 270.0
-offset_right = 593.0
-offset_bottom = 301.0
+offset_left = 539.0
+offset_top = 283.0
+offset_right = 599.0
+offset_bottom = 314.0
 text = "Cancel
 "
