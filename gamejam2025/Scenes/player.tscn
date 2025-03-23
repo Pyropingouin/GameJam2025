@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bk8ny1bk7sxim"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1002l"]
-[ext_resource type="Texture2D" uid="uid://cu26d5ahfs0uh" path="res://Assets/icon.svg" id="2_3nxh6"]
-[ext_resource type="Texture2D" uid="uid://cuo53i16x0wap" path="res://Assets/temp_shield.png" id="3_hscb7"]
+[ext_resource type="Texture2D" uid="uid://c5xajxqo7murm" path="res://Assets/ecureuil_base.png" id="2_yeoy4"]
+[ext_resource type="Texture2D" uid="uid://dyeu1ufbss37v" path="res://Assets/shield.png" id="3_pwqoc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugcfe"]
 bg_color = Color(0.20871, 0.20871, 0.20871, 0.745098)
@@ -18,13 +18,13 @@ bg_color = Color(0.884314, 3.20069e-06, 1.15514e-06, 1)
 script = ExtResource("1_1002l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_3nxh6")
+texture = ExtResource("2_yeoy4")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -80.0
-offset_top = 72.0
+offset_top = -108.0
 offset_right = 80.0
-offset_bottom = 92.0
+offset_bottom = -88.0
 theme_override_styles/background = SubResource("StyleBoxFlat_ugcfe")
 theme_override_styles/fill = SubResource("StyleBoxFlat_166hc")
 value = 100.0
@@ -41,9 +41,9 @@ text = "100/100"
 metadata/_edit_use_anchors_ = true
 
 [node name="Shield" type="Sprite2D" parent="HealthBar"]
-position = Vector2(-0.5, 9.5)
-scale = Vector2(0.0275, 0.0258333)
-texture = ExtResource("3_hscb7")
+position = Vector2(-1, 9)
+scale = Vector2(0.889556, 0.833333)
+texture = ExtResource("3_pwqoc")
 
 [node name="ShieldText" type="RichTextLabel" parent="HealthBar"]
 z_index = 1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuo53i16x0wap"
-path="res://.godot/imported/temp_shield.png-5e87f53856590ecc9812da25def5d1a3.ctex"
+uid="uid://cnuh88fllu4sf"
+path="res://.godot/imported/2020-HW-squirrel-removal-cost.jpg-c97c0697687a2a945af84017cf6e3d11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/temp_shield.png"
-dest_files=["res://.godot/imported/temp_shield.png-5e87f53856590ecc9812da25def5d1a3.ctex"]
+source_file="res://Assets/Squirrel_avatar/2020-HW-squirrel-removal-cost.jpg"
+dest_files=["res://.godot/imported/2020-HW-squirrel-removal-cost.jpg-c97c0697687a2a945af84017cf6e3d11.ctex"]
 
 [params]
 

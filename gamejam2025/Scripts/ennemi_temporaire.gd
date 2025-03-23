@@ -2,14 +2,21 @@ extends Node2D
 
 signal hovered
 signal hovered_off
+signal died
 
 @onready var card_manager: Node2D = $"../CardManager"
 @onready var healthBar : ProgressBar = $HealthBar
 @onready var healthStatus: RichTextLabel = $HealthBar/HealthStatus
 
+
+
 @export var maxHealth: int = 100
-@export var currentHealth: int = 100
+@export var currentHealth: int = 2
 @export var damageMultiplier: float = 1.0
+
+
+var defense = 0
+
 
 func _ready() -> void:
 	card_manager.connect_enemy_signals(self)
@@ -41,8 +48,30 @@ func attack(target: Node2D, damage: int) -> void:
 		target.reduceHealth(damageDealt)
 
 func reduceHealth(damage: int) -> void:
-	currentHealth -= damage
+	currentHealth -= (damage - defense)
 	if currentHealth < 0:
 		currentHealth = 0
 	healthBar.value = currentHealth
 	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
+	
+	if currentHealth <= 0:
+		emit_signal("died")
+		
+		
+	
+	
+func setEnnemy(sn):
+	get_node("Sprite2D").texture = sn.squirrel_image
+	maxHealth = sn.hp
+	currentHealth = maxHealth
+	
+	damageMultiplier= sn.dmgMult
+	
+	
+
+	
+	healthBar.value = currentHealth
+	healthBar.max_value = maxHealth
+	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
+	
+	

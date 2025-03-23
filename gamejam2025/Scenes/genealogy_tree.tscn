@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://br13jqyfb661s"]
+[gd_scene load_steps=8 format=3 uid="uid://br13jqyfb661s"]
 
 [ext_resource type="PackedScene" uid="uid://c3gfhhqrstnjr" path="res://Scenes/squirrel_node.tscn" id="1_c4lpk"]
 [ext_resource type="Script" path="res://Scripts/genealogy_tree.gd" id="1_d7iie"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cu26d5ahfs0uh" path="res://Assets/icon.svg" id="4_20p7n"]
 [ext_resource type="Texture2D" uid="uid://cstxjdfedut4j" path="res://Assets/StatPerso.png" id="5_8slth"]
 [ext_resource type="Texture2D" uid="uid://cgg0fhxiuyt7l" path="res://Assets/Squirrel_avatar/BlockFaceEcureuil.png" id="5_h4al0"]
+[ext_resource type="Texture2D" uid="uid://mbi4a8cugkhw" path="res://Assets/Squirrel_image/ecureuil_ancetre.png" id="5_neqip"]
 
 [node name="GenealogyTree" type="Node2D"]
 script = ExtResource("1_d7iie")
@@ -23,8 +24,10 @@ offset_left = 376.0
 offset_top = 33.0
 offset_right = 376.0
 offset_bottom = 33.0
-squirrel_name = "Nouvelle Node Pas Deg"
+squirrel_name = "chef"
 squirrel_avatar = ExtResource("5_h4al0")
+squirrel_image = ExtResource("5_neqip")
+hp = 1
 description = "Je suis le grand père squirrel"
 descendants = Array[NodePath]([NodePath("../SquirrelNode"), NodePath("../SquirrelNode2")])
 
@@ -48,6 +51,7 @@ offset_right = 5.0
 offset_bottom = 673.0
 
 [node name="info_panel" type="TextureRect" parent="."]
+visible = false
 offset_left = 1121.0
 offset_top = 200.0
 offset_right = 1819.0
@@ -80,3 +84,20 @@ offset_top = 93.0
 offset_right = 624.0
 offset_bottom = 186.0
 text = "gefoe"
+
+[node name="button_combat" type="Button" parent="info_panel"]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 233.0
+offset_right = 428.0
+offset_bottom = 264.0
+text = "Entre combat"
+
+[node name="button_cancel" type="Button" parent="info_panel"]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 234.0
+offset_right = 573.0
+offset_bottom = 265.0
+text = "Cancel
+"
