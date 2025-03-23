@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://br13jqyfb661s"]
+[gd_scene load_steps=25 format=3 uid="uid://br13jqyfb661s"]
 
 [ext_resource type="PackedScene" uid="uid://c3gfhhqrstnjr" path="res://Scenes/squirrel_node.tscn" id="1_c4lpk"]
 [ext_resource type="Script" path="res://Scripts/genealogy_tree.gd" id="1_d7iie"]
@@ -7,12 +7,23 @@
 [ext_resource type="Texture2D" uid="uid://cu26d5ahfs0uh" path="res://Assets/icon.svg" id="4_20p7n"]
 [ext_resource type="Texture2D" uid="uid://cstxjdfedut4j" path="res://Assets/StatPerso.png" id="5_8slth"]
 [ext_resource type="Texture2D" uid="uid://cj06i7wvqqter" path="res://Assets/Squirrel_avatar/BlockFaceEcureuil.png" id="5_h4al0"]
+[ext_resource type="Texture2D" uid="uid://mbi4a8cugkhw" path="res://Assets/Squirrel_image/ecureuil_ancetre.png" id="5_neqip"]
 [ext_resource type="Texture2D" uid="uid://c100ndmvxwhcw" path="res://Assets/Squirrel_avatar/BlockFaceEcureuil_7.png" id="6_bwecv"]
 [ext_resource type="Texture2D" uid="uid://b7h6ix4wh6f2f" path="res://Assets/Squirrel_avatar/BlockFaceEcureuil_4.png" id="7_hjcf3"]
+[ext_resource type="Texture2D" uid="uid://bhrfamamghury" path="res://Assets/Squirrel_image/ecureuil_garde.png" id="7_n2il5"]
 [ext_resource type="Texture2D" uid="uid://dnqcmtd0kbt5j" path="res://Assets/Squirrel_avatar/BlockFaceEcureuil_3.png" id="8_fwu1q"]
 [ext_resource type="Texture2D" uid="uid://cq8j1drh1yafx" path="res://Assets/Squirrel_avatar/BlockFaceEcureuil_6.png" id="9_3abaj"]
+[ext_resource type="Texture2D" uid="uid://bpv60w0543qd7" path="res://Assets/Squirrel_image/ecureuil_pretre.png" id="9_y8iev"]
 [ext_resource type="Texture2D" uid="uid://lr44jj5a272d" path="res://Assets/Squirrel_avatar/BlockFaceEcureuil_5.png" id="10_66wfn"]
 [ext_resource type="Texture2D" uid="uid://6hm40nh5e6t4" path="res://Assets/Squirrel_avatar/BlockFaceEcureuil_8.png" id="11_bdvdf"]
+[ext_resource type="Texture2D" uid="uid://bjwh06lrtxqx3" path="res://Assets/Squirrel_image/ecureuil_jambon.png" id="11_eprea"]
+[ext_resource type="Texture2D" uid="uid://clex4eg1e2lf0" path="res://Assets/Squirrel_image/ecureuil_fille.png" id="13_fjl8x"]
+[ext_resource type="Texture2D" uid="uid://cpdm76e67t0du" path="res://Assets/Squirrel_image/ecureuil_coeur.png" id="15_22268"]
+[ext_resource type="Texture2D" uid="uid://b524kyc63g5vx" path="res://Assets/Squirrel_image/ecureuil_bebe.png" id="16_frofj"]
+[ext_resource type="Texture2D" uid="uid://bbg3y286meny2" path="res://Assets/Squirrel_image/ecureuil_bebe_fleur.png" id="18_qjpnt"]
+[ext_resource type="Texture2D" uid="uid://cnah01bxkuvpk" path="res://Assets/Squirrel_avatar/BlockFaceEcureuil_9.png" id="19_8vx0m"]
+[ext_resource type="Texture2D" uid="uid://dl3ugg85klfss" path="res://Assets/Squirrel_image/ecureuil_bebe_suce.png" id="20_lwkqn"]
+[ext_resource type="Texture2D" uid="uid://bymrygfrq3m8m" path="res://Assets/Squirrel_image/ecureuil_bebe_slingshot.png" id="22_5j1b6"]
 
 [node name="GenealogyTree" type="Node2D"]
 script = ExtResource("1_d7iie")
@@ -32,6 +43,7 @@ offset_right = 391.0
 offset_bottom = 10.0
 squirrel_name = "chef"
 squirrel_avatar = ExtResource("4_5hyie")
+squirrel_image = ExtResource("5_neqip")
 descendants = Array[NodePath]([NodePath("../Tier1-1"), NodePath("../Tier1-2")])
 
 [node name="Tier1-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
@@ -40,6 +52,7 @@ offset_top = 240.0
 offset_right = 165.0
 offset_bottom = 240.0
 squirrel_avatar = ExtResource("5_h4al0")
+squirrel_image = ExtResource("7_n2il5")
 descendants = Array[NodePath]([NodePath("../Tier2-1")])
 
 [node name="Tier1-2" parent="tree_container" instance=ExtResource("1_c4lpk")]
@@ -48,6 +61,7 @@ offset_top = 257.0
 offset_right = 639.0
 offset_bottom = 257.0
 squirrel_avatar = ExtResource("6_bwecv")
+squirrel_image = ExtResource("9_y8iev")
 descendants = Array[NodePath]([NodePath("../Tier-2-3"), NodePath("../Tier-2-2")])
 
 [node name="Tier-2-3" parent="tree_container" instance=ExtResource("1_c4lpk")]
@@ -55,6 +69,8 @@ offset_left = 866.0
 offset_top = 484.0
 offset_right = 866.0
 offset_bottom = 484.0
+squirrel_avatar = ExtResource("9_3abaj")
+squirrel_image = ExtResource("11_eprea")
 descendants = Array[NodePath]([NodePath("../Tier3-4")])
 
 [node name="Tier-2-2" parent="tree_container" instance=ExtResource("1_c4lpk")]
@@ -63,6 +79,7 @@ offset_top = 499.0
 offset_right = 536.0
 offset_bottom = 499.0
 squirrel_avatar = ExtResource("7_hjcf3")
+squirrel_image = ExtResource("13_fjl8x")
 
 [node name="Tier2-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
 offset_left = 150.0
@@ -70,6 +87,7 @@ offset_top = 523.0
 offset_right = 150.0
 offset_bottom = 523.0
 squirrel_avatar = ExtResource("8_fwu1q")
+squirrel_image = ExtResource("15_22268")
 descendants = Array[NodePath]([NodePath("../Tier3-1"), NodePath("../Tier3-2"), NodePath("../Tier3-3")])
 
 [node name="Tier3-4" parent="tree_container" instance=ExtResource("1_c4lpk")]
@@ -77,7 +95,7 @@ offset_left = 984.0
 offset_top = 723.0
 offset_right = 984.0
 offset_bottom = 723.0
-squirrel_avatar = ExtResource("9_3abaj")
+squirrel_image = ExtResource("16_frofj")
 
 [node name="Tier3-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
 offset_left = -10.0
@@ -85,13 +103,15 @@ offset_top = 824.0
 offset_right = -10.0
 offset_bottom = 824.0
 squirrel_avatar = ExtResource("10_66wfn")
+squirrel_image = ExtResource("18_qjpnt")
 
 [node name="Tier3-2" parent="tree_container" instance=ExtResource("1_c4lpk")]
 offset_left = 273.0
 offset_top = 818.0
 offset_right = 273.0
 offset_bottom = 818.0
-squirrel_avatar = ExtResource("9_3abaj")
+squirrel_avatar = ExtResource("19_8vx0m")
+squirrel_image = ExtResource("20_lwkqn")
 
 [node name="Tier3-3" parent="tree_container" instance=ExtResource("1_c4lpk")]
 offset_left = 520.0
@@ -99,6 +119,7 @@ offset_top = 802.0
 offset_right = 520.0
 offset_bottom = 802.0
 squirrel_avatar = ExtResource("11_bdvdf")
+squirrel_image = ExtResource("22_5j1b6")
 
 [node name="info_panel" type="TextureRect" parent="."]
 visible = false
