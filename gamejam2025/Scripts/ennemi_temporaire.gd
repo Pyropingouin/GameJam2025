@@ -7,8 +7,8 @@ signal died
 @onready var card_manager: Node2D = $"../CardManager"
 @onready var healthBar : ProgressBar = $HealthBar
 @onready var healthStatus: RichTextLabel = $HealthBar/HealthStatus
-@onready var shield: Sprite2D = $Shield
-@onready var shield_text: RichTextLabel = $ShieldText
+@onready var shield: Sprite2D = $HealthBar/Shield
+@onready var shield_text: RichTextLabel = $HealthBar/ShieldText
 
 
 
@@ -26,6 +26,9 @@ func _ready() -> void:
 	healthBar.max_value = maxHealth
 	healthBar.value = currentHealth
 	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
+	
+	shield.visible = false
+	shield_text.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -68,6 +71,7 @@ func reduceHealth(damage: int) -> void:
 func setDefense(amount: int):
 	defense += amount
 	shield.visible = true
+	shield_text.visible = true
 	shield_text.text = "[center]"+str(defense)+"[center]"
 	
 func setEnnemy(sn):

@@ -52,7 +52,8 @@ func addMaxHealth(healthToAdd: int) -> void:
 func addDefense(amount: int) -> void:
 	defense += amount
 	shield.visible = true
-	shield_text.text = str(defense)
+	shield_text.visible = true
+	shield_text.text = "[center]"+str(defense)+"[center]"
 
 func addAcorns(amount: int) -> void:
 	acorn += amount
