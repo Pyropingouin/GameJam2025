@@ -33,6 +33,11 @@ const ennemyMoves = [
 @onready var shield: Sprite2D = $HealthBar/Shield
 @onready var shield_text: RichTextLabel = $HealthBar/ShieldText
 @onready var audio_manager: Node2D = $"../AudioManager"
+@onready var main_menu_splash =  $"../MainMenuSplash"
+@onready var start_button = $"../MainMenuSplash/start_game_button"
+@onready var credit_button = $"../MainMenuSplash/credit_button"
+@onready var credit = $"../Credit"
+
 
 var discard_pile = []
 var card_being_played
@@ -48,7 +53,9 @@ var damage_multiplier = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	enter_tree_mode()
+	
+	
+	start_game()
 	
 	audio_manager.get_node("Forest").play()
 	audio_manager.get_node("Squirrel").play()
@@ -66,6 +73,8 @@ func _ready() -> void:
 	squirrel_enemy.died.connect(_on_squirrel_enemy_died)
 	win_screen.get_node("button").pressed.connect(_on_button_show_tree_pressed)
 	player.died.connect(_on_player_died)
+	start_button.pressed.connect(_on_start_game_pressed)
+	credit_button.pressed.connect(_on_credit_pressed)
 
 	setNextMove()
 	enemy_shield.visible = false
@@ -339,6 +348,7 @@ func on_tween_finished_empty_hand():
 func enter_tree_mode():
 	print("Show Tree")	
 	genealogy_tree.visible = true
+	battle_background.visible = true
 	battle_background.modulate.a = 0.2
 	mana_counter.visible = false
 	deck.visible = false
@@ -370,3 +380,38 @@ func	 enter_combat_mode():
 func increaseDamage():
 	damage_multiplier += 0.5
 	print(damage_multiplier)
+func all_invisible():
+	genealogy_tree.visible = false
+	#battle_background.modulate.a = 0.2
+	battle_background.visible = false
+	mana_counter.visible = false
+	deck.visible = false
+	discard_pile_reference.visible = false
+	card_manager.visible = false
+	card_manager.set_physics_process(false)
+	card_manager.set_process(false)
+	squirrel_enemy.visible = false
+	player.visible = false
+	end_turn_button.visible = false
+	win_screen.visible = false
+	enemy_shield.visible = false
+	enemy_sword.visible = false
+	main_menu_splash.visible = false
+	
+func all_visible():
+	pass 	
+	
+func start_game():
+	all_invisible()
+	main_menu_splash.visible = true
+	
+	
+	
+func _on_start_game_pressed():
+	main_menu_splash.visible = false
+	enter_tree_mode()
+
+func _on_credit_pressed():
+	all_invisible()
+	print("credit")
+	credit.visible = true
