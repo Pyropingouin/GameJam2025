@@ -6,9 +6,9 @@ const MAX_MANA = 5.0
 const CARD_TYPE_OFFENSE = "Offense"
 const CARD_TYPE_DEFENSE = "Defense"
 const ennemyMoves = [
+	{"type": "Attack", "damage": 5},
 	{"type": "Attack", "damage": 10},
 	{"type": "Attack", "damage": 15},
-	{"type": "Attack", "damage": 20},
 	{"type": "Defense", "damage": 5}
 ]
 
@@ -28,10 +28,8 @@ const ennemyMoves = [
 @onready var win_screen = $"../WinScreen"
 @onready var win_scree_final = $"../WinScreenFinal"
 @onready var lose_screen = $"../LoseScreen"
-
-
-
-
+@onready var shield: Sprite2D = $HealthBar/Shield
+@onready var shield_text: RichTextLabel = $HealthBar/ShieldText
 
 var discard_pile = []
 var card_being_played
@@ -230,8 +228,6 @@ func attack_allies():
 func attack_enemies():
 	if ennemyNextMove.type == "Attack":
 		player.reduceHealth(ennemyNextMove.damage * squirrel_enemy.damageMultiplier)
-	else:
-		squirrel_enemy.defense = ennemyNextMove.damage
 	setNextMove()
 	
 	
@@ -246,6 +242,7 @@ func setNextMove():
 	if ennemyNextMove.type == "Defense":
 		enemy_shield.visible = true
 		enemy_sword.visible = false
+		squirrel_enemy.setDefense(ennemyNextMove.damage)
 
 func _on_end_turn_button_pressed() -> void:
 	on_end_turn_pressed()

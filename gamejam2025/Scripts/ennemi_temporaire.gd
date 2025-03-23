@@ -7,11 +7,13 @@ signal died
 @onready var card_manager: Node2D = $"../CardManager"
 @onready var healthBar : ProgressBar = $HealthBar
 @onready var healthStatus: RichTextLabel = $HealthBar/HealthStatus
+@onready var shield: Sprite2D = $HealthBar/Shield
+@onready var shield_text: RichTextLabel = $HealthBar/ShieldText
 
 
 
 @export var maxHealth: int = 100
-@export var currentHealth: int = 2
+@export var currentHealth: int = 100
 @export var damageMultiplier: float = 1.0
 
 
@@ -24,6 +26,9 @@ func _ready() -> void:
 	healthBar.max_value = maxHealth
 	healthBar.value = currentHealth
 	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
+	
+	shield.visible = false
+	shield_text.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,7 +55,13 @@ func attack(target: Node2D, damage: int) -> void:
 		target.reduceHealth(damageDealt)
 
 func reduceHealth(damage: int) -> void:
-	currentHealth -= (damage - defense)
+	if damage > defense:
+		currentHealth -= (damage - defense)
+	defense = max(0, defense - damage)
+	shield_text.text = "[center]"+str(defense)+"[center]"
+	if defense < 1:
+		shield.visible = false
+		shield_text.visible = false
 	if currentHealth < 0:
 		currentHealth = 0
 	healthBar.value = currentHealth
@@ -58,9 +69,12 @@ func reduceHealth(damage: int) -> void:
 	
 	if currentHealth <= 0:
 		emit_signal("died")
-		
-		
 	
+func setDefense(amount: int):
+	defense += amount
+	shield.visible = true
+	shield_text.visible = true
+	shield_text.text = "[center]"+str(defense)+"[center]"
 	
 func setEnnemy(sn):
 	get_node("Sprite2D").texture = sn.squirrel_image
