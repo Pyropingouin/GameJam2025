@@ -68,6 +68,7 @@ func draw_link(from_node: SquirrelNode, to_node: SquirrelNode) -> Line2D:
 	var line = Line2D.new()
 	line.default_color = Color("#fbba72")
 	line.width = 5.0
+	
 
 	var from_pos = from_node.connection_point_start.get_global_position()
 	var to_pos = to_node.connection_point_end.get_global_position()

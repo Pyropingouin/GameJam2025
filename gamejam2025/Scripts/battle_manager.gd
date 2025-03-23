@@ -36,6 +36,8 @@ const ennemyMoves = [
 @onready var main_menu_splash =  $"../MainMenuSplash"
 @onready var start_button = $"../MainMenuSplash/start_game_button"
 @onready var credit_button = $"../MainMenuSplash/credit_button"
+@onready var credit = $"../Credit"
+
 
 var discard_pile = []
 var card_being_played
@@ -367,6 +369,7 @@ func all_invisible():
 	win_screen.visible = false
 	enemy_shield.visible = false
 	enemy_sword.visible = false
+	main_menu_splash.visible = false
 	
 func all_visible():
 	pass 	
@@ -382,6 +385,6 @@ func _on_start_game_pressed():
 	enter_tree_mode()
 
 func _on_credit_pressed():
-	#all_invisible()
-	#$"../CreditsScreen".visible = true
-	pass
+	all_invisible()
+	print("credit")
+	credit.visible = true

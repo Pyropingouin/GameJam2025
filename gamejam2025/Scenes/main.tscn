@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=38 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -27,7 +27,6 @@
 [ext_resource type="AudioStream" uid="uid://bsueikq1us2gk" path="res://Assets/Audio/Carte_4.wav" id="25_omr60"]
 [ext_resource type="AudioStream" uid="uid://c8ehur37evhox" path="res://Assets/Audio/Carte_5.wav" id="26_7to74"]
 [ext_resource type="Texture2D" uid="uid://dsltxeqaxymk5" path="res://Assets/SplashStart.png" id="27_iwfyl"]
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="28_cld6f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -473,9 +472,11 @@ offset_bottom = 563.0
 text = "End turn"
 
 [node name="LoseScreen" parent="." instance=ExtResource("16_xxiqe")]
+visible = false
 position = Vector2(4, 4)
 
 [node name="WinScreenFinal" parent="." instance=ExtResource("13_sop7h")]
+visible = false
 
 [node name="Animations" type="Node2D" parent="."]
 
@@ -521,7 +522,6 @@ visible = false
 offset_right = 1922.0
 offset_bottom = 1080.0
 texture = ExtResource("27_iwfyl")
-script = ExtResource("28_cld6f")
 
 [node name="start_game_button" type="Button" parent="MainMenuSplash"]
 layout_mode = 0
@@ -536,6 +536,11 @@ offset_left = 1658.0
 offset_top = 648.0
 offset_right = 1827.0
 offset_bottom = 733.0
+
+[node name="Credit" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="mouse_entered" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_exited"]
