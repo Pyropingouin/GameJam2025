@@ -776,9 +776,11 @@ libraries = {
 
 [node name="BattleMusic" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("25_21laf")
+volume_db = 5.0
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("26_pd02e")
+volume_db = 5.0
 
 [node name="Forest" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("20_4sdj5")
