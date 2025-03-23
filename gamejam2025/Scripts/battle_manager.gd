@@ -42,6 +42,8 @@ func _ready() -> void:
 	genealogy_tree.combat_requested.connect(_on_combat_requested)
 	
 	setNextMove()
+	
+	# Si on a des allies, les faire apparaitre
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
