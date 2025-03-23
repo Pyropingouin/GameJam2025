@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=37 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/deck.gd" id="4_t3xfq"]
 [ext_resource type="Texture2D" uid="uid://blhyvhoxoyt3k" path="res://Assets/Cards/CarteDos.png" id="6_ln601"]
 [ext_resource type="Script" path="res://Scripts/ennemi_temporaire.gd" id="7_oksmg"]
-[ext_resource type="Texture2D" uid="uid://c5xajxqo7murm" path="res://Assets/ecureuil_base.png" id="7_vaebe"]
+[ext_resource type="SpriteFrames" uid="uid://cy0vxs6rwoeev" path="res://Assets/Animations/SpriteFrames/idle-frames.tres" id="8_tqc0h"]
 [ext_resource type="PackedScene" uid="uid://bk8ny1bk7sxim" path="res://Scenes/player.tscn" id="9_6gpg3"]
 [ext_resource type="Script" path="res://Scripts/battle_manager.gd" id="9_fj1c1"]
 [ext_resource type="Texture2D" uid="uid://dyeu1ufbss37v" path="res://Assets/shield.png" id="9_wrptr"]
@@ -19,6 +19,13 @@
 [ext_resource type="PackedScene" uid="uid://cy5hygrw2p2jq" path="res://Scenes/lose_screen.tscn" id="16_xxiqe"]
 [ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_rutlw"]
 [ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_3tnsj"]
+[ext_resource type="AudioStream" uid="uid://b7l8rnvyovh6d" path="res://Assets/Audio/Background 1_Forest.wav" id="20_4sdj5"]
+[ext_resource type="AudioStream" uid="uid://c5j7jxhvi37u3" path="res://Assets/Audio/Background 2_Écureuils.wav" id="21_4b2jd"]
+[ext_resource type="AudioStream" uid="uid://c8bktbi5bnaym" path="res://Assets/Audio/Carte_1.wav" id="22_jmqhj"]
+[ext_resource type="AudioStream" uid="uid://i5d2f6xqp8gg" path="res://Assets/Audio/Carte_2.wav" id="23_u6pyn"]
+[ext_resource type="AudioStream" uid="uid://clp10gnmpocui" path="res://Assets/Audio/Carte_3.wav" id="24_tsytl"]
+[ext_resource type="AudioStream" uid="uid://bsueikq1us2gk" path="res://Assets/Audio/Carte_4.wav" id="25_omr60"]
+[ext_resource type="AudioStream" uid="uid://c8ehur37evhox" path="res://Assets/Audio/Carte_5.wav" id="26_7to74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -277,6 +284,14 @@ _data = {
 "tail_hit": SubResource("Animation_3lg0h")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7f86e"]
+streams_count = 5
+stream_0/stream = ExtResource("22_jmqhj")
+stream_1/stream = ExtResource("23_u6pyn")
+stream_2/stream = ExtResource("24_tsytl")
+stream_3/stream = ExtResource("25_omr60")
+stream_4/stream = ExtResource("26_7to74")
+
 [node name="Main" type="Node2D"]
 
 [node name="BattleBackground" type="Sprite2D" parent="."]
@@ -345,10 +360,12 @@ text = "0"
 [node name="SquirrelEnemy" type="Node2D" parent="."]
 position = Vector2(1417, 711)
 script = ExtResource("7_oksmg")
-currentHealth = 40
+currentHealth = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="SquirrelEnemy"]
-texture = ExtResource("7_vaebe")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="SquirrelEnemy"]
+sprite_frames = ExtResource("8_tqc0h")
+animation = &"idle"
+autoplay = "idle"
 flip_h = true
 
 [node name="Area2D" type="Area2D" parent="SquirrelEnemy"]
@@ -486,6 +503,17 @@ texture = ExtResource("9_wrptr")
 libraries = {
 "": SubResource("AnimationLibrary_u30wn")
 }
+
+[node name="AudioManager" type="Node2D" parent="."]
+
+[node name="Forest" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("20_4sdj5")
+
+[node name="Squirrel" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("21_4b2jd")
+
+[node name="PlayingCard" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = SubResource("AudioStreamRandomizer_7f86e")
 
 [connection signal="mouse_entered" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_exited"]

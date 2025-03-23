@@ -76,7 +76,7 @@ offset_right = 138.0
 offset_bottom = 240.0
 
 [node name="connection_point_start" type="Node2D" parent="."]
-position = Vector2(102, 191)
+position = Vector2(96, 204)
 
 [node name="connection_point_end" type="Node2D" parent="."]
 position = Vector2(92, 17)
