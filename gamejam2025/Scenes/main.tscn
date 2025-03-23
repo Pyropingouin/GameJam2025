@@ -11,11 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://bk8ny1bk7sxim" path="res://Scenes/player.tscn" id="9_6gpg3"]
 [ext_resource type="Script" path="res://Scripts/battle_manager.gd" id="9_fj1c1"]
 [ext_resource type="Texture2D" uid="uid://dyeu1ufbss37v" path="res://Assets/shield.png" id="9_wrptr"]
-[ext_resource type="PackedScene" uid="uid://ka0g8mqtomq5" path="res://Scenes/win_screen.tscn" id="10_761jn"]
+[ext_resource type="PackedScene" path="res://Scenes/win_screen.tscn" id="10_761jn"]
 [ext_resource type="PackedScene" uid="uid://br13jqyfb661s" path="res://Scenes/genealogy_tree.tscn" id="10_av65l"]
 [ext_resource type="Texture2D" uid="uid://bi4yhcsx82f36" path="res://Assets/GlandMana.png" id="10_bghhq"]
-[ext_resource type="Texture2D" uid="uid://rqcrnjinekom" path="res://Assets/temp_sword.png" id="10_r83n6"]
-[ext_resource type="PackedScene" uid="uid://cpmpj2xq1q82o" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
+[ext_resource type="Texture2D" uid="uid://crvhrgnthtowx" path="res://Assets/Sword.png" id="10_ixkgl"]
+[ext_resource type="PackedScene" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -129,16 +129,39 @@ offset_right = 114.0
 offset_bottom = 31.0
 text = "100/100"
 
+[node name="Shield" type="Sprite2D" parent="SquirrelEnemy"]
+visible = false
+position = Vector2(-85.985, -106)
+scale = Vector2(0.889556, 0.833333)
+texture = ExtResource("9_wrptr")
+
+[node name="ShieldText" type="RichTextLabel" parent="SquirrelEnemy"]
+visible = false
+z_index = 1
+anchors_preset = -1
+anchor_left = -0.0438438
+anchor_top = -0.05
+anchor_right = 0.0311562
+anchor_bottom = -0.05
+offset_left = -97.0
+offset_top = -119.0
+offset_right = -85.0
+offset_bottom = -94.0
+bbcode_enabled = true
+text = "[center]0[center]"
+metadata/_edit_use_anchors_ = true
+
 [node name="EnemyShield" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1413, 557)
 scale = Vector2(1.144, 1)
 texture = ExtResource("9_wrptr")
 
 [node name="EnemySword" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(1413, 551)
-scale = Vector2(0.056891, 0.0616776)
-texture = ExtResource("10_r83n6")
+position = Vector2(1413, 558)
+scale = Vector2(1.047, 1.2)
+texture = ExtResource("10_ixkgl")
 
 [node name="BattleManager" type="Node" parent="."]
 script = ExtResource("9_fj1c1")

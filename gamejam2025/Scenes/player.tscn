@@ -47,10 +47,15 @@ texture = ExtResource("3_pwqoc")
 
 [node name="ShieldText" type="RichTextLabel" parent="HealthBar"]
 z_index = 1
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.05625
+anchor_right = 0.04375
+anchor_bottom = 0.2
 offset_left = -5.0
 offset_top = -3.0
 offset_right = 7.0
 offset_bottom = 22.0
-text = "0"
+bbcode_enabled = true
+text = "[center]0[center]"
 metadata/_edit_use_anchors_ = true
