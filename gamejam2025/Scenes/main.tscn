@@ -473,8 +473,7 @@ offset_bottom = 563.0
 text = "End turn"
 
 [node name="LoseScreen" parent="." instance=ExtResource("16_xxiqe")]
-visible = false
-position = Vector2(52, 48)
+position = Vector2(4, 4)
 
 [node name="WinScreenFinal" parent="." instance=ExtResource("13_sop7h")]
 
@@ -518,6 +517,7 @@ stream = ExtResource("21_4b2jd")
 stream = SubResource("AudioStreamRandomizer_7f86e")
 
 [node name="MainMenuSplash" type="TextureRect" parent="."]
+visible = false
 offset_right = 1922.0
 offset_bottom = 1080.0
 texture = ExtResource("27_iwfyl")
