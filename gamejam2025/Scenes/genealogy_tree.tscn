@@ -57,7 +57,7 @@ squirrel_avatar = ExtResource("4_5hyie")
 squirrel_image = ExtResource("5_neqip")
 squirrel_frames = ExtResource("6_kh0rv")
 description = "Le stratège de la bande. Il booste ses alliés avec des cris de guerre et des plans aussi rusés qu’un renard (ou qu’un écureuil en hiver)."
-type = "Normal"
+type = "Baton"
 descendants = Array[NodePath]([NodePath("../Tier1-1"), NodePath("../Tier1-2")])
 
 [node name="Tier1-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
