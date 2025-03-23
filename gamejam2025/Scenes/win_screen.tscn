@@ -33,6 +33,7 @@ offset_left = 415.0
 offset_top = 75.0
 offset_right = 565.0
 offset_bottom = 182.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Vous n'aurez jamais mes noix sacrées !"
 
 [node name="name" type="Label" parent="."]

@@ -23,6 +23,7 @@ const ennemyMoves = [
 @onready var end_turn_button: Button = $"../EndTurnButton"
 @onready var player: Node2D = $"../Player"
 @onready var win_screen = $"../WinScreen"
+@onready var win_scree_final = $"../WinScreenFinal"
 
 
 
@@ -107,17 +108,34 @@ func _on_squirrel_enemy_died():
 	print("L'ennemi est mort ! 🎉")
 	win_screen.set_squirrel(current_enemy) 
 	
-	battle_background.modulate.a = 0.2
-	mana_counter.visible = false
-	deck.visible = false
-	discard_pile_reference.visible = false
-	card_manager.visible = false
-	card_manager.set_physics_process(false)
-	card_manager.set_process(false)
-	squirrel_enemy.visible = false
-	player.visible = false
-	end_turn_button.visible = false
-	win_screen.visible = true
+	if current_enemy.squirrel_name == "chef":
+		print("win")
+		battle_background.visible = false
+		mana_counter.visible = false
+		deck.visible = false
+		discard_pile_reference.visible = false
+		card_manager.visible = false
+		card_manager.set_physics_process(false)
+		card_manager.set_process(false)
+		squirrel_enemy.visible = false
+		player.visible = false
+		end_turn_button.visible = false
+		win_scree_final.visible = true
+	
+		
+		
+	else:		
+		battle_background.modulate.a = 0.2
+		mana_counter.visible = false
+		deck.visible = false
+		discard_pile_reference.visible = false
+		card_manager.visible = false
+		card_manager.set_physics_process(false)
+		card_manager.set_process(false)
+		squirrel_enemy.visible = false
+		player.visible = false
+		end_turn_button.visible = false
+		win_screen.visible = true
 	
 	
 	
