@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=49 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -15,9 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://br13jqyfb661s" path="res://Scenes/genealogy_tree.tscn" id="10_av65l"]
 [ext_resource type="Texture2D" uid="uid://bi4yhcsx82f36" path="res://Assets/GlandMana.png" id="10_bghhq"]
 [ext_resource type="Texture2D" uid="uid://crvhrgnthtowx" path="res://Assets/Sword.png" id="10_ixkgl"]
-[ext_resource type="PackedScene" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
-[ext_resource type="PackedScene" path="res://Scenes/lose_screen.tscn" id="16_xxiqe"]
+[ext_resource type="PackedScene" uid="uid://cpmpj2xq1q82o" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
+[ext_resource type="PackedScene" uid="uid://cy5hygrw2p2jq" path="res://Scenes/lose_screen.tscn" id="16_xxiqe"]
 [ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_rutlw"]
+[ext_resource type="Texture2D" uid="uid://dj0pxyviwe0bn" path="res://Assets/BlockName.png" id="17_v8ihp"]
 [ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_3tnsj"]
 [ext_resource type="AudioStream" uid="uid://b7l8rnvyovh6d" path="res://Assets/Audio/Background 1_Forest.wav" id="20_4sdj5"]
 [ext_resource type="AudioStream" uid="uid://c8bktbi5bnaym" path="res://Assets/Audio/Carte_1.wav" id="22_jmqhj"]
@@ -33,7 +34,6 @@
 [ext_resource type="AudioStream" uid="uid://p70o7283jo5" path="res://Assets/Audio/Ennemi_Hochet.wav" id="30_71724"]
 [ext_resource type="AudioStream" uid="uid://cas8jgpddj4nq" path="res://Assets/Audio/Ennemi_Queue.wav" id="31_j4dvt"]
 [ext_resource type="AudioStream" uid="uid://b5r6mkk8rvxno" path="res://Assets/Audio/Ennemi_Slingshot.wav" id="32_qiweo"]
-[ext_resource type="Texture2D" uid="uid://djxr3dqjvjct5" path="res://Assets/SplashCredit.png" id="34_cve46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -47,6 +47,13 @@ expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4tk0"]
 bg_color = Color(0.884314, 3.20069e-06, 1.15514e-06, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1qn7q"]
+texture = ExtResource("17_v8ihp")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
 
 [sub_resource type="Animation" id="Animation_ey12e"]
 length = 0.001
@@ -305,6 +312,10 @@ streams_count = 2
 stream_0/stream = ExtResource("29_7tjo5")
 stream_1/stream = ExtResource("31_j4dvt")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ofdc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wuppe"]
+
 [node name="Main" type="Node2D"]
 
 [node name="BattleBackground" type="Sprite2D" parent="."]
@@ -397,7 +408,6 @@ offset_right = 74.0
 offset_bottom = -95.0
 theme_override_styles/background = SubResource("StyleBoxFlat_n68kw")
 theme_override_styles/fill = SubResource("StyleBoxFlat_o4tk0")
-max_value = 120.0
 value = 100.0
 show_percentage = false
 
@@ -461,15 +471,18 @@ texture = ExtResource("10_bghhq")
 
 [node name="Counter" type="RichTextLabel" parent="ManaCounter"]
 offset_left = -27.0
-offset_top = -29.0
-offset_right = 13.0
-offset_bottom = 11.0
+offset_top = -25.0
+offset_right = 4.0
+offset_bottom = 7.0
 scale = Vector2(3, 3)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 14
 text = "5/5"
 
 [node name="WinScreen" parent="." instance=ExtResource("10_761jn")]
 visible = false
-position = Vector2(205, 36)
+position = Vector2(683, 339)
 
 [node name="GenealogyTree" parent="." instance=ExtResource("10_av65l")]
 visible = false
@@ -479,22 +492,27 @@ position = Vector2(0, -52)
 position = Vector2(516, 720)
 
 [node name="EndTurnButton" type="Button" parent="."]
-offset_left = 1682.0
-offset_top = 555.0
-offset_right = 1690.0
-offset_bottom = 563.0
-text = "End turn"
+offset_left = 1664.0
+offset_top = 534.0
+offset_right = 1875.0
+offset_bottom = 647.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxTexture_1qn7q")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_1qn7q")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1qn7q")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_1qn7q")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_1qn7q")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_1qn7q")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1qn7q")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_1qn7q")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1qn7q")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_1qn7q")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1qn7q")
+text = "Terminer le tour"
 
 [node name="LoseScreen" parent="." instance=ExtResource("16_xxiqe")]
 visible = false
 position = Vector2(4, 4)
-
-[node name="lose_screen_back_to_menu_button" type="Button" parent="LoseScreen"]
-offset_left = 851.0
-offset_top = 664.0
-offset_right = 1105.0
-offset_bottom = 768.0
-text = "Back to main menu"
 
 [node name="WinScreenFinal" parent="." instance=ExtResource("13_sop7h")]
 visible = false
@@ -577,6 +595,17 @@ offset_left = 128.0
 offset_top = 651.0
 offset_right = 302.0
 offset_bottom = 736.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ofdc")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4ofdc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4ofdc")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_4ofdc")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4ofdc")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4ofdc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4ofdc")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4ofdc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4ofdc")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4ofdc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4ofdc")
 
 [node name="credit_button" type="Button" parent="MainMenuSplash"]
 layout_mode = 0
@@ -584,20 +613,22 @@ offset_left = 1658.0
 offset_top = 648.0
 offset_right = 1827.0
 offset_bottom = 733.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wuppe")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wuppe")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wuppe")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_wuppe")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wuppe")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_wuppe")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wuppe")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_wuppe")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wuppe")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wuppe")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wuppe")
 
 [node name="Credit" type="TextureRect" parent="."]
 visible = false
-offset_right = 1920.0
-offset_bottom = 1081.0
-texture = ExtResource("34_cve46")
-
-[node name="button_credit_back_to_menu" type="Button" parent="Credit"]
-layout_mode = 0
-offset_left = 951.0
-offset_top = 620.0
-offset_right = 1174.0
-offset_bottom = 716.0
-text = "Back to main menu"
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="mouse_entered" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_exited"]
