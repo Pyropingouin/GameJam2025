@@ -48,6 +48,7 @@ var player_pos_copy
 func _ready() -> void:
 	animations.get_node("Claw").visible = false
 	animations.get_node("Tail").visible = false
+	animations.get_node("Shield").visible = false
 
 	mana_counter.get_node("Counter").text = str(MAX_MANA) + "/" + str(MAX_MANA)
 	current_mana = MAX_MANA
@@ -104,14 +105,17 @@ func play_a_card(card):
 		tween.tween_property(card, "position", new_pos, CARD_MOVE_SPEED)
 		tween.connect("finished", on_tween_finished)
 		
-		player_pos_copy = player.position
-		print(player_pos_copy)
-		var new_player_pos = Vector2(player_pos_copy.x + 60, player_pos_copy.y)
-		#var new_player_pos = Vector2(squirrel_enemy.position.x - 100, squirrel_enemy.position.y)
-		var tween2 = get_tree().create_tween()
-		tween2.tween_property(player, "position", new_player_pos, ATTACK_MOVE_SPEED)
-		tween2.connect("finished", on_tween_attack_finished)
-		
+		if card_being_played.card_type == CARD_TYPE_OFFENSE:
+			player_pos_copy = player.position
+			print(player_pos_copy)
+			var new_player_pos = Vector2(player_pos_copy.x + 60, player_pos_copy.y)
+			#var new_player_pos = Vector2(squirrel_enemy.position.x - 100, squirrel_enemy.position.y)
+			var tween2 = get_tree().create_tween()
+			tween2.tween_property(player, "position", new_player_pos, ATTACK_MOVE_SPEED)
+			tween2.connect("finished", on_tween_attack_finished)
+		elif card_being_played.card_type == CARD_TYPE_DEFENSE:
+			animations.get_node("Shield").visible = true
+			animations.get_node("AnimationPlayer").play("shield_buff")
 	# Sinon, remettre la carte dans la main
 	else:
 		player_hand.add_card_to_hand(card, DEFAULT_CARD_MOVE_SPEED)
