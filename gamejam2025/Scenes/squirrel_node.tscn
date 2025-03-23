@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3gfhhqrstnjr"]
+[gd_scene load_steps=11 format=3 uid="uid://c3gfhhqrstnjr"]
 
 [ext_resource type="Script" path="res://Scripts/squirrel_node.gd" id="1_n44ba"]
 [ext_resource type="Texture2D" uid="uid://c2tkaw12kmxjl" path="res://Assets/Squirrel_avatar/BlockFaceEcureuil_2.png" id="2_p3e6v"]
 [ext_resource type="Texture2D" uid="uid://dj0pxyviwe0bn" path="res://Assets/BlockName.png" id="2_rtdcv"]
 [ext_resource type="Texture2D" uid="uid://cj06i7wvqqter" path="res://Assets/Squirrel_avatar/BlockFaceEcureuil.png" id="3_y62s3"]
+[ext_resource type="FontFile" uid="uid://c5imxehuj7mj7" path="res://Assets/Praise-Regular.ttf" id="5_qplw2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ptre"]
 border_width_left = 2
@@ -60,8 +61,10 @@ offset_left = 27.0
 offset_top = 130.0
 offset_right = 174.0
 offset_bottom = 172.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "JAMBON"
+theme_override_colors/font_color = Color(0.411765, 0.117647, 0.0235294, 1)
+theme_override_fonts/font = ExtResource("5_qplw2")
+theme_override_font_sizes/font_size = 24
+text = "Jambon"
 horizontal_alignment = 1
 vertical_alignment = 1
 

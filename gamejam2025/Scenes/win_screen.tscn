@@ -36,7 +36,7 @@ offset_top = 207.0
 offset_right = 1141.0
 offset_bottom = 508.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 24
 text = "Vous n'aurez jamais mes noix sacrées !"
 
 [node name="name" type="Label" parent="."]
@@ -45,7 +45,7 @@ offset_top = 496.0
 offset_right = 466.0
 offset_bottom = 628.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 24
 text = "Lord Jambon"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=59 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://crvhrgnthtowx" path="res://Assets/Sword.png" id="10_ixkgl"]
 [ext_resource type="PackedScene" uid="uid://cpmpj2xq1q82o" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
 [ext_resource type="PackedScene" uid="uid://cy5hygrw2p2jq" path="res://Scenes/lose_screen.tscn" id="16_xxiqe"]
+[ext_resource type="FontFile" uid="uid://c5imxehuj7mj7" path="res://Assets/Praise-Regular.ttf" id="17_hk6cb"]
 [ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_rutlw"]
 [ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_3tnsj"]
 [ext_resource type="Texture2D" uid="uid://b6dgi4xpsr06d" path="res://Assets/Animation/ecureuil_ancetre_Arme.png" id="21_m6gpq"]
@@ -690,7 +691,7 @@ visible = false
 position = Vector2(205, 36)
 
 [node name="GenealogyTree" parent="." instance=ExtResource("10_av65l")]
-position = Vector2(134, -3)
+position = Vector2(-2, -3)
 
 [node name="Player" parent="." instance=ExtResource("9_6gpg3")]
 position = Vector2(516, 720)
@@ -700,7 +701,9 @@ offset_left = 1646.0
 offset_top = 536.0
 offset_right = 1881.0
 offset_bottom = 650.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.411765, 0.117647, 0.0235294, 1)
+theme_override_fonts/font = ExtResource("17_hk6cb")
+theme_override_font_sizes/font_size = 24
 theme_override_styles/focus = ExtResource("38_hcwcr")
 theme_override_styles/disabled_mirrored = ExtResource("38_hcwcr")
 theme_override_styles/disabled = ExtResource("38_hcwcr")
@@ -868,7 +871,8 @@ offset_left = 1632.0
 offset_top = 688.0
 offset_right = 1881.0
 offset_bottom = 797.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.411765, 0.117647, 0.0235294, 1)
+theme_override_fonts/font = ExtResource("17_hk6cb")
 theme_override_styles/focus = ExtResource("38_hcwcr")
 theme_override_styles/disabled_mirrored = ExtResource("38_hcwcr")
 theme_override_styles/disabled = ExtResource("38_hcwcr")
