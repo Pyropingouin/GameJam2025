@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=20 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -11,9 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://bk8ny1bk7sxim" path="res://Scenes/player.tscn" id="9_6gpg3"]
 [ext_resource type="Script" path="res://Scripts/battle_manager.gd" id="9_fj1c1"]
 [ext_resource type="Texture2D" uid="uid://dyeu1ufbss37v" path="res://Assets/shield.png" id="9_wrptr"]
+[ext_resource type="PackedScene" uid="uid://ka0g8mqtomq5" path="res://Scenes/win_screen.tscn" id="10_761jn"]
 [ext_resource type="PackedScene" uid="uid://br13jqyfb661s" path="res://Scenes/genealogy_tree.tscn" id="10_av65l"]
 [ext_resource type="Texture2D" uid="uid://bi4yhcsx82f36" path="res://Assets/GlandMana.png" id="10_bghhq"]
 [ext_resource type="Texture2D" uid="uid://rqcrnjinekom" path="res://Assets/temp_sword.png" id="10_r83n6"]
+[ext_resource type="PackedScene" uid="uid://cpmpj2xq1q82o" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -142,6 +144,7 @@ texture = ExtResource("10_r83n6")
 script = ExtResource("9_fj1c1")
 
 [node name="button_show_tree" type="Button" parent="BattleManager"]
+visible = false
 offset_left = 920.0
 offset_top = 413.0
 offset_right = 1146.0
@@ -162,6 +165,10 @@ offset_bottom = 11.0
 scale = Vector2(3, 3)
 text = "5/5"
 
+[node name="WinScreen" parent="." instance=ExtResource("10_761jn")]
+visible = false
+position = Vector2(683, 339)
+
 [node name="GenealogyTree" parent="." instance=ExtResource("10_av65l")]
 visible = false
 position = Vector2(0, -52)
@@ -175,6 +182,8 @@ offset_top = 555.0
 offset_right = 1690.0
 offset_bottom = 563.0
 text = "End turn"
+
+[node name="WinScreenFinal" parent="." instance=ExtResource("13_sop7h")]
 
 [connection signal="mouse_entered" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_exited"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpmpj2xq1q82o"]
+
+[ext_resource type="Texture2D" uid="uid://cnuh88fllu4sf" path="res://Assets/Squirrel_avatar/2020-HW-squirrel-removal-cost.jpg" id="1_sp5l0"]
+
+[node name="WinScreenFinal" type="Node2D"]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 580.0
+offset_top = 112.0
+offset_right = 2020.0
+offset_bottom = 1172.0
+texture = ExtResource("1_sp5l0")
