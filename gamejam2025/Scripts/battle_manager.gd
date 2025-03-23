@@ -31,6 +31,7 @@ const ennemyMoves = [
 
 
 
+
 var discard_pile = []
 var card_being_played
 var current_mana
@@ -158,6 +159,8 @@ func _on_button_show_tree_pressed():
 	player.visible = false
 	end_turn_button.visible = false
 	win_screen.visible = false
+	enemy_shield.visible = false
+	enemy_sword.visible = false
 	
 	
 func _on_combat_requested(squirrel: SquirrelNode):
