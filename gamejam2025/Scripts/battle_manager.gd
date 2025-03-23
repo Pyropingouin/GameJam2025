@@ -48,6 +48,7 @@ var ennemyNextMove
 var current_enemy: SquirrelNode
 var player_pos_copy
 var enemy_pos_copy
+var damage_multiplier = 1
 
 
 
@@ -79,6 +80,8 @@ func _ready() -> void:
 	button_lose_back_menu.pressed.connect(_on_credit_back_to_menu_pressed)
 
 	setNextMove()
+	enemy_shield.visible = false
+	enemy_sword.visible = false
 	################# TEST AVEC ECUREIL DE DÉBUT
 	#var test_squirrel = preload("res://Scenes/squirrel_node.tscn").instantiate()
 	#test_squirrel.squirrel_name = "Test McNutty"
@@ -117,7 +120,7 @@ func play_a_card(card):
 		deck.player_deck.erase(card)
 		# Faire l'effet
 		if card.card_type == CARD_TYPE_OFFENSE:
-			squirrel_enemy.reduceHealth(card.damage)
+			squirrel_enemy.reduceHealth(card.damage * damage_multiplier)
 		elif card.card_type == CARD_TYPE_DEFENSE:
 			player.addDefense(card.armor)
 			
@@ -180,6 +183,7 @@ func _on_squirrel_enemy_died():
 		
 		
 	else:		
+		increaseDamage()
 		battle_background.modulate.a = 0.2
 		mana_counter.visible = false
 		deck.visible = false
@@ -191,7 +195,8 @@ func _on_squirrel_enemy_died():
 		player.visible = false
 		end_turn_button.visible = false
 		win_screen.visible = true
-		
+	enemy_shield.visible = false
+	enemy_sword.visible = false
 		
 	# Active la suppression récursive sur l'écureuil battu
 	#if is_instance_valid(current_enemy):
@@ -216,6 +221,8 @@ func _on_player_died():
 	player.visible = false
 	end_turn_button.visible = false
 	lose_screen.visible = true
+	enemy_shield.visible = false
+	enemy_sword.visible = false
 	
 
 func _on_button_show_tree_pressed():
@@ -372,6 +379,10 @@ func	 enter_combat_mode():
 	player.visible = true
 	end_turn_button.visible = true
 	
+
+func increaseDamage():
+	damage_multiplier += 0.5
+	print(damage_multiplier)
 func all_invisible():
 	genealogy_tree.visible = false
 	#battle_background.modulate.a = 0.2

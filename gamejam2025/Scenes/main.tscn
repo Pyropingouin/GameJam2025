@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://br13jqyfb661s" path="res://Scenes/genealogy_tree.tscn" id="10_av65l"]
 [ext_resource type="Texture2D" uid="uid://bi4yhcsx82f36" path="res://Assets/GlandMana.png" id="10_bghhq"]
 [ext_resource type="Texture2D" uid="uid://crvhrgnthtowx" path="res://Assets/Sword.png" id="10_ixkgl"]
-[ext_resource type="PackedScene" uid="uid://cpmpj2xq1q82o" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
-[ext_resource type="PackedScene" uid="uid://cy5hygrw2p2jq" path="res://Scenes/lose_screen.tscn" id="16_xxiqe"]
+[ext_resource type="PackedScene" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
+[ext_resource type="PackedScene" path="res://Scenes/lose_screen.tscn" id="16_xxiqe"]
 [ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_rutlw"]
 [ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_3tnsj"]
 [ext_resource type="AudioStream" uid="uid://b7l8rnvyovh6d" path="res://Assets/Audio/Background 1_Forest.wav" id="20_4sdj5"]
@@ -397,6 +397,7 @@ offset_right = 74.0
 offset_bottom = -95.0
 theme_override_styles/background = SubResource("StyleBoxFlat_n68kw")
 theme_override_styles/fill = SubResource("StyleBoxFlat_o4tk0")
+max_value = 120.0
 value = 100.0
 show_percentage = false
 
