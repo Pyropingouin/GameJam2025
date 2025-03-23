@@ -236,6 +236,7 @@ func _on_button_show_tree_pressed():
 	
 func _on_combat_requested(squirrel: SquirrelNode):
 	audio_manager.get_node("EngageBattle").play()
+	audio_manager.get_node("MenuMusic").stop()
 	audio_manager.get_node("BattleMusic").play() # TODO
 	
 	print("BattleManager a reçu :", squirrel.squirrel_name)
@@ -367,6 +368,8 @@ func on_tween_finished_empty_hand():
 
 
 func enter_tree_mode():
+	audio_manager.get_node("BattleMusic").stop()
+	audio_manager.get_node("MenuMusic").play() # TODO
 	print("Show Tree")	
 	genealogy_tree.visible = true
 	battle_background.visible = true

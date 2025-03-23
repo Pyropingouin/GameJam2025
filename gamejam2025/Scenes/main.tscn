@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=57 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
@@ -27,8 +27,10 @@
 [ext_resource type="Texture2D" uid="uid://lo8s1mlrx0rc" path="res://Assets/Animation/ecureuil_bebe_slingshot_Arme.png" id="23_cku4j"]
 [ext_resource type="AudioStream" uid="uid://i5d2f6xqp8gg" path="res://Assets/Audio/Carte_2.wav" id="23_u6pyn"]
 [ext_resource type="AudioStream" uid="uid://clp10gnmpocui" path="res://Assets/Audio/Carte_3.wav" id="24_tsytl"]
+[ext_resource type="AudioStream" uid="uid://bh03uw6snueb6" path="res://Assets/Audio/Music/SquirrelWarrior_niveau_loop.wav" id="25_21laf"]
 [ext_resource type="AudioStream" uid="uid://bsueikq1us2gk" path="res://Assets/Audio/Carte_4.wav" id="25_omr60"]
 [ext_resource type="AudioStream" uid="uid://c8ehur37evhox" path="res://Assets/Audio/Carte_5.wav" id="26_7to74"]
+[ext_resource type="AudioStream" uid="uid://67trjrdfl1vx" path="res://Assets/Audio/Music/SquirrelWarrior_menu.wav" id="26_pd02e"]
 [ext_resource type="Texture2D" uid="uid://dsltxeqaxymk5" path="res://Assets/SplashStart.png" id="27_iwfyl"]
 [ext_resource type="AudioStream" uid="uid://bny2g1o8a5hne" path="res://Assets/Audio/Engage Battle.wav" id="27_vi0jc"]
 [ext_resource type="AudioStream" uid="uid://mk10futh3h3x" path="res://Assets/Audio/Ennemi_Autre.wav" id="28_001ck"]
@@ -773,8 +775,10 @@ libraries = {
 [node name="AudioManager" type="Node2D" parent="."]
 
 [node name="BattleMusic" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("25_21laf")
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("26_pd02e")
 
 [node name="Forest" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("20_4sdj5")
