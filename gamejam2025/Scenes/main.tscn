@@ -690,8 +690,7 @@ visible = false
 position = Vector2(205, 36)
 
 [node name="GenealogyTree" parent="." instance=ExtResource("10_av65l")]
-visible = false
-position = Vector2(0, -52)
+position = Vector2(134, -3)
 
 [node name="Player" parent="." instance=ExtResource("9_6gpg3")]
 position = Vector2(516, 720)
@@ -858,6 +857,7 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_asqb4")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_asqb4")
 
 [node name="Credit" type="TextureRect" parent="."]
+visible = false
 offset_right = 1920.0
 offset_bottom = 1081.0
 texture = ExtResource("34_cve46")

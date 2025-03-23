@@ -55,7 +55,7 @@ squirrel_name = "chef"
 squirrel_avatar = ExtResource("4_5hyie")
 squirrel_image = ExtResource("5_neqip")
 squirrel_frames = ExtResource("6_kh0rv")
-hp = 120
+hp = 150
 description = "Le patriarche de la famille. Personne ne connaît son véritable âge (probablement 2-3 ans, ça reste un écureuil tout de même.) Il ne laisserais jamais tombé la pépinière de chênes"
 type = "Baton"
 dmgMult = 2
@@ -63,10 +63,10 @@ win_text = "De toute façon, je n'ai jamais aimé les glands. J'ai toujours ét�
 descendants = Array[NodePath]([NodePath("../Tier1-1"), NodePath("../Tier1-2")])
 
 [node name="Tier1-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 160.0
-offset_top = 279.0
-offset_right = 160.0
-offset_bottom = 279.0
+offset_left = 119.0
+offset_top = 294.0
+offset_right = 119.0
+offset_bottom = 294.0
 squirrel_name = "Lance"
 squirrel_avatar = ExtResource("5_h4al0")
 squirrel_image = ExtResource("7_n2il5")
@@ -79,10 +79,10 @@ win_text = "Arrrg, vous avez percez mes défenses sur-écureilliennes. Me voilà
 descendants = Array[NodePath]([NodePath("../Tier2-1")])
 
 [node name="Tier1-2" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 656.0
-offset_top = 289.0
-offset_right = 656.0
-offset_bottom = 289.0
+offset_left = 676.0
+offset_top = 286.0
+offset_right = 676.0
+offset_bottom = 286.0
 squirrel_name = "Prêtre"
 squirrel_avatar = ExtResource("6_bwecv")
 squirrel_image = ExtResource("9_y8iev")
@@ -95,25 +95,25 @@ win_text = "Je dois être honnête avec vous, je n'ai pas de pouvoirs mystiques.
 descendants = Array[NodePath]([NodePath("../Tier-2-3"), NodePath("../Tier-2-2")])
 
 [node name="Tier-2-3" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 892.0
-offset_top = 533.0
-offset_right = 892.0
-offset_bottom = 533.0
+offset_left = 906.0
+offset_top = 564.0
+offset_right = 906.0
+offset_bottom = 564.0
 squirrel_name = "Jambon"
 squirrel_avatar = ExtResource("9_3abaj")
 squirrel_image = ExtResource("11_eprea")
 squirrel_frames = ExtResource("15_lrw63")
 hp = 80
-description = "On le surnome le \"saucé''. Il le corps et l'attitude d'un culturiste. La puissance de ses attaques n'a d'égal que la grosseur de son ego. "
+description = "On le surnome le \"saucé''. Il a le corps et l'attitude d'un culturiste. La puissance de ses attaques n'a d'égal que la grosseur de son ego. "
 type = "Baton"
 win_text = "Nom d'une noix ! J'aurais du prendre plus de protèine de gland. Me voilà déshérité de la pépinière de chênes :("
 descendants = Array[NodePath]([NodePath("../Tier3-4")])
 
 [node name="Tier-2-2" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 522.0
-offset_top = 555.0
-offset_right = 522.0
-offset_bottom = 555.0
+offset_left = 516.0
+offset_top = 567.0
+offset_right = 516.0
+offset_bottom = 567.0
 squirrel_name = "Fille"
 squirrel_avatar = ExtResource("7_hjcf3")
 squirrel_image = ExtResource("13_fjl8x")
@@ -124,10 +124,10 @@ type = "Normal"
 win_text = "Je vais te rayer du conseil d'administration en moins de deux ! Tu me payerais bien cette défaite au prochain meeting des actionnaires!"
 
 [node name="Tier2-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 149.0
-offset_top = 548.0
-offset_right = 149.0
-offset_bottom = 548.0
+offset_left = 117.0
+offset_top = 565.0
+offset_right = 117.0
+offset_bottom = 565.0
 squirrel_name = "Plume"
 squirrel_avatar = ExtResource("8_fwu1q")
 squirrel_image = ExtResource("15_22268")
@@ -139,10 +139,10 @@ win_text = "Mais je croyais que mon style de vie campagnard me protégerais de t
 descendants = Array[NodePath]([NodePath("../Tier3-1"), NodePath("../Tier3-2"), NodePath("../Tier3-3")])
 
 [node name="Tier3-4" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 811.0
-offset_top = 817.0
-offset_right = 811.0
-offset_bottom = 817.0
+offset_left = 815.0
+offset_top = 842.0
+offset_right = 815.0
+offset_bottom = 842.0
 squirrel_name = "Bébé"
 squirrel_image = ExtResource("16_frofj")
 squirrel_frames = ExtResource("23_32q81")
@@ -152,9 +152,9 @@ type = "Hochet"
 win_text = ":( Ouuuaaaannnnnn !  :("
 
 [node name="Tier3-1" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = -22.0
+offset_left = 14.0
 offset_top = 850.0
-offset_right = -22.0
+offset_right = 14.0
 offset_bottom = 850.0
 squirrel_name = "Fleur"
 squirrel_avatar = ExtResource("10_66wfn")
@@ -165,10 +165,10 @@ description = "L'amour pour les fleurs de cet écureuil n'a pas d'égal. Il sera
 type = "Baton"
 
 [node name="Tier3-2" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 225.0
-offset_top = 839.0
-offset_right = 225.0
-offset_bottom = 839.0
+offset_left = 248.0
+offset_top = 853.0
+offset_right = 248.0
+offset_bottom = 853.0
 squirrel_name = "Ruban"
 squirrel_avatar = ExtResource("19_8vx0m")
 squirrel_image = ExtResource("20_lwkqn")
@@ -179,10 +179,10 @@ type = "Normal"
 win_text = "J'ai peut-être encore une couche, mais je sais reconnaître un tyrant quand j'en vois un. Jamais tu n'aurais la pépinière de chênes. JAMAIS ! "
 
 [node name="Tier3-3" parent="tree_container" instance=ExtResource("1_c4lpk")]
-offset_left = 464.0
-offset_top = 839.0
-offset_right = 464.0
-offset_bottom = 839.0
+offset_left = 476.0
+offset_top = 849.0
+offset_right = 476.0
+offset_bottom = 849.0
 squirrel_name = "Slingshot"
 squirrel_avatar = ExtResource("11_bdvdf")
 squirrel_image = ExtResource("22_5j1b6")
