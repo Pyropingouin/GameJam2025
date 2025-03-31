@@ -8,6 +8,7 @@ extends Node
 @onready var button_combat = $info_panel/button_combat
 @onready var button_cancel = $info_panel/button_cancel
 @onready var genealogy_tree = $"."
+@onready var tree_music: AudioStreamPlayer2D = $TreeMusic
 
 var selected_squirrel: SquirrelNode = null
 signal combat_requested(squirrel: SquirrelNode)
@@ -17,6 +18,8 @@ signal combat_requested(squirrel: SquirrelNode)
 
 
 func _ready():
+	tree_music.play()
+	
 	button_combat.pressed.connect(_on_button_combat_pressed)
 	button_cancel.pressed.connect(_on_button_cancel_pressed)
 	# dans _ready() par exemple
@@ -39,7 +42,7 @@ func _on_button_combat_pressed():
 		print("Combat demandé contre :", selected_squirrel.squirrel_name)
 		emit_signal("combat_requested", selected_squirrel)
 		
-		genealogy_tree.visible = false
+		#genealogy_tree.visible = false
 		
 		
 	else:
