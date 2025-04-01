@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://ghjexvfrju0y" path="res://Assets/Animation/ecureuil_bebe_fleur_Arme.png" id="22_s5ntu"]
 [ext_resource type="Texture2D" uid="uid://lo8s1mlrx0rc" path="res://Assets/Animation/ecureuil_bebe_slingshot_Arme.png" id="23_cku4j"]
 [ext_resource type="AudioStream" uid="uid://bh03uw6snueb6" path="res://Assets/Audio/Music/SquirrelWarrior_niveau_loop.wav" id="25_21laf"]
+[ext_resource type="PackedScene" uid="uid://drjkgtqju0kwd" path="res://Scenes/credits_scene.tscn" id="25_v3p56"]
 [ext_resource type="AudioStream" uid="uid://67trjrdfl1vx" path="res://Assets/Audio/Music/SquirrelWarrior_menu.wav" id="26_pd02e"]
 [ext_resource type="AudioStream" uid="uid://smyu14dcapbp" path="res://Assets/Audio/sfx_v2/Background 1_Forest.wav" id="27_f58ca"]
 [ext_resource type="Texture2D" uid="uid://dsltxeqaxymk5" path="res://Assets/SplashStart.png" id="27_iwfyl"]
@@ -35,7 +36,6 @@
 [ext_resource type="AudioStream" uid="uid://8yjee5w4ajgw" path="res://Assets/Audio/sfx_v2/Carte_4.wav" id="32_6ueh7"]
 [ext_resource type="AudioStream" uid="uid://c02gr57bvn7bq" path="res://Assets/Audio/sfx_v2/Carte_5.wav" id="33_55pkj"]
 [ext_resource type="AudioStream" uid="uid://ci06c1udvgjvp" path="res://Assets/Audio/sfx_v2/Engage Battle.wav" id="34_bx343"]
-[ext_resource type="Texture2D" uid="uid://djxr3dqjvjct5" path="res://Assets/SplashCredit.png" id="34_cve46"]
 [ext_resource type="AudioStream" uid="uid://b1yndqvo1n5k5" path="res://Assets/Audio/sfx_v2/Ennemi_Autre.wav" id="35_7li20"]
 [ext_resource type="AudioStream" uid="uid://dgrfhihjh2ogd" path="res://Assets/Audio/sfx_v2/Ennemi_Hochet.wav" id="36_2eohc"]
 [ext_resource type="AudioStream" uid="uid://u6wj8oe22gyv" path="res://Assets/Audio/sfx_v2/Ennemi_Slingshot.wav" id="37_htnvu"]
@@ -807,34 +807,8 @@ libraries = {
 visible = false
 position = Vector2(205, 36)
 
-[node name="CreditsScene" type="Node2D" parent="."]
+[node name="CreditsScene" parent="." instance=ExtResource("25_v3p56")]
 visible = false
-
-[node name="Credit" type="TextureRect" parent="CreditsScene"]
-offset_right = 1920.0
-offset_bottom = 1081.0
-texture = ExtResource("34_cve46")
-
-[node name="button_credit_back_to_menu" type="Button" parent="CreditsScene/Credit"]
-layout_mode = 0
-offset_left = 1632.0
-offset_top = 688.0
-offset_right = 1881.0
-offset_bottom = 797.0
-theme_override_colors/font_color = Color(0.411765, 0.117647, 0.0235294, 1)
-theme_override_fonts/font = ExtResource("17_hk6cb")
-theme_override_styles/focus = ExtResource("38_hcwcr")
-theme_override_styles/disabled_mirrored = ExtResource("38_hcwcr")
-theme_override_styles/disabled = ExtResource("38_hcwcr")
-theme_override_styles/hover_pressed_mirrored = ExtResource("38_hcwcr")
-theme_override_styles/hover_pressed = ExtResource("38_hcwcr")
-theme_override_styles/hover_mirrored = ExtResource("38_hcwcr")
-theme_override_styles/hover = ExtResource("38_hcwcr")
-theme_override_styles/pressed_mirrored = ExtResource("38_hcwcr")
-theme_override_styles/pressed = ExtResource("38_hcwcr")
-theme_override_styles/normal_mirrored = ExtResource("38_hcwcr")
-theme_override_styles/normal = ExtResource("38_hcwcr")
-text = "Retourner au menu"
 
 [node name="FinalWinScene" parent="." instance=ExtResource("13_sop7h")]
 visible = false
@@ -842,13 +816,6 @@ visible = false
 [node name="LoseScene" parent="." instance=ExtResource("16_xxiqe")]
 visible = false
 position = Vector2(4, 4)
-
-[node name="lose_screen_back_to_menu_button" type="Button" parent="LoseScene"]
-offset_left = 851.0
-offset_top = 664.0
-offset_right = 1105.0
-offset_bottom = 768.0
-text = "Back to main menu"
 
 [node name="AudioManager" type="Node2D" parent="."]
 

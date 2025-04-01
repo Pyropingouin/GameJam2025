@@ -63,7 +63,7 @@ const ennemyMoves = [
 #@onready var credit_button = $"../MainMenuSplash/credit_button"
 #@onready var credit = $"../Credit"
 #@onready var button_credit_back_menu = $"../Credit/button_credit_back_to_menu"
-@onready var lose_screen_back_to_menu_button: Button = $"../../LoseScene/lose_screen_back_to_menu_button"
+#@onready var lose_screen_back_to_menu_button: Button = $"../../LoseScene/lose_screen_back_to_menu_button"
 
 var discard_pile = []
 var card_being_played
@@ -104,8 +104,12 @@ func _ready() -> void:
 	player.died.connect(_on_player_died)
 	start_game_button.pressed.connect(_on_start_game_pressed)
 	credit_button.pressed.connect(_on_credit_pressed)
-	button_credit_back_to_menu.pressed.connect(_on_credit_back_to_menu_pressed)
-	lose_screen_back_to_menu_button.pressed.connect(_on_credit_back_to_menu_pressed)
+	
+	var temp_back_to_menu_credits = credits_scene.get_node("BackToMenu")
+	temp_back_to_menu_credits.pressed.connect(_on_credit_back_to_menu_pressed)
+	
+	var temp_back_to_menu = lose_scene.get_node("BackToMenu")
+	temp_back_to_menu.pressed.connect(_on_credit_back_to_menu_pressed)
 
 	setNextMove()
 	enemy_shield.visible = false

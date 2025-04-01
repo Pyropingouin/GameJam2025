@@ -8,3 +8,10 @@
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_ifokh")
+
+[node name="BackToMenu" type="Button" parent="."]
+offset_left = 851.0
+offset_top = 664.0
+offset_right = 1105.0
+offset_bottom = 768.0
+text = "Back to main menu"
