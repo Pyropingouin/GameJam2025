@@ -1,7 +1,8 @@
-[gd_scene load_steps=59 format=3 uid="uid://dhi4ubpsbjwht"]
+[gd_scene load_steps=57 format=3 uid="uid://dhi4ubpsbjwht"]
 
 [ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
+[ext_resource type="PackedScene" uid="uid://3slax7bwe66s" path="res://Scenes/main_menu_scene.tscn" id="1_qitty"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_pow3f"]
 [ext_resource type="Script" path="res://Scripts/player_hand.gd" id="4_pwind"]
 [ext_resource type="Script" path="res://Scripts/deck.gd" id="4_t3xfq"]
@@ -27,7 +28,6 @@
 [ext_resource type="PackedScene" uid="uid://drjkgtqju0kwd" path="res://Scenes/credits_scene.tscn" id="25_v3p56"]
 [ext_resource type="AudioStream" uid="uid://67trjrdfl1vx" path="res://Assets/Audio/Music/SquirrelWarrior_menu.wav" id="26_pd02e"]
 [ext_resource type="AudioStream" uid="uid://smyu14dcapbp" path="res://Assets/Audio/sfx_v2/Background 1_Forest.wav" id="27_f58ca"]
-[ext_resource type="Texture2D" uid="uid://dsltxeqaxymk5" path="res://Assets/SplashStart.png" id="27_iwfyl"]
 [ext_resource type="AudioStream" uid="uid://c4en3ygogfdkh" path="res://Assets/Audio/sfx_v2/Background 2_Ecureuils.wav" id="28_qm1hg"]
 [ext_resource type="AudioStream" uid="uid://blk6u4e1t2532" path="res://Assets/Audio/Ennemi_Griffe.wav" id="29_7tjo5"]
 [ext_resource type="AudioStream" uid="uid://w2om1whgbwb5" path="res://Assets/Audio/sfx_v2/Carte_1.wav" id="29_hl3qb"]
@@ -42,10 +42,6 @@
 [ext_resource type="StyleBox" uid="uid://cvbqr8ncd81fr" path="res://Assets/button.tres" id="38_hcwcr"]
 [ext_resource type="AudioStream" uid="uid://csv4vvkl2v8xr" path="res://Assets/Audio/sfx_v2/Ennemi_Griffe.wav" id="38_k2uak"]
 [ext_resource type="AudioStream" uid="uid://be40oomafpihj" path="res://Assets/Audio/sfx_v2/Ennemi_Queue.wav" id="39_50rkn"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_542va"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_asqb4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -526,48 +522,7 @@ stream_1/stream = ExtResource("39_50rkn")
 
 [node name="Main" type="Node2D"]
 
-[node name="MainMenuScene" type="Node2D" parent="."]
-
-[node name="MainMenuSplash" type="TextureRect" parent="MainMenuScene"]
-offset_right = 1922.0
-offset_bottom = 1080.0
-texture = ExtResource("27_iwfyl")
-
-[node name="start_game_button" type="Button" parent="MainMenuScene/MainMenuSplash"]
-layout_mode = 0
-offset_left = 128.0
-offset_top = 651.0
-offset_right = 302.0
-offset_bottom = 736.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_542va")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_542va")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_542va")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_542va")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_542va")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_542va")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_542va")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_542va")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_542va")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_542va")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_542va")
-
-[node name="credit_button" type="Button" parent="MainMenuScene/MainMenuSplash"]
-layout_mode = 0
-offset_left = 1658.0
-offset_top = 648.0
-offset_right = 1827.0
-offset_bottom = 733.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_asqb4")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_asqb4")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_asqb4")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_asqb4")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_asqb4")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_asqb4")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_asqb4")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_asqb4")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_asqb4")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_asqb4")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_asqb4")
+[node name="MainMenuScene" parent="." instance=ExtResource("1_qitty")]
 
 [node name="TreeScene" parent="." instance=ExtResource("10_av65l")]
 visible = false

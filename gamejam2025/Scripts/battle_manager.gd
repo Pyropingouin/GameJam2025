@@ -17,8 +17,6 @@ const ennemyMoves = [
 
 # Main Menu Scene
 @onready var main_menu_scene: Node2D = $"../../MainMenuScene"
-@onready var start_game_button: Button = $"../../MainMenuScene/MainMenuSplash/start_game_button"
-@onready var credit_button: Button = $"../../MainMenuScene/MainMenuSplash/credit_button"
 
 # Tree Scene
 @onready var tree_scene: Node2D = $"../../TreeScene"
@@ -34,7 +32,6 @@ const ennemyMoves = [
 
 # Credits Scene
 @onready var credits_scene: Node2D = $"../../CreditsScene"
-@onready var button_credit_back_to_menu: Button = $"../../CreditsScene/Credit/button_credit_back_to_menu"
 
 @onready var player_hand: Node2D = $"../PlayerHand"
 @onready var deck: Node2D = $"../Deck"
@@ -102,8 +99,11 @@ func _ready() -> void:
 	squirrel_enemy.died.connect(_on_squirrel_enemy_died)
 	win_screen.get_node("button").pressed.connect(_on_button_show_tree_pressed)
 	player.died.connect(_on_player_died)
-	start_game_button.pressed.connect(_on_start_game_pressed)
-	credit_button.pressed.connect(_on_credit_pressed)
+	
+	var temp_start_game_button = main_menu_scene.get_node("StartGameButton")
+	temp_start_game_button.pressed.connect(_on_start_game_pressed)
+	var temp_credits_button = main_menu_scene.get_node("CreditsButton")
+	temp_credits_button.pressed.connect(_on_credit_pressed)
 	
 	var temp_back_to_menu_credits = credits_scene.get_node("BackToMenu")
 	temp_back_to_menu_credits.pressed.connect(_on_credit_back_to_menu_pressed)
