@@ -47,11 +47,11 @@ const ennemyMoves = [
 @onready var enemy_shield: Sprite2D = $"../EnemyShield"
 @onready var enemy_sword: Sprite2D = $"../EnemySword"
 @onready var win_screen = $"../WinScreen"
-@onready var win_scree_final = $"../WinScreenFinal"
+#@onready var win_scree_final = $"../WinScreenFinal"
 @onready var animations: Node2D = $"../Animations"
-@onready var lose_screen = $"../LoseScreen"
-@onready var shield: Sprite2D = $HealthBar/Shield
-@onready var shield_text: RichTextLabel = $HealthBar/ShieldText
+#@onready var lose_screen = $"../LoseScreen"
+#@onready var shield: Sprite2D = $HealthBar/Shield
+#@onready var shield_text: RichTextLabel = $HealthBar/ShieldText
 #@onready var audio_manager: Node2D = $"../AudioManager"
 @onready var audio_manager: Node2D = $"../../AudioManager"
 
@@ -423,7 +423,7 @@ func enter_tree_mode():
 	#card_manager.set_process(false)
 	#squirrel_enemy.visible = false
 	#player.visible = false
-	#end_turn_button.visible = false
+	end_turn_button.visible = false
 	#win_screen.visible = false
 	#enemy_shield.visible = false
 	#enemy_sword.visible = false
@@ -444,7 +444,7 @@ func enter_combat_mode():
 	#card_manager.set_process(true)
 	#squirrel_enemy.visible = true
 	#player.visible = true
-	#end_turn_button.visible = true
+	end_turn_button.visible = true
 	
 func increaseDamage():
 	damage_multiplier += 0.5
@@ -468,7 +468,7 @@ func all_invisible():
 	card_manager.set_process(false)
 	#squirrel_enemy.visible = false
 	#player.visible = false
-	#end_turn_button.visible = false
+	end_turn_button.visible = false
 	#win_screen.visible = false
 	#enemy_shield.visible = false
 	#enemy_sword.visible = false
@@ -504,5 +504,5 @@ func endGame():
 	card_manager.set_process(false)
 	#squirrel_enemy.visible = false
 	#player.visible = false
-	#end_turn_button.visible = false
+	end_turn_button.visible = false
 	#win_scree_final.visible = true
