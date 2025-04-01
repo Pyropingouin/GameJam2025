@@ -1,5 +1,6 @@
 extends Node
 
+const MAIN_SCENE_PATH = "res://Scenes/main.tscn"
 
 @onready var info_panel = $info_panel
 @onready var name_label = $info_panel/name_label
@@ -8,7 +9,8 @@ extends Node
 @onready var button_combat = $info_panel/button_combat
 @onready var button_cancel = $info_panel/button_cancel
 @onready var genealogy_tree = $"."
-@onready var tree_music: AudioStreamPlayer2D = $TreeMusic
+#@onready var tree_music: AudioStreamPlayer2D = $TreeMusic
+#@onready var battle_manager: Node = $BattleManager
 
 var selected_squirrel: SquirrelNode = null
 signal combat_requested(squirrel: SquirrelNode)
@@ -18,7 +20,7 @@ signal combat_requested(squirrel: SquirrelNode)
 
 
 func _ready():
-	tree_music.play()
+	#tree_music.play()
 	
 	button_combat.pressed.connect(_on_button_combat_pressed)
 	button_cancel.pressed.connect(_on_button_cancel_pressed)
@@ -41,6 +43,9 @@ func _on_button_combat_pressed():
 	if selected_squirrel:
 		print("Combat demandé contre :", selected_squirrel.squirrel_name)
 		emit_signal("combat_requested", selected_squirrel)
+		#print(battle_manager)
+		#battle_manager.connect_tree_signals(self)
+		#get_tree().change_scene_to_file(MAIN_SCENE_PATH)
 		
 		#genealogy_tree.visible = false
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://br13jqyfb661s"]
+[gd_scene load_steps=37 format=3 uid="uid://br13jqyfb661s"]
 
 [ext_resource type="PackedScene" uid="uid://c3gfhhqrstnjr" path="res://Scenes/squirrel_node.tscn" id="1_c4lpk"]
 [ext_resource type="Script" path="res://Scripts/genealogy_tree.gd" id="1_d7iie"]
@@ -36,7 +36,6 @@
 [ext_resource type="SpriteFrames" uid="uid://sd1labyn2kn3" path="res://Assets/Animations/SpriteFrames/bebe-suce-frames.tres" id="28_h1hl3"]
 [ext_resource type="SpriteFrames" uid="uid://ci4sprpwls88v" path="res://Assets/Animations/SpriteFrames/bebe-slingshot-frames.tres" id="31_567qm"]
 [ext_resource type="AudioStream" uid="uid://b5r6mkk8rvxno" path="res://Assets/Audio/Ennemi_Slingshot.wav" id="33_5hxvt"]
-[ext_resource type="AudioStream" uid="uid://67trjrdfl1vx" path="res://Assets/Audio/Music/SquirrelWarrior_menu.wav" id="37_mym04"]
 
 [node name="GenealogyTree" type="Node2D"]
 script = ExtResource("1_d7iie")
@@ -253,7 +252,3 @@ offset_top = 280.0
 offset_right = 592.0
 offset_bottom = 311.0
 text = "Annuler"
-
-[node name="TreeMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("37_mym04")
-volume_db = 5.0

@@ -15,6 +15,27 @@ const ennemyMoves = [
 	{"type": "Defense", "damage": 5}
 ]
 
+# Main Menu Scene
+@onready var main_menu_scene: Node2D = $"../../MainMenuScene"
+@onready var start_game_button: Button = $"../../MainMenuScene/MainMenuSplash/start_game_button"
+@onready var credit_button: Button = $"../../MainMenuScene/MainMenuSplash/credit_button"
+
+# Tree Scene
+@onready var tree_scene: Node2D = $"../../TreeScene"
+
+# Combat Scene
+@onready var combat_scene: Node2D = $".."
+
+# Final Win Scene
+@onready var final_win_scene: Node2D = $"../../FinalWinScene"
+
+# Lose Scene
+@onready var lose_scene: Node2D = $"../../LoseScene"
+
+# Credits Scene
+@onready var credits_scene: Node2D = $"../../CreditsScene"
+@onready var button_credit_back_to_menu: Button = $"../../CreditsScene/Credit/button_credit_back_to_menu"
+
 @onready var player_hand: Node2D = $"../PlayerHand"
 @onready var deck: Node2D = $"../Deck"
 @onready var discard_pile_reference: Node2D = $"../DiscardPile"
@@ -22,7 +43,7 @@ const ennemyMoves = [
 @onready var mana_counter: Node2D = $"../ManaCounter"
 @onready var button_show_tree = $button_show_tree
 #@onready var genealogy_tree = $"../GenealogyTree"
-@onready var battle_background = $"../BattleBackground"
+#@onready var battle_background = $"../BattleBackground"
 @onready var squirrel_enemy: Node2D = $"../SquirrelEnemy"
 @onready var end_turn_button: Button = $"../EndTurnButton"
 @onready var player: Node2D = $"../Player"
@@ -34,13 +55,15 @@ const ennemyMoves = [
 @onready var lose_screen = $"../LoseScreen"
 @onready var shield: Sprite2D = $HealthBar/Shield
 @onready var shield_text: RichTextLabel = $HealthBar/ShieldText
-@onready var audio_manager: Node2D = $"../AudioManager"
-@onready var main_menu_splash =  $"../MainMenuSplash"
-@onready var start_button = $"../MainMenuSplash/start_game_button"
-@onready var credit_button = $"../MainMenuSplash/credit_button"
-@onready var credit = $"../Credit"
-@onready var button_credit_back_menu = $"../Credit/button_credit_back_to_menu"
-@onready var button_lose_back_menu = $"../LoseScreen/lose_screen_back_to_menu_button"
+#@onready var audio_manager: Node2D = $"../AudioManager"
+@onready var audio_manager: Node2D = $"../../AudioManager"
+
+#@onready var main_menu_splash =  $"../MainMenuSplash"
+#@onready var start_button = $"../MainMenuSplash/start_game_button"
+#@onready var credit_button = $"../MainMenuSplash/credit_button"
+#@onready var credit = $"../Credit"
+#@onready var button_credit_back_menu = $"../Credit/button_credit_back_to_menu"
+@onready var lose_screen_back_to_menu_button: Button = $"../../LoseScene/lose_screen_back_to_menu_button"
 
 var discard_pile = []
 var card_being_played
@@ -75,14 +98,14 @@ func _ready() -> void:
 	current_mana = MAX_MANA
 	
 	button_show_tree.pressed.connect(_on_button_show_tree_pressed)
-	#genealogy_tree.combat_requested.connect(_on_combat_requested) # TODO
+	tree_scene.combat_requested.connect(_on_combat_requested) # TODO
 	squirrel_enemy.died.connect(_on_squirrel_enemy_died)
 	win_screen.get_node("button").pressed.connect(_on_button_show_tree_pressed)
 	player.died.connect(_on_player_died)
-	start_button.pressed.connect(_on_start_game_pressed)
+	start_game_button.pressed.connect(_on_start_game_pressed)
 	credit_button.pressed.connect(_on_credit_pressed)
-	button_credit_back_menu.pressed.connect(_on_credit_back_to_menu_pressed)
-	button_lose_back_menu.pressed.connect(_on_credit_back_to_menu_pressed)
+	button_credit_back_to_menu.pressed.connect(_on_credit_back_to_menu_pressed)
+	lose_screen_back_to_menu_button.pressed.connect(_on_credit_back_to_menu_pressed)
 
 	setNextMove()
 	enemy_shield.visible = false
@@ -105,6 +128,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func connect_tree_signals(tree):
+	print("Connected")
+	#tree.connect("combat_requested", _on_combat_requested)
 	
 func play_a_card(card):
 	#print("Play a card")
@@ -173,35 +200,38 @@ func _on_squirrel_enemy_died():
 	
 	if current_enemy.squirrel_name == "dwdwdwd":
 		print("win")
-		battle_background.visible = false
-		mana_counter.visible = false
-		deck.visible = false
-		discard_pile_reference.visible = false
-		card_manager.visible = false
+		combat_scene.visible = false
+		#battle_background.visible = false
+		#mana_counter.visible = false
+		#deck.visible = false
+		#discard_pile_reference.visible = false
+		#card_manager.visible = false
 		card_manager.set_physics_process(false)
 		card_manager.set_process(false)
-		squirrel_enemy.visible = false
-		player.visible = false
-		end_turn_button.visible = false
-		win_scree_final.visible = true
+		#squirrel_enemy.visible = false
+		#player.visible = false
+		#end_turn_button.visible = false
+		#win_scree_final.visible = true
+		
 	
 		
 		
 	else:		
 		increaseDamage()
-		battle_background.modulate.a = 0.2
-		mana_counter.visible = false
-		deck.visible = false
-		discard_pile_reference.visible = false
-		card_manager.visible = false
+		combat_scene.visible = false
+		#battle_background.modulate.a = 0.2
+		#mana_counter.visible = false
+		#deck.visible = false
+		#discard_pile_reference.visible = false
+		#card_manager.visible = false
 		card_manager.set_physics_process(false)
 		card_manager.set_process(false)
-		squirrel_enemy.visible = false
-		player.visible = false
-		end_turn_button.visible = false
-		win_screen.visible = true
-	enemy_shield.visible = false
-	enemy_sword.visible = false
+		#squirrel_enemy.visible = false
+		#player.visible = false
+		#end_turn_button.visible = false
+		#win_screen.visible = true
+	#enemy_shield.visible = false
+	#enemy_sword.visible = false
 		
 	# Active la suppression récursive sur l'écureuil battu
 	#if is_instance_valid(current_enemy):
@@ -215,19 +245,20 @@ func _on_squirrel_enemy_died():
 	
 func _on_player_died():
 	print("💀 Le joueur est mort ! GAME OVER")
-	battle_background.visible = false
-	mana_counter.visible = false
-	deck.visible = false
-	discard_pile_reference.visible = false
-	card_manager.visible = false
+	combat_scene.visible = false
+	#battle_background.visible = false
+	#mana_counter.visible = false
+	#deck.visible = false
+	#discard_pile_reference.visible = false
+	#card_manager.visible = false
 	card_manager.set_physics_process(false)
 	card_manager.set_process(false)
-	squirrel_enemy.visible = false
-	player.visible = false
-	end_turn_button.visible = false
-	lose_screen.visible = true
-	enemy_shield.visible = false
-	enemy_sword.visible = false
+	#squirrel_enemy.visible = false
+	#player.visible = false
+	#end_turn_button.visible = false
+	#lose_screen.visible = true
+	#enemy_shield.visible = false
+	#enemy_sword.visible = false
 	
 
 func _on_button_show_tree_pressed():
@@ -238,7 +269,7 @@ func _on_button_show_tree_pressed():
 	
 func _on_combat_requested(squirrel: SquirrelNode):
 	audio_manager.get_node("EngageBattle").play()
-	#audio_manager.get_node("MenuMusic").stop()
+	audio_manager.get_node("TreeMusic").stop()
 	audio_manager.get_node("BattleMusic").play() # TODO
 	
 	print("BattleManager a reçu :", squirrel.squirrel_name)
@@ -370,11 +401,13 @@ func on_tween_finished_empty_hand():
 
 
 func enter_tree_mode():
-	get_tree().change_scene_to_file(TREE_SCENE_PATH)
+	#get_tree().change_scene_to_file(TREE_SCENE_PATH)
+	combat_scene.visible = false
+	tree_scene.visible = true
 	
 	audio_manager.get_node("BattleMusic").stop()
-	#audio_manager.get_node("MenuMusic").play() # TODO
-	print("Show Tree")	
+	audio_manager.get_node("TreeMusic").play() # TODO
+	print("Show Tree")
 	#genealogy_tree.visible = true
 	#battle_background.visible = true
 	#battle_background.modulate.a = 0.2
@@ -392,8 +425,11 @@ func enter_tree_mode():
 	#enemy_sword.visible = false
 		
 func enter_combat_mode():
-	get_tree().change_scene_to_file(MAIN_SCENE_PATH)
-	
+	#print("HIHI")
+	#print(get_tree().change_scene_to_file(MAIN_SCENE_PATH))
+	#get_tree().change_scene_to_file(MAIN_SCENE_PATH)
+	combat_scene.visible = true
+	tree_scene.visible = false
 	#genealogy_tree.visible = false
 	#battle_background.modulate.a = 1
 	#mana_counter.visible = true
@@ -406,63 +442,63 @@ func enter_combat_mode():
 	#player.visible = true
 	#end_turn_button.visible = true
 	
-
 func increaseDamage():
 	damage_multiplier += 0.5
 	print(damage_multiplier)
+	
 func all_invisible():
+	main_menu_scene.visible = false
+	tree_scene.visible = false
+	combat_scene.visible = false
+	credits_scene.visible = false
+	final_win_scene.visible = false
+	lose_scene.visible = false
 	#genealogy_tree.visible = false
 	#battle_background.modulate.a = 0.2
-	battle_background.visible = false
-	mana_counter.visible = false
-	deck.visible = false
-	discard_pile_reference.visible = false
-	card_manager.visible = false
+	#battle_background.visible = false
+	#mana_counter.visible = false
+	#deck.visible = false
+	#discard_pile_reference.visible = false
+	#card_manager.visible = false
 	card_manager.set_physics_process(false)
 	card_manager.set_process(false)
-	squirrel_enemy.visible = false
-	player.visible = false
-	end_turn_button.visible = false
-	win_screen.visible = false
-	enemy_shield.visible = false
-	enemy_sword.visible = false
-	main_menu_splash.visible = false
-	credit.visible = false
-	lose_screen.visible = false
-	
-func all_visible():
-	pass 	
+	#squirrel_enemy.visible = false
+	#player.visible = false
+	#end_turn_button.visible = false
+	#win_screen.visible = false
+	#enemy_shield.visible = false
+	#enemy_sword.visible = false
+	#main_menu_scene.visible = false
+	#credits_scene.visible = false
+	#lose_screen.visible = false
 	
 func start_game():
 	all_invisible()
-	main_menu_splash.visible = true
-	
-	
-	
+	main_menu_scene.visible = true
 	
 func _on_start_game_pressed():
-	main_menu_splash.visible = false
+	main_menu_scene.visible = false
 	enter_tree_mode()
 
 func _on_credit_pressed():
 	all_invisible()
-	print("credit")
-	credit.visible = true
+	credits_scene.visible = true
 	
 func _on_credit_back_to_menu_pressed():
 	start_game()	
 	
-	
 func endGame():
 	print("win")
-	battle_background.visible = false
-	mana_counter.visible = false
-	deck.visible = false
-	discard_pile_reference.visible = false
-	card_manager.visible = false
+	all_invisible()
+	final_win_scene.visible = true
+	#battle_background.visible = false
+	#mana_counter.visible = false
+	#deck.visible = false
+	#discard_pile_reference.visible = false
+	#card_manager.visible = false
 	card_manager.set_physics_process(false)
 	card_manager.set_process(false)
-	squirrel_enemy.visible = false
-	player.visible = false
-	end_turn_button.visible = false
-	win_scree_final.visible = true
+	#squirrel_enemy.visible = false
+	#player.visible = false
+	#end_turn_button.visible = false
+	#win_scree_final.visible = true

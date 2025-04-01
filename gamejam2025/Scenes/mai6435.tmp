@@ -804,7 +804,6 @@ libraries = {
 }
 
 [node name="WinScreen" parent="CombatScene" instance=ExtResource("10_761jn")]
-visible = false
 position = Vector2(205, 36)
 
 [node name="CreditsScene" type="Node2D" parent="."]
