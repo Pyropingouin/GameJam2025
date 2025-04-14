@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy5hygrw2p2jq"]
+[gd_scene load_steps=3 format=3 uid="uid://cy5hygrw2p2jq"]
 
+[ext_resource type="Script" path="res://Scripts/lose_screen.gd" id="1_epqtc"]
 [ext_resource type="Texture2D" uid="uid://c7wihve5m8gk6" path="res://Assets/SplashDefeat.png" id="1_ifokh"]
 
 [node name="LoseScreen" type="Node2D"]
+script = ExtResource("1_epqtc")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1920.0
@@ -15,3 +17,5 @@ offset_top = 664.0
 offset_right = 1105.0
 offset_bottom = 768.0
 text = "Back to main menu"
+
+[connection signal="pressed" from="BackToMenu" to="." method="_on_back_to_menu_pressed"]

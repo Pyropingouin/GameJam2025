@@ -70,10 +70,12 @@ volume_db = 5.0
 [node name="Forest" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("27_f58ca")
 volume_db = -5.0
+autoplay = true
 
 [node name="Squirrel" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = ExtResource("28_qm1hg")
 volume_db = -5.0
+autoplay = true
 
 [node name="PlayingCard" type="AudioStreamPlayer2D" parent="AudioManager"]
 stream = SubResource("AudioStreamRandomizer_7f86e")
