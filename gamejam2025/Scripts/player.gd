@@ -1,12 +1,9 @@
 extends Node2D
 
-const PLAYER_HIT_COLOR = Color("ff0000")
-const DEFAULT_PLAYER_COLOR = Color("ffffff")
-
-var maxHealth = 100
-var currentHealth = 100
-var defense = 0
-var acorn = 0
+var max_health: int = 100
+var current_health: int = max_health
+var defense: int = 0
+var acorn: int = 0
 
 @onready var healthBar: ProgressBar = $HealthBar
 @onready var healthStatus: RichTextLabel = $HealthBar/HealthStatus
@@ -15,60 +12,45 @@ var acorn = 0
 
 signal died
 
-
-
 func _ready() -> void:
-	healthBar.max_value = maxHealth
-	healthBar.value = currentHealth
-	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
-	if defense == 0:
-		shield.visible = false
-		shield_text.visible = false
+	healthBar.max_value = max_health
+	updateHealthUI()
+	updateDefenseUI()
 
-func addHealth(healthToAdd: int) -> void:
-	currentHealth += healthToAdd
-	if currentHealth > maxHealth:
-		currentHealth = maxHealth
-	elif currentHealth < 0:
-		currentHealth = 0
-	healthBar.value = currentHealth
-	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
+func updateHealthUI():
+	current_health = clamp(current_health, 0, max_health)
+	healthBar.value = current_health
+	healthStatus.text = "%d/%d" % [current_health, max_health]
+
+func updateDefenseUI():
+	shield_text.text = "[center]%d[/center]" % [defense]
+	shield.visible = defense > 0
+	shield_text.visible = defense > 0
+
+func addHealth(amount: int) -> void:
+	current_health += amount
+	updateHealthUI()
 
 func reduceHealth(damage: int) -> void:
-	get_node("Sprite2D").modulate = PLAYER_HIT_COLOR
-	await get_tree().create_timer(0.2).timeout
-	get_node("Sprite2D").modulate = DEFAULT_PLAYER_COLOR
 	if damage > defense:
-		currentHealth -= (damage - defense)
+		current_health -= (damage - defense)
 	defense = max(0, defense - damage)
-	shield_text.text = "[center]"+str(defense)+"[center]"
-	if defense < 1:
-		shield.visible = false
-		shield_text.visible = false
-	if currentHealth < 0:
-		currentHealth = 0
-	healthBar.value = currentHealth
-	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
 
+	updateHealthUI()
+	updateDefenseUI()
 
-	if currentHealth <=0:
-		print("Dead")
-		emit_signal("died") 
-		
-func addMaxHealth(healthToAdd: int) -> void:
-	maxHealth += healthToAdd
-	if currentHealth > maxHealth: 
-		currentHealth = maxHealth
-	healthBar.value = maxHealth
-	healthBar.max_value = maxHealth
-	currentHealth = maxHealth
-	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
+	if current_health <= 0:
+		emit_signal("died")
+
+func addMaxHealth(amount: int) -> void:
+	max_health += amount
+	current_health = max_health
+	healthBar.max_value = max_health
+	updateHealthUI()
 
 func addDefense(amount: int) -> void:
 	defense += amount
-	shield.visible = true
-	shield_text.visible = true
-	shield_text.text = "[center]"+str(defense)+"[center]"
+	updateDefenseUI()
 
 func addAcorns(amount: int) -> void:
 	acorn += amount
@@ -77,11 +59,9 @@ func spendAcorns(amount: int) -> bool:
 	if acorn >= amount:
 		acorn -= amount
 		return true
-	else:
-		return false
+	return false
 
 func resetPlayer():
-	currentHealth = maxHealth
-	healthStatus.text = str(currentHealth) + "/" + str(maxHealth)
-	healthBar.value = maxHealth
-	healthBar.max_value = maxHealth
+	current_health = max_health
+	healthBar.max_value = max_health
+	updateHealthUI()

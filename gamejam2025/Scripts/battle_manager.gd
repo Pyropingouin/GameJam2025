@@ -30,8 +30,8 @@ const ennemyMoves = [
 @onready var win_scree_final = $"../WinScreenFinal"
 @onready var animations: Node2D = $"../Animations"
 @onready var lose_screen = $"../LoseScreen"
-@onready var shield: Sprite2D = $HealthBar/Shield
-@onready var shield_text: RichTextLabel = $HealthBar/ShieldText
+@onready var shield: Sprite2D = $"../SquirrelEnemy/HealthBar/Shield"
+@onready var shield_text: RichTextLabel = $"../SquirrelEnemy/HealthBar/ShieldText"
 @onready var audio_manager: Node2D = $"../AudioManager"
 @onready var main_menu_splash =  $"../MainMenuSplash"
 @onready var start_button = $"../MainMenuSplash/start_game_button"
@@ -309,7 +309,7 @@ func attack_enemies():
 		var tween = get_tree().create_tween()
 		tween.tween_property(squirrel_enemy, "position", new_pos, ATTACK_MOVE_SPEED)
 		tween.connect("finished", on_tween_attack_enemy_finished)
-		player.reduceHealth(ennemyNextMove.damage * squirrel_enemy.damageMultiplier)
+		player.reduceHealth(ennemyNextMove.damage * squirrel_enemy.damage_multiplier)
 	else:
 		#animations.get_node("ShieldEnemy").visible = true
 		#animations.get_node("AnimationPlayer").play("shield_buff_enemy")
@@ -318,9 +318,6 @@ func attack_enemies():
 		squirrel_enemy.defense = ennemyNextMove.damage
 	setNextMove()
 	
-	
-	print("damage", ennemyNextMove.damage)
-	print("mult", squirrel_enemy.damageMultiplier)
 
 func on_tween_attack_enemy_finished():
 	var tween2 = get_tree().create_tween()
