@@ -102,7 +102,9 @@ func _ready() -> void:
 	
 	#button_show_tree.pressed.connect(_on_button_show_tree_pressed)
 	#win_screen.get_node("button").pressed.connect(_on_button_show_tree_pressed)
-	tree_scene.combat_requested.connect(_on_combat_requested) # TODO
+	
+	connect_tree_signals()
+	#tree_scene.combat_requested.connect(_on_combat_requested) # TODO
 	squirrel_enemy.died.connect(_on_squirrel_enemy_died)
 	player.died.connect(_on_player_died)
 	
@@ -128,9 +130,9 @@ func _ready() -> void:
 	
 	# Si on a des allies, les faire apparaitre
 
-func connect_tree_signals(tree):
+func connect_tree_signals():
 	print("Connected")
-	#tree.connect("combat_requested", _on_combat_requested)
+	tree_scene.connect("combat_requested", Callable(self, "_on_combat_requested"))
 	
 func play_a_card(card):
 	#print("Play a card")

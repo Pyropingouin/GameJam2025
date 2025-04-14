@@ -14,6 +14,7 @@ func _ready() -> void:
 	connect_main_menu_signals()
 	connect_credits_signals()
 	connect_lose_screen_signals()
+	connect_tree_signals()
 	
 func connect_main_menu_signals():
 	main_menu_scene.connect("start_game_button_pressed", Callable(self, "_on_start_game_pressed"))
@@ -24,6 +25,9 @@ func connect_credits_signals():
 	
 func connect_lose_screen_signals():
 	lose_scene.connect("back_to_menu_button_pressed", Callable(self, "_on_back_to_menu_pressed"))
+	
+func connect_tree_signals():
+	tree_scene.connect("combat_requested", Callable(self, "_on_combat_requested"))
 	
 func _on_start_game_pressed():
 	main_menu_scene.visible = false
@@ -36,6 +40,10 @@ func _on_credit_pressed():
 func _on_back_to_menu_pressed():
 	all_invisible()
 	main_menu_scene.visible = true
+	
+func _on_combat_requested(squirrel):
+	all_invisible()
+	combat_scene.visible = true
 	
 func enter_tree_scene():
 	all_invisible()
