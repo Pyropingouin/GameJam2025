@@ -17,23 +17,8 @@ const ennemyMoves = [
 	{"type": "Defense", "damage": 5}
 ]
 
-# Main Menu Scene
-#@onready var main_menu_scene: Node2D = $"../../MainMenuScene"
-#
-# Tree Scene
+# Scenes
 @onready var tree_scene: Node2D = $"../../TreeScene"
-#
-# Combat Scene
-#@onready var combat_scene: Node2D = $".."
-#
-# Final Win Scene
-#@onready var final_win_scene: Node2D = $"../../FinalWinScene"
-#
-# Lose Scene
-#@onready var lose_scene: Node2D = $"../../LoseScene"
-#
-# Credits Scene
-#@onready var credits_scene: Node2D = $"../../CreditsScene"
 
 # Imports OK
 @onready var animations: Node2D = $"../Animations"
@@ -61,12 +46,6 @@ const ennemyMoves = [
 #@onready var audio_manager: Node2D = $"../AudioManager"
 @onready var audio_manager: Node2D = $"../../AudioManager"
 
-#@onready var main_menu_splash =  $"../MainMenuSplash"
-#@onready var start_button = $"../MainMenuSplash/start_game_button"
-#@onready var credit_button = $"../MainMenuSplash/credit_button"
-#@onready var credit = $"../Credit"
-#@onready var button_credit_back_menu = $"../Credit/button_credit_back_to_menu"
-#@onready var lose_screen_back_to_menu_button: Button = $"../../LoseScene/lose_screen_back_to_menu_button"
 
 var discard_pile = []
 var card_being_played
