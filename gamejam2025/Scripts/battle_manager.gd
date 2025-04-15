@@ -1,5 +1,7 @@
 extends Node
 
+# 540
+
 const MAIN_SCENE_PATH = "res://Scenes/main.tscn"
 const TREE_SCENE_PATH = "res://Scenes/genealogy_tree.tscn"
 const DEFAULT_CARD_MOVE_SPEED = 0.1
@@ -80,71 +82,27 @@ signal player_died
 signal enemy_died
 
 func _ready() -> void:
-	
-	#start_game()
-	
+		
 	hide_all_animations_assets()
 
 	# Set the Mana Counter
 	mana_counter.get_node("Counter").text = str(MAX_MANA) + "/" + str(MAX_MANA)
 	current_mana = MAX_MANA
 	
-	# Connect button signals
-	#connect_buttons_signals()
-	#var temp_start_game_button = main_menu_scene.get_node("StartGameButton")
-	#temp_start_game_button.pressed.connect(_on_start_game_pressed)
-	#var temp_credits_button = main_menu_scene.get_node("CreditsButton")
-	#temp_credits_button.pressed.connect(_on_credit_pressed)
-	#var temp_back_to_menu_credits = credits_scene.get_node("BackToMenu")
-	#temp_back_to_menu_credits.pressed.connect(_on_credit_back_to_menu_pressed)
-	#var temp_back_to_menu = lose_scene.get_node("BackToMenu")
-	#temp_back_to_menu.pressed.connect(_on_credit_back_to_menu_pressed)
-	
-	
-	#button_show_tree.pressed.connect(_on_button_show_tree_pressed)
-	#win_screen.get_node("button").pressed.connect(_on_button_show_tree_pressed)
-	
 	connect_tree_signals()
-	#tree_scene.combat_requested.connect(_on_combat_requested) # TODO
-	
 	connect_enemy_signals()
-	#squirrel_enemy.died.connect(_on_squirrel_enemy_died)
 	connect_player_signals()
-	#player.died.connect(_on_player_died)
 	
-	
-	
-
 	setNextMove()
-	
-	#enemy_shield.visible = false
-	#enemy_sword.visible = false
-	################# TEST AVEC ECUREIL DE DÉBUT
-	#var test_squirrel = preload("res://Scenes/squirrel_node.tscn").instantiate()
-	#test_squirrel.squirrel_name = "Test McNutty"
-	#test_squirrel.squirrel_avatar = preload("res://Assets/icon.svg")
-	#test_squirrel.description = "Un écureuil redoutable de test."
-	#test_squirrel.hp = 20
-	# Stocker dans current_enemy pour simuler un vrai
-	#current_enemy = test_squirrel 
-	##################### FIN DU TEST AVEC ÉCUREIL DÉBUT
-	
-	
-	
-	
-	# Si on a des allies, les faire apparaitre
 
 func connect_tree_signals():
-	print("Connected")
 	tree_scene.connect("combat_requested", Callable(self, "_on_combat_requested"))
 
 func connect_enemy_signals():
 	squirrel_enemy.connect("died", Callable(self, "_on_squirrel_enemy_died"))
-	#squirrel_enemy.died.connect(_on_squirrel_enemy_died)
 	
 func connect_player_signals():
 	player.connect("died", Callable(self, "_on_player_died"))
-	#player.died.connect(_on_player_died)
 	
 func play_a_card(card):
 	#print("Play a card")
@@ -232,20 +190,10 @@ func _on_squirrel_enemy_died():
 		
 	else:		
 		increaseDamage()
-		#combat_scene.visible = false # TODO: signal pour la mort de l'ennemi jusqua main
-		#battle_background.modulate.a = 0.2
-		#mana_counter.visible = false
-		#deck.visible = false
-		#discard_pile_reference.visible = false
-		#card_manager.visible = false
-		card_manager.set_physics_process(false)
-		card_manager.set_process(false)
-		#squirrel_enemy.visible = false
-		#player.visible = false
-		#end_turn_button.visible = false
-		#win_screen.visible = true
-	#enemy_shield.visible = false
-	#enemy_sword.visible = false
+
+		#card_manager.set_physics_process(false)
+		#card_manager.set_process(false)
+
 		
 	# Active la suppression récursive sur l'écureuil battu
 	#if is_instance_valid(current_enemy):
@@ -260,26 +208,11 @@ func _on_squirrel_enemy_died():
 func _on_player_died():
 	print("💀 Le joueur est mort ! GAME OVER")
 	emit_signal("player_died")
-	#combat_scene.visible = false # TODO: signal pour la mort du player jusqua main
-	#battle_background.visible = false
-	#mana_counter.visible = false
-	#deck.visible = false
-	#discard_pile_reference.visible = false
-	#card_manager.visible = false
-	card_manager.set_physics_process(false)
-	card_manager.set_process(false)
-	#squirrel_enemy.visible = false
-	#player.visible = false
-	#end_turn_button.visible = false
-	#lose_screen.visible = true
-	#enemy_shield.visible = false
-	#enemy_sword.visible = false
-	
 
-#func _on_button_show_tree_pressed():
-	#
-	##enter_tree_mode()
-	#pass
+	#card_manager.set_physics_process(false)
+	#card_manager.set_process(false)
+
+	
 	
 	
 	
@@ -293,7 +226,6 @@ func _on_combat_requested(squirrel: SquirrelNode):
 	squirrel_enemy.setEnnemy(squirrel)
 	setNextMove()
 	
-	enter_combat_mode()
 	
 	player.resetPlayer()
 	current_mana = MAX_MANA
@@ -301,10 +233,6 @@ func _on_combat_requested(squirrel: SquirrelNode):
 	print("combat_requested")
 	deck.draw_all_cards()
 	
-	
-	
-	
-
 func on_end_turn_pressed():
 	end_turn_button.visible = false
 	
@@ -413,116 +341,10 @@ func on_tween_finished_empty_hand():
 	for card in player_hand.player_hand:
 		card.queue_free()
 	player_hand.player_hand.clear()
-
-
-
-#func enter_tree_mode():
-	##get_tree().change_scene_to_file(TREE_SCENE_PATH)
-	#combat_scene.visible = false
-	#tree_scene.visible = true
-	#
-	#audio_manager.get_node("BattleMusic").stop()
-	#audio_manager.get_node("TreeMusic").play() # TODO
-	#print("Show Tree")
-	##genealogy_tree.visible = true
-	##battle_background.visible = true
-	##battle_background.modulate.a = 0.2
-	##mana_counter.visible = false
-	##deck.visible = false
-	##discard_pile_reference.visible = false
-	##card_manager.visible = false
-	##card_manager.set_physics_process(false)
-	##card_manager.set_process(false)
-	##squirrel_enemy.visible = false
-	##player.visible = false
-	#end_turn_button.visible = false
-	##win_screen.visible = false
-	##enemy_shield.visible = false
-	##enemy_sword.visible = false
-		
-func enter_combat_mode():
-	#print("HIHI")
-	#print(get_tree().change_scene_to_file(MAIN_SCENE_PATH))
-	#get_tree().change_scene_to_file(MAIN_SCENE_PATH)
-	#combat_scene.visible = true
-	tree_scene.visible = false
-	#genealogy_tree.visible = false
-	#battle_background.modulate.a = 1
-	#mana_counter.visible = true
-	#deck.visible = true
-	#discard_pile_reference.visible = true
-	#card_manager.visible = true
-	#card_manager.set_physics_process(true)
-	#card_manager.set_process(true)
-	#squirrel_enemy.visible = true
-	#player.visible = true
-	end_turn_button.visible = true
 	
 func increaseDamage():
 	damage_multiplier += 0.5
 	print(damage_multiplier)
-	
-#func all_invisible():
-	#main_menu_scene.visible = false
-	#tree_scene.visible = false
-	#combat_scene.visible = false
-	#credits_scene.visible = false
-	#final_win_scene.visible = false
-	#lose_scene.visible = false
-	##genealogy_tree.visible = false
-	##battle_background.modulate.a = 0.2
-	##battle_background.visible = false
-	##mana_counter.visible = false
-	##deck.visible = false
-	##discard_pile_reference.visible = false
-	##card_manager.visible = false
-	#card_manager.set_physics_process(false)
-	#card_manager.set_process(false)
-	##squirrel_enemy.visible = false
-	##player.visible = false
-	#end_turn_button.visible = false
-	##win_screen.visible = false
-	##enemy_shield.visible = false
-	##enemy_sword.visible = false
-	##main_menu_scene.visible = false
-	##credits_scene.visible = false
-	##lose_screen.visible = false
-	
-#func start_game():
-	# Seulement afficher MainMenuScene
-	#all_invisible()
-	#main_menu_scene.visible = true
-	
-	# Play la musique de fond
-	#audio_manager.get_node("Forest").play()
-	#audio_manager.get_node("Squirrel").play()
-	
-#func _on_start_game_pressed():
-	#main_menu_scene.visible = false
-	#enter_tree_mode()
-
-#func _on_credit_pressed():
-	#all_invisible()
-	#credits_scene.visible = true
-	
-#func _on_credit_back_to_menu_pressed():
-	#start_game()	
-	
-#func endGame():
-	#print("win")
-	#all_invisible()
-	#final_win_scene.visible = true
-	##battle_background.visible = false
-	##mana_counter.visible = false
-	##deck.visible = false
-	##discard_pile_reference.visible = false
-	##card_manager.visible = false
-	#card_manager.set_physics_process(false)
-	#card_manager.set_process(false)
-	##squirrel_enemy.visible = false
-	##player.visible = false
-	#end_turn_button.visible = false
-	##win_scree_final.visible = true
 
 func hide_all_animations_assets():
 	animations.get_node("Claw").visible = false
@@ -532,14 +354,3 @@ func hide_all_animations_assets():
 	animations.get_node("BatonChefEnemy").visible = false
 	animations.get_node("FleurEnemy").visible = false
 	animations.get_node("RockEnemy").visible = false
-	
-#func connect_buttons_signals():
-	#var temp_start_game_button = main_menu_scene.get_node("StartGameButton")
-	#var temp_credits_button = main_menu_scene.get_node("CreditsButton")
-	#var temp_back_to_menu_credits = credits_scene.get_node("BackToMenu")
-	#var temp_back_to_menu = lose_scene.get_node("BackToMenu")
-	#
-	#temp_start_game_button.pressed.connect(_on_start_game_pressed)
-	#temp_credits_button.pressed.connect(_on_credit_pressed)
-	#temp_back_to_menu_credits.pressed.connect(_on_credit_back_to_menu_pressed)
-	#temp_back_to_menu.pressed.connect(_on_credit_back_to_menu_pressed)
