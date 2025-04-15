@@ -38,7 +38,7 @@ const ennemyMoves = [
 @onready var enemy_shield: Sprite2D = $"../EnemyShield"
 @onready var enemy_sword: Sprite2D = $"../EnemySword"
 @onready var win_screen = $"../WinScreen"
-#@onready var win_scree_final = $"../WinScreenFinal"
+@onready var win_scree_final = $"../WinScreenFinal"
 #@onready var animations: Node2D = $"../Animations"
 #@onready var lose_screen = $"../LoseScreen"
 #@onready var shield: Sprite2D = $HealthBar/Shield
@@ -151,22 +151,11 @@ func _on_squirrel_enemy_died():
 	
 	if current_enemy.squirrel_name == "dwdwdwd":
 		print("win")
-		#combat_scene.visible = false # TODO: signal pour la mort de l'ennemi jusqua main
-		#battle_background.visible = false
-		#mana_counter.visible = false
-		#deck.visible = false
-		#discard_pile_reference.visible = false
-		#card_manager.visible = false
-		card_manager.set_physics_process(false)
-		card_manager.set_process(false)
-		#squirrel_enemy.visible = false
-		#player.visible = false
-		#end_turn_button.visible = false
-		#win_scree_final.visible = true
-		
-	
-		
-		
+
+		#card_manager.set_physics_process(false)
+		#card_manager.set_process(false)
+
+		win_scree_final.visible = true
 	else:		
 		increaseDamage()
 
@@ -183,6 +172,10 @@ func _on_squirrel_enemy_died():
 	
 	discard_pile.clear()
 	discard_pile_reference.get_node("CardCounter").text = str(discard_pile.size())
+	
+func endGame():
+	# TODO: Affiche le finalWinScreen 
+	pass
 	
 func _on_player_died():
 	print("💀 Le joueur est mort ! GAME OVER")

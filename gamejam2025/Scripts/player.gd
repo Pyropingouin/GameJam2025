@@ -3,8 +3,8 @@ extends Node2D
 const PLAYER_HIT_COLOR = Color("ff0000")
 const DEFAULT_PLAYER_COLOR = Color("ffffff")
 
-var maxHealth = 5
-var currentHealth = 5
+var maxHealth = 50
+var currentHealth = 50
 var defense = 0
 var acorn = 0
 
