@@ -74,9 +74,10 @@ var ennemyNextMove
 var current_enemy: SquirrelNode
 var player_pos_copy
 var enemy_pos_copy
-var damage_multiplier = 1
+var damage_multiplier = 10
 
-
+signal player_died
+signal enemy_died
 
 func _ready() -> void:
 	
@@ -105,8 +106,11 @@ func _ready() -> void:
 	
 	connect_tree_signals()
 	#tree_scene.combat_requested.connect(_on_combat_requested) # TODO
-	squirrel_enemy.died.connect(_on_squirrel_enemy_died)
-	player.died.connect(_on_player_died)
+	
+	connect_enemy_signals()
+	#squirrel_enemy.died.connect(_on_squirrel_enemy_died)
+	connect_player_signals()
+	#player.died.connect(_on_player_died)
 	
 	
 	
@@ -133,6 +137,14 @@ func _ready() -> void:
 func connect_tree_signals():
 	print("Connected")
 	tree_scene.connect("combat_requested", Callable(self, "_on_combat_requested"))
+
+func connect_enemy_signals():
+	squirrel_enemy.connect("died", Callable(self, "_on_squirrel_enemy_died"))
+	#squirrel_enemy.died.connect(_on_squirrel_enemy_died)
+	
+func connect_player_signals():
+	player.connect("died", Callable(self, "_on_player_died"))
+	#player.died.connect(_on_player_died)
 	
 func play_a_card(card):
 	#print("Play a card")
@@ -197,6 +209,7 @@ func on_tween_finished():
 	
 func _on_squirrel_enemy_died():
 	print("L'ennemi est mort ! 🎉")
+	emit_signal("enemy_died")
 	win_screen.set_squirrel(current_enemy) 
 	
 	if current_enemy.squirrel_name == "dwdwdwd":
@@ -246,6 +259,7 @@ func _on_squirrel_enemy_died():
 	
 func _on_player_died():
 	print("💀 Le joueur est mort ! GAME OVER")
+	emit_signal("player_died")
 	#combat_scene.visible = false # TODO: signal pour la mort du player jusqua main
 	#battle_background.visible = false
 	#mana_counter.visible = false

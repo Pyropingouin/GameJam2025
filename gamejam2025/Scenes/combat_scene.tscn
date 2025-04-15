@@ -719,7 +719,7 @@ libraries = {
 
 [node name="WinScreen" parent="." instance=ExtResource("22_77b4x")]
 visible = false
-position = Vector2(205, 36)
+position = Vector2(223, 52)
 
 [connection signal="mouse_entered" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_exited"]
