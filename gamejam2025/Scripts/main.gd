@@ -11,11 +11,14 @@ extends Node2D
 @onready var audio_manager: Node2D = $AudioManager
 
 #var battle_manager = combat_scene.get_node("BattleManager")
-#var win_screen = combat_scene.get_node("WinScreen")
+var win_screen 
 
 func _ready() -> void:
+	win_screen = combat_scene.get_node("WinScreen")
 	connect_main_menu_signals()
 	connect_credits_signals()
+	connect_final_win_screen_signals()
+	connect_win_screen_signals()
 	connect_lose_screen_signals()
 	connect_tree_signals()
 	connect_battle_manager_signals()
@@ -30,6 +33,9 @@ func connect_credits_signals():
 func connect_final_win_screen_signals():
 	final_win_scene.connect("restart_button_pressed", Callable(self, "_on_back_to_menu_pressed"))
 
+func connect_win_screen_signals():
+	win_screen.connect("next_button_pressed", Callable(self, "_on_next_button_pressed"))
+
 func connect_lose_screen_signals():
 	lose_scene.connect("restart_button_pressed", Callable(self, "_on_back_to_menu_pressed"))
 	
@@ -42,6 +48,7 @@ func connect_battle_manager_signals():
 	battle_manager.connect("player_died", Callable(self, "_on_player_died"))
 	battle_manager.connect("enemy_died", Callable(self, "_on_enemy_died"))
 	battle_manager.connect("game_victory", Callable(self, "_on_game_victory"))
+	battle_manager.connect("combat_requested", Callable(self, "_on_combat_requested"))
 	
 func _on_start_game_pressed():
 	main_menu_scene.visible = false
@@ -58,6 +65,7 @@ func _on_back_to_menu_pressed():
 func _on_combat_requested(squirrel):
 	all_invisible()
 	combat_scene.visible = true
+	win_screen.visible = false
 
 func _on_player_died():
 	all_invisible()
@@ -73,6 +81,11 @@ func _on_enemy_died():
 func _on_game_victory():
 	all_invisible()
 	final_win_scene.visible = true
+	
+func _on_next_button_pressed():
+	all_invisible()
+	tree_scene.visible = true
+	tree_scene.get_node("info_panel").visible = false
 	
 func enter_tree_scene():
 	all_invisible()
