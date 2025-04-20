@@ -28,7 +28,7 @@ func connect_credits_signals():
 	credits_scene.connect("back_to_menu_button_pressed", Callable(self, "_on_back_to_menu_pressed"))
 	
 func connect_lose_screen_signals():
-	lose_scene.connect("back_to_menu_button_pressed", Callable(self, "_on_back_to_menu_pressed"))
+	lose_scene.connect("restart_button_pressed", Callable(self, "_on_back_to_menu_pressed"))
 	
 func connect_tree_signals():
 	tree_scene.connect("combat_requested", Callable(self, "_on_combat_requested"))
