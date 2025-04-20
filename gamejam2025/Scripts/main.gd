@@ -38,6 +38,7 @@ func connect_battle_manager_signals():
 
 	battle_manager.connect("player_died", Callable(self, "_on_player_died"))
 	battle_manager.connect("enemy_died", Callable(self, "_on_enemy_died"))
+	battle_manager.connect("game_victory", Callable(self, "_on_game_victory"))
 	
 func _on_start_game_pressed():
 	main_menu_scene.visible = false
@@ -65,6 +66,10 @@ func _on_enemy_died():
 	
 	win_screen.visible = true
 	end_turn_button.visible = false
+
+func _on_game_victory():
+	all_invisible()
+	final_win_scene.visible = true
 	
 func enter_tree_scene():
 	all_invisible()

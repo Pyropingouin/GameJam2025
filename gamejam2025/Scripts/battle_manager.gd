@@ -59,6 +59,7 @@ var damage_multiplier = 100
 
 signal player_died
 signal enemy_died
+signal game_victory
 
 func _ready() -> void:
 		
@@ -173,9 +174,9 @@ func _on_squirrel_enemy_died():
 	discard_pile.clear()
 	discard_pile_reference.get_node("CardCounter").text = str(discard_pile.size())
 	
-func endGame():
+func gameVictory():
 	# TODO: Affiche le finalWinScreen 
-	pass
+	emit_signal("game_victory")
 	
 func _on_player_died():
 	print("💀 Le joueur est mort ! GAME OVER")

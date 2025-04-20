@@ -23,7 +23,7 @@ func _on_button_next_pressed():
 	
 	if defeated_squirrel.squirrel_name == "chef":	
 		await get_tree().create_timer(3).timeout
-		battle_manager.endGame()
+		battle_manager.gameVictory()
 		
 
 	
