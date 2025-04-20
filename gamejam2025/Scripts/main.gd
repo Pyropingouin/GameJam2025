@@ -26,7 +26,10 @@ func connect_main_menu_signals():
 
 func connect_credits_signals():
 	credits_scene.connect("back_to_menu_button_pressed", Callable(self, "_on_back_to_menu_pressed"))
-	
+
+func connect_final_win_screen_signals():
+	final_win_scene.connect("restart_button_pressed", Callable(self, "_on_back_to_menu_pressed"))
+
 func connect_lose_screen_signals():
 	lose_scene.connect("restart_button_pressed", Callable(self, "_on_back_to_menu_pressed"))
 	
