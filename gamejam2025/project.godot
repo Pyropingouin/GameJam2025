@@ -21,6 +21,11 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/vsync/vsync_mode=0
+mouse_cursor/custom_image="res://Assets/Cursor.png"
+
+[dotnet]
+
+project/assembly_name="GameJam2025"
 
 [layer_names]
 

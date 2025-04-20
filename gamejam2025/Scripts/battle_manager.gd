@@ -55,7 +55,7 @@ var ennemyNextMove
 var current_enemy: SquirrelNode
 var player_pos_copy
 var enemy_pos_copy
-var damage_multiplier = 10
+var damage_multiplier = 100
 
 signal player_died
 signal enemy_died
@@ -258,7 +258,7 @@ func attack_enemies():
 		var tween = get_tree().create_tween()
 		tween.tween_property(squirrel_enemy, "position", new_pos, ATTACK_MOVE_SPEED)
 		tween.connect("finished", on_tween_attack_enemy_finished)
-		player.reduceHealth(ennemyNextMove.damage * squirrel_enemy.damageMultiplier)
+		player.reduceHealth(ennemyNextMove.damage * squirrel_enemy.damage_multiplier)
 	else:
 		#animations.get_node("ShieldEnemy").visible = true
 		#animations.get_node("AnimationPlayer").play("shield_buff_enemy")
@@ -267,9 +267,6 @@ func attack_enemies():
 		squirrel_enemy.defense = ennemyNextMove.damage
 	setNextMove()
 	
-	
-	print("damage", ennemyNextMove.damage)
-	print("mult", squirrel_enemy.damageMultiplier)
 
 func on_tween_attack_enemy_finished():
 	var tween2 = get_tree().create_tween()

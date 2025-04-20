@@ -1,7 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy5hygrw2p2jq"]
+[gd_scene load_steps=13 format=3 uid="uid://cy5hygrw2p2jq"]
 
 [ext_resource type="Script" path="res://Scripts/lose_screen.gd" id="1_epqtc"]
 [ext_resource type="Texture2D" uid="uid://c7wihve5m8gk6" path="res://Assets/SplashDefeat.png" id="1_ifokh"]
+[ext_resource type="FontFile" uid="uid://c5imxehuj7mj7" path="res://Assets/Praise-Regular.ttf" id="2_85t5s"]
+[ext_resource type="Texture2D" uid="uid://4d1q3u22raf0" path="res://Assets/HUD/Button_Start_and_Restart_Hover_Start Hover.png" id="3_1sk5w"]
+[ext_resource type="Texture2D" uid="uid://s17hxjqgvq74" path="res://Assets/HUD/Button_Credit_and_QuitGame_Hover.png" id="3_dclsy"]
+[ext_resource type="Texture2D" uid="uid://d2mgij15oj36x" path="res://Assets/HUD/Button_Credit_andQuitGame.png" id="4_jrxr1"]
+[ext_resource type="Texture2D" uid="uid://bkbj5v18rj8j5" path="res://Assets/HUD/buttonsWithHover_Start.png" id="4_pa2ow"]
+[ext_resource type="Script" path="res://Scripts/exit_button.gd" id="7_drb76"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_plsmu"]
+texture = ExtResource("3_1sk5w")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ilpd"]
+texture = ExtResource("4_pa2ow")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yx0jn"]
+texture = ExtResource("3_dclsy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eboy0"]
+texture = ExtResource("4_jrxr1")
 
 [node name="LoseScreen" type="Node2D"]
 script = ExtResource("1_epqtc")
@@ -18,4 +36,40 @@ offset_right = 1105.0
 offset_bottom = 768.0
 text = "Back to main menu"
 
+[node name="RestartButton" type="Button" parent="."]
+offset_left = 192.0
+offset_top = 704.0
+offset_right = 384.0
+offset_bottom = 832.0
+theme_override_colors/font_hover_color = Color(0.737255, 0.67451, 0.678431, 1)
+theme_override_colors/font_pressed_color = Color(0.609089, 0.53712, 0.541837, 1)
+theme_override_colors/font_focus_color = Color(0.737255, 0.67451, 0.678431, 1)
+theme_override_colors/font_color = Color(0.988235, 0.866667, 0.870588, 1)
+theme_override_fonts/font = ExtResource("2_85t5s")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxTexture_plsmu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_plsmu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_plsmu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5ilpd")
+text = "Restart"
+
+[node name="ExitButton" type="Button" parent="."]
+offset_left = 1536.0
+offset_top = 704.0
+offset_right = 1728.0
+offset_bottom = 832.0
+theme_override_colors/font_hover_color = Color(0.627451, 0.270588, 0.027451, 1)
+theme_override_colors/font_pressed_color = Color(0.549067, 0.233021, 0.0199046, 1)
+theme_override_colors/font_focus_color = Color(0.627451, 0.270588, 0.027451, 1)
+theme_override_colors/font_color = Color(0.933333, 0.827451, 0.74902, 1)
+theme_override_fonts/font = ExtResource("2_85t5s")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxTexture_yx0jn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yx0jn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yx0jn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_eboy0")
+text = "Exit"
+script = ExtResource("7_drb76")
+
 [connection signal="pressed" from="BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="ExitButton" to="ExitButton" method="_on_pressed"]

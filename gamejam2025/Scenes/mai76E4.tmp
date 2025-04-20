@@ -1,26 +1,47 @@
-[gd_scene load_steps=34 format=3 uid="uid://bdxkq5pmd7ry3"]
+[gd_scene load_steps=59 format=3 uid="uid://dhi4ubpsbjwht"]
 
-[ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_upt3k"]
-[ext_resource type="Script" path="res://Scripts/player_hand.gd" id="2_e6val"]
-[ext_resource type="Script" path="res://Scripts/card_manager.gd" id="3_3ll4u"]
-[ext_resource type="Script" path="res://Scripts/input_manager.gd" id="4_xy4ok"]
-[ext_resource type="Script" path="res://Scripts/deck.gd" id="5_154x7"]
-[ext_resource type="Texture2D" uid="uid://blhyvhoxoyt3k" path="res://Assets/Cards/CarteDos.png" id="6_7ku8x"]
-[ext_resource type="Script" path="res://Scripts/ennemy.gd" id="7_pjfob"]
-[ext_resource type="SpriteFrames" uid="uid://cy0vxs6rwoeev" path="res://Assets/Animations/SpriteFrames/idle-frames.tres" id="9_lkld2"]
-[ext_resource type="Texture2D" uid="uid://dyeu1ufbss37v" path="res://Assets/shield.png" id="10_nuso4"]
-[ext_resource type="Texture2D" uid="uid://crvhrgnthtowx" path="res://Assets/Sword.png" id="11_f68u2"]
-[ext_resource type="Script" path="res://Scripts/battle_manager.gd" id="12_hvqiw"]
-[ext_resource type="Texture2D" uid="uid://bi4yhcsx82f36" path="res://Assets/GlandMana.png" id="13_t5ntv"]
-[ext_resource type="PackedScene" uid="uid://bk8ny1bk7sxim" path="res://Scenes/player.tscn" id="14_1ygva"]
-[ext_resource type="FontFile" uid="uid://c5imxehuj7mj7" path="res://Assets/Praise-Regular.ttf" id="15_cymgj"]
-[ext_resource type="StyleBox" uid="uid://cvbqr8ncd81fr" path="res://Assets/button.tres" id="16_a4kje"]
-[ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_yfng8"]
-[ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_ixnn7"]
-[ext_resource type="Texture2D" uid="uid://b6dgi4xpsr06d" path="res://Assets/Animation/ecureuil_ancetre_Arme.png" id="19_3fvns"]
-[ext_resource type="Texture2D" uid="uid://ghjexvfrju0y" path="res://Assets/Animation/ecureuil_bebe_fleur_Arme.png" id="20_513mw"]
-[ext_resource type="Texture2D" uid="uid://lo8s1mlrx0rc" path="res://Assets/Animation/ecureuil_bebe_slingshot_Arme.png" id="21_wos86"]
-[ext_resource type="PackedScene" uid="uid://ka0g8mqtomq5" path="res://Scenes/win_screen.tscn" id="22_77b4x"]
+[ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
+[ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
+[ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_pow3f"]
+[ext_resource type="Script" path="res://Scripts/player_hand.gd" id="4_pwind"]
+[ext_resource type="Script" path="res://Scripts/deck.gd" id="4_t3xfq"]
+[ext_resource type="Texture2D" uid="uid://blhyvhoxoyt3k" path="res://Assets/Cards/CarteDos.png" id="6_ln601"]
+[ext_resource type="Script" path="res://Scripts/ennemy.gd" id="7_oksmg"]
+[ext_resource type="SpriteFrames" uid="uid://cy0vxs6rwoeev" path="res://Assets/Animations/SpriteFrames/idle-frames.tres" id="8_tqc0h"]
+[ext_resource type="PackedScene" uid="uid://bk8ny1bk7sxim" path="res://Scenes/player.tscn" id="9_6gpg3"]
+[ext_resource type="Script" path="res://Scripts/battle_manager.gd" id="9_fj1c1"]
+[ext_resource type="Texture2D" uid="uid://dyeu1ufbss37v" path="res://Assets/shield.png" id="9_wrptr"]
+[ext_resource type="PackedScene" uid="uid://ka0g8mqtomq5" path="res://Scenes/win_screen.tscn" id="10_761jn"]
+[ext_resource type="PackedScene" uid="uid://br13jqyfb661s" path="res://Scenes/genealogy_tree.tscn" id="10_av65l"]
+[ext_resource type="Texture2D" uid="uid://bi4yhcsx82f36" path="res://Assets/GlandMana.png" id="10_bghhq"]
+[ext_resource type="Texture2D" uid="uid://crvhrgnthtowx" path="res://Assets/Sword.png" id="10_ixkgl"]
+[ext_resource type="PackedScene" uid="uid://cpmpj2xq1q82o" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
+[ext_resource type="PackedScene" uid="uid://cy5hygrw2p2jq" path="res://Scenes/lose_screen.tscn" id="16_xxiqe"]
+[ext_resource type="FontFile" uid="uid://c5imxehuj7mj7" path="res://Assets/Praise-Regular.ttf" id="17_hk6cb"]
+[ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_rutlw"]
+[ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_3tnsj"]
+[ext_resource type="Texture2D" uid="uid://b6dgi4xpsr06d" path="res://Assets/Animation/ecureuil_ancetre_Arme.png" id="21_m6gpq"]
+[ext_resource type="Texture2D" uid="uid://ghjexvfrju0y" path="res://Assets/Animation/ecureuil_bebe_fleur_Arme.png" id="22_s5ntu"]
+[ext_resource type="Texture2D" uid="uid://lo8s1mlrx0rc" path="res://Assets/Animation/ecureuil_bebe_slingshot_Arme.png" id="23_cku4j"]
+[ext_resource type="AudioStream" uid="uid://bh03uw6snueb6" path="res://Assets/Audio/Music/SquirrelWarrior_niveau_loop.wav" id="25_21laf"]
+[ext_resource type="AudioStream" uid="uid://67trjrdfl1vx" path="res://Assets/Audio/Music/SquirrelWarrior_menu.wav" id="26_pd02e"]
+[ext_resource type="AudioStream" uid="uid://smyu14dcapbp" path="res://Assets/Audio/sfx_v2/Background 1_Forest.wav" id="27_f58ca"]
+[ext_resource type="Texture2D" uid="uid://dsltxeqaxymk5" path="res://Assets/SplashStart.png" id="27_iwfyl"]
+[ext_resource type="AudioStream" uid="uid://c4en3ygogfdkh" path="res://Assets/Audio/sfx_v2/Background 2_Ecureuils.wav" id="28_qm1hg"]
+[ext_resource type="AudioStream" uid="uid://blk6u4e1t2532" path="res://Assets/Audio/Ennemi_Griffe.wav" id="29_7tjo5"]
+[ext_resource type="AudioStream" uid="uid://w2om1whgbwb5" path="res://Assets/Audio/sfx_v2/Carte_1.wav" id="29_hl3qb"]
+[ext_resource type="AudioStream" uid="uid://dbbkvwdaes2m3" path="res://Assets/Audio/sfx_v2/Carte_2.wav" id="30_7cv1t"]
+[ext_resource type="AudioStream" uid="uid://tgdytk6p75cw" path="res://Assets/Audio/sfx_v2/Carte_3.wav" id="31_atu2v"]
+[ext_resource type="AudioStream" uid="uid://8yjee5w4ajgw" path="res://Assets/Audio/sfx_v2/Carte_4.wav" id="32_6ueh7"]
+[ext_resource type="AudioStream" uid="uid://c02gr57bvn7bq" path="res://Assets/Audio/sfx_v2/Carte_5.wav" id="33_55pkj"]
+[ext_resource type="AudioStream" uid="uid://ci06c1udvgjvp" path="res://Assets/Audio/sfx_v2/Engage Battle.wav" id="34_bx343"]
+[ext_resource type="Texture2D" uid="uid://djxr3dqjvjct5" path="res://Assets/SplashCredit.png" id="34_cve46"]
+[ext_resource type="AudioStream" uid="uid://b1yndqvo1n5k5" path="res://Assets/Audio/sfx_v2/Ennemi_Autre.wav" id="35_7li20"]
+[ext_resource type="AudioStream" uid="uid://dgrfhihjh2ogd" path="res://Assets/Audio/sfx_v2/Ennemi_Hochet.wav" id="36_2eohc"]
+[ext_resource type="AudioStream" uid="uid://u6wj8oe22gyv" path="res://Assets/Audio/sfx_v2/Ennemi_Slingshot.wav" id="37_htnvu"]
+[ext_resource type="StyleBox" path="res://Assets/button.tres" id="38_hcwcr"]
+[ext_resource type="AudioStream" uid="uid://csv4vvkl2v8xr" path="res://Assets/Audio/sfx_v2/Ennemi_Griffe.wav" id="38_k2uak"]
+[ext_resource type="AudioStream" uid="uid://be40oomafpihj" path="res://Assets/Audio/sfx_v2/Ennemi_Queue.wav" id="39_50rkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
 size = Vector2(240, 244)
@@ -486,28 +507,45 @@ _data = {
 "tail_hit": SubResource("Animation_3lg0h")
 }
 
-[node name="CombatScene" type="Node2D"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7f86e"]
+streams_count = 5
+stream_0/stream = ExtResource("29_hl3qb")
+stream_1/stream = ExtResource("30_7cv1t")
+stream_2/stream = ExtResource("31_atu2v")
+stream_3/stream = ExtResource("32_6ueh7")
+stream_4/stream = ExtResource("33_55pkj")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0shl2"]
+streams_count = 2
+stream_0/stream = ExtResource("38_k2uak")
+stream_1/stream = ExtResource("39_50rkn")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_542va"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_asqb4"]
+
+[node name="Main" type="Node2D"]
 
 [node name="BattleBackground" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("1_upt3k")
-
-[node name="PlayerHand" type="Node2D" parent="."]
-script = ExtResource("2_e6val")
+texture = ExtResource("1_8vpiy")
 
 [node name="CardManager" type="Node2D" parent="."]
-script = ExtResource("3_3ll4u")
+script = ExtResource("1_jcl2g")
 
 [node name="InputManager" type="Node2D" parent="."]
-script = ExtResource("4_xy4ok")
+script = ExtResource("2_pow3f")
+
+[node name="PlayerHand" type="Node2D" parent="."]
+script = ExtResource("4_pwind")
 
 [node name="Deck" type="Node2D" parent="."]
 position = Vector2(120, 955)
 scale = Vector2(0.8, 0.8)
-script = ExtResource("5_154x7")
+script = ExtResource("4_t3xfq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Deck"]
-texture = ExtResource("6_7ku8x")
+texture = ExtResource("6_ln601")
 
 [node name="CardCounter" type="RichTextLabel" parent="Deck"]
 modulate = Color(0, 0, 0, 1)
@@ -527,20 +565,20 @@ position = Vector2(-4.99986, 22.5)
 rotation = 0.523599
 scale = Vector2(0.8, 0.8)
 skew = 1.0472
-texture = ExtResource("6_7ku8x")
+texture = ExtResource("6_ln601")
 
 [node name="Sprite2D2" type="Sprite2D" parent="DiscardPile"]
 position = Vector2(-3.74986, 9.99999)
 rotation = 0.523599
 scale = Vector2(0.8, 0.8)
 skew = 1.0472
-texture = ExtResource("6_7ku8x")
+texture = ExtResource("6_ln601")
 
 [node name="Sprite2D" type="Sprite2D" parent="DiscardPile"]
 rotation = 0.523599
 scale = Vector2(0.8, 0.8)
 skew = 1.0472
-texture = ExtResource("6_7ku8x")
+texture = ExtResource("6_ln601")
 
 [node name="CardCounter" type="RichTextLabel" parent="DiscardPile"]
 modulate = Color(0, 0, 0, 1)
@@ -553,10 +591,12 @@ text = "0"
 
 [node name="SquirrelEnemy" type="Node2D" parent="."]
 position = Vector2(1417, 711)
-script = ExtResource("7_pjfob")
+script = ExtResource("7_oksmg")
+currentHealth = 2
+audio_attack = ExtResource("29_7tjo5")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="SquirrelEnemy"]
-sprite_frames = ExtResource("9_lkld2")
+sprite_frames = ExtResource("8_tqc0h")
 animation = &"idle"
 autoplay = "idle"
 flip_h = true
@@ -591,7 +631,7 @@ text = "100/100"
 [node name="Shield" type="Sprite2D" parent="SquirrelEnemy/HealthBar"]
 position = Vector2(0.0150146, 9)
 scale = Vector2(0.889556, 0.833333)
-texture = ExtResource("10_nuso4")
+texture = ExtResource("9_wrptr")
 
 [node name="ShieldText" type="RichTextLabel" parent="SquirrelEnemy/HealthBar"]
 modulate = Color(0, 0, 0, 1)
@@ -613,16 +653,16 @@ metadata/_edit_use_anchors_ = true
 visible = false
 position = Vector2(1413, 557)
 scale = Vector2(1.144, 1)
-texture = ExtResource("10_nuso4")
+texture = ExtResource("9_wrptr")
 
 [node name="EnemySword" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(1413, 558)
 scale = Vector2(1.047, 1.2)
-texture = ExtResource("11_f68u2")
+texture = ExtResource("10_ixkgl")
 
 [node name="BattleManager" type="Node" parent="."]
-script = ExtResource("12_hvqiw")
+script = ExtResource("9_fj1c1")
 
 [node name="button_show_tree" type="Button" parent="BattleManager"]
 visible = false
@@ -636,7 +676,7 @@ text = "Show Tree"
 position = Vector2(327, 582)
 
 [node name="Sprite2D" type="Sprite2D" parent="ManaCounter"]
-texture = ExtResource("13_t5ntv")
+texture = ExtResource("10_bghhq")
 
 [node name="Counter" type="RichTextLabel" parent="ManaCounter"]
 offset_left = -27.0
@@ -646,7 +686,14 @@ offset_bottom = 11.0
 scale = Vector2(3, 3)
 text = "5/5"
 
-[node name="Player" parent="." instance=ExtResource("14_1ygva")]
+[node name="WinScreen" parent="." instance=ExtResource("10_761jn")]
+visible = false
+position = Vector2(205, 36)
+
+[node name="GenealogyTree" parent="." instance=ExtResource("10_av65l")]
+position = Vector2(-2, -3)
+
+[node name="Player" parent="." instance=ExtResource("9_6gpg3")]
 position = Vector2(516, 720)
 
 [node name="EndTurnButton" type="Button" parent="."]
@@ -655,68 +702,189 @@ offset_top = 536.0
 offset_right = 1881.0
 offset_bottom = 650.0
 theme_override_colors/font_color = Color(0.411765, 0.117647, 0.0235294, 1)
-theme_override_fonts/font = ExtResource("15_cymgj")
+theme_override_fonts/font = ExtResource("17_hk6cb")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = ExtResource("16_a4kje")
-theme_override_styles/disabled_mirrored = ExtResource("16_a4kje")
-theme_override_styles/disabled = ExtResource("16_a4kje")
-theme_override_styles/hover_pressed_mirrored = ExtResource("16_a4kje")
-theme_override_styles/hover_pressed = ExtResource("16_a4kje")
-theme_override_styles/hover_mirrored = ExtResource("16_a4kje")
-theme_override_styles/hover = ExtResource("16_a4kje")
-theme_override_styles/pressed_mirrored = ExtResource("16_a4kje")
-theme_override_styles/pressed = ExtResource("16_a4kje")
-theme_override_styles/normal_mirrored = ExtResource("16_a4kje")
-theme_override_styles/normal = ExtResource("16_a4kje")
+theme_override_styles/focus = ExtResource("38_hcwcr")
+theme_override_styles/disabled_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/disabled = ExtResource("38_hcwcr")
+theme_override_styles/hover_pressed_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/hover_pressed = ExtResource("38_hcwcr")
+theme_override_styles/hover_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/hover = ExtResource("38_hcwcr")
+theme_override_styles/pressed_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/pressed = ExtResource("38_hcwcr")
+theme_override_styles/normal_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/normal = ExtResource("38_hcwcr")
 text = "Terminer le tour"
+
+[node name="LoseScreen" parent="." instance=ExtResource("16_xxiqe")]
+visible = false
+position = Vector2(4, 4)
+
+[node name="lose_screen_back_to_menu_button" type="Button" parent="LoseScreen"]
+offset_left = 851.0
+offset_top = 664.0
+offset_right = 1105.0
+offset_bottom = 768.0
+text = "Back to main menu"
+
+[node name="WinScreenFinal" parent="." instance=ExtResource("13_sop7h")]
+visible = false
 
 [node name="Animations" type="Node2D" parent="."]
 
 [node name="Claw" type="Sprite2D" parent="Animations"]
 position = Vector2(1456, 671)
 scale = Vector2(6, 6)
-texture = ExtResource("17_yfng8")
+texture = ExtResource("17_rutlw")
 
 [node name="Tail" type="Sprite2D" parent="Animations"]
 position = Vector2(1384, 707)
 rotation = -0.705113
 scale = Vector2(1.1, 1.1)
-texture = ExtResource("18_ixnn7")
+texture = ExtResource("18_3tnsj")
 
 [node name="Shield" type="Sprite2D" parent="Animations"]
 position = Vector2(580, 774)
 scale = Vector2(3, 3)
-texture = ExtResource("10_nuso4")
+texture = ExtResource("9_wrptr")
 
 [node name="ShieldEnemy" type="Sprite2D" parent="Animations"]
 position = Vector2(1322, 765)
 scale = Vector2(3, 3)
-texture = ExtResource("10_nuso4")
+texture = ExtResource("9_wrptr")
 
 [node name="BatonChefEnemy" type="Sprite2D" parent="Animations"]
 position = Vector2(648, 657)
 scale = Vector2(2, 2)
-texture = ExtResource("19_3fvns")
+texture = ExtResource("21_m6gpq")
 
 [node name="FleurEnemy" type="Sprite2D" parent="Animations"]
 position = Vector2(594, 741)
 rotation = -2.11708
 scale = Vector2(2, 2)
-texture = ExtResource("20_513mw")
+texture = ExtResource("22_s5ntu")
 
 [node name="RockEnemy" type="Sprite2D" parent="Animations"]
 position = Vector2(639, 697)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("21_wos86")
+texture = ExtResource("23_cku4j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Animations"]
 libraries = {
 "": SubResource("AnimationLibrary_u30wn")
 }
 
-[node name="WinScreen" parent="." instance=ExtResource("22_77b4x")]
+[node name="AudioManager" type="Node2D" parent="."]
+
+[node name="BattleMusic" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("25_21laf")
+volume_db = 5.0
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("26_pd02e")
+volume_db = 5.0
+
+[node name="Forest" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("27_f58ca")
+volume_db = -5.0
+
+[node name="Squirrel" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("28_qm1hg")
+volume_db = -5.0
+
+[node name="PlayingCard" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = SubResource("AudioStreamRandomizer_7f86e")
+volume_db = 10.0
+
+[node name="EngageBattle" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("34_bx343")
+volume_db = 10.0
+
+[node name="EnemyAutre" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("35_7li20")
+volume_db = 10.0
+
+[node name="EnemyHochet" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("36_2eohc")
+volume_db = 10.0
+
+[node name="EnemySlingshot" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("37_htnvu")
+volume_db = 10.0
+
+[node name="EnemyNormalAttack" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = SubResource("AudioStreamRandomizer_0shl2")
+volume_db = 10.0
+
+[node name="MainMenuSplash" type="TextureRect" parent="."]
 visible = false
-position = Vector2(223, 52)
+offset_right = 1922.0
+offset_bottom = 1080.0
+texture = ExtResource("27_iwfyl")
+
+[node name="start_game_button" type="Button" parent="MainMenuSplash"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 651.0
+offset_right = 302.0
+offset_bottom = 736.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_542va")
+
+[node name="credit_button" type="Button" parent="MainMenuSplash"]
+layout_mode = 0
+offset_left = 1658.0
+offset_top = 648.0
+offset_right = 1827.0
+offset_bottom = 733.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_asqb4")
+
+[node name="Credit" type="TextureRect" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1081.0
+texture = ExtResource("34_cve46")
+
+[node name="button_credit_back_to_menu" type="Button" parent="Credit"]
+layout_mode = 0
+offset_left = 1632.0
+offset_top = 688.0
+offset_right = 1881.0
+offset_bottom = 797.0
+theme_override_colors/font_color = Color(0.411765, 0.117647, 0.0235294, 1)
+theme_override_fonts/font = ExtResource("17_hk6cb")
+theme_override_styles/focus = ExtResource("38_hcwcr")
+theme_override_styles/disabled_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/disabled = ExtResource("38_hcwcr")
+theme_override_styles/hover_pressed_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/hover_pressed = ExtResource("38_hcwcr")
+theme_override_styles/hover_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/hover = ExtResource("38_hcwcr")
+theme_override_styles/pressed_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/pressed = ExtResource("38_hcwcr")
+theme_override_styles/normal_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/normal = ExtResource("38_hcwcr")
+text = "Retourner au menu"
 
 [connection signal="mouse_entered" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="SquirrelEnemy/Area2D" to="SquirrelEnemy" method="_on_area_2d_mouse_exited"]
