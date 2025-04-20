@@ -190,10 +190,6 @@ func _on_player_died():
 	
 	
 func _on_combat_requested(squirrel: SquirrelNode):
-	audio_manager.get_node("EngageBattle").play()
-	audio_manager.get_node("TreeMusic").stop()
-	audio_manager.get_node("BattleMusic").play() # TODO
-	
 	print("BattleManager a reçu :", squirrel.squirrel_name)
 	current_enemy = squirrel  
 	squirrel_enemy.setEnnemy(squirrel)

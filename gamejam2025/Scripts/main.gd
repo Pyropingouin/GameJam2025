@@ -66,6 +66,9 @@ func _on_combat_requested(squirrel):
 	all_invisible()
 	combat_scene.visible = true
 	win_screen.visible = false
+	audio_manager.get_node("EngageBattle").play()
+	audio_manager.get_node("TreeMusic").stop()
+	audio_manager.get_node("BattleMusic").play() 
 
 func _on_player_died():
 	all_invisible()
@@ -83,8 +86,7 @@ func _on_game_victory():
 	final_win_scene.visible = true
 	
 func _on_next_button_pressed():
-	all_invisible()
-	tree_scene.visible = true
+	enter_tree_scene()
 	tree_scene.get_node("info_panel").visible = false
 	
 func enter_tree_scene():
