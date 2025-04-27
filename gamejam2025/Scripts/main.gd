@@ -107,3 +107,4 @@ func all_invisible():
 	credits_scene.visible = false
 	final_win_scene.visible = false
 	lose_scene.visible = false
+	tree_scene.get_node("info_panel").visible = false

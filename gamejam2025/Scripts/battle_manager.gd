@@ -2,12 +2,11 @@ extends Node
 
 # 540
 
-const MAIN_SCENE_PATH = "res://Scenes/main.tscn"
-const TREE_SCENE_PATH = "res://Scenes/genealogy_tree.tscn"
 const DEFAULT_CARD_MOVE_SPEED = 0.1
 const ATTACK_MOVE_SPEED = 0.1
 const CARD_MOVE_SPEED = 0.3
 const MAX_MANA = 5.0
+const ENEMY_TURN_TIME = 1.0
 const CARD_TYPE_OFFENSE = "Offense"
 const CARD_TYPE_DEFENSE = "Defense"
 const ennemyMoves = [
@@ -29,21 +28,12 @@ const ennemyMoves = [
 @onready var deck: Node2D = $"../Deck"
 @onready var discard_pile_reference: Node2D = $"../DiscardPile"
 @onready var card_manager: Node2D = $"../CardManager"
-#@onready var button_show_tree = $button_show_tree
-#@onready var genealogy_tree = $"../GenealogyTree"
-#@onready var battle_background = $"../BattleBackground"
 @onready var squirrel_enemy: Node2D = $"../SquirrelEnemy"
 @onready var end_turn_button: Button = $"../EndTurnButton"
 @onready var player: Node2D = $"../Player"
 @onready var enemy_shield: Sprite2D = $"../EnemyShield"
 @onready var enemy_sword: Sprite2D = $"../EnemySword"
 @onready var win_screen = $"../WinScreen"
-@onready var win_scree_final = $"../WinScreenFinal"
-#@onready var animations: Node2D = $"../Animations"
-#@onready var lose_screen = $"../LoseScreen"
-#@onready var shield: Sprite2D = $HealthBar/Shield
-#@onready var shield_text: RichTextLabel = $HealthBar/ShieldText
-#@onready var audio_manager: Node2D = $"../AudioManager"
 @onready var audio_manager: Node2D = $"../../AudioManager"
 
 
@@ -85,8 +75,6 @@ func connect_player_signals():
 	player.connect("died", Callable(self, "_on_player_died"))
 	
 func play_a_card(card):
-	#print("Play a card")
-	#print(card)
 	# Check si on peut jouer la carte (assez de mana)
 	if card.mana <= current_mana:
 		audio_manager.get_node("PlayingCard").play()
@@ -117,7 +105,6 @@ func play_a_card(card):
 			player_pos_copy = player.position
 			print(player_pos_copy)
 			var new_player_pos = Vector2(player_pos_copy.x + 60, player_pos_copy.y)
-			#var new_player_pos = Vector2(squirrel_enemy.position.x - 100, squirrel_enemy.position.y)
 			var tween2 = get_tree().create_tween()
 			tween2.tween_property(player, "position", new_player_pos, ATTACK_MOVE_SPEED)
 			tween2.connect("finished", on_tween_attack_finished)
@@ -129,14 +116,12 @@ func play_a_card(card):
 		player_hand.add_card_to_hand(card, DEFAULT_CARD_MOVE_SPEED)
 	
 func on_tween_attack_finished():
-	#print("Atack")
 	if card_being_played.card_name == "Griffe":
 		animations.get_node("Claw").visible = true
 		animations.get_node("AnimationPlayer").play("claw_hit")
 	elif card_being_played.card_name == "Tail":
 		animations.get_node("Tail").visible = true
 		animations.get_node("AnimationPlayer").play("tail_hit")
-	print(player.position)
 	var tween3 = get_tree().create_tween()
 	tween3.tween_property(player, "position", player_pos_copy, ATTACK_MOVE_SPEED)
 
@@ -146,28 +131,10 @@ func on_tween_finished():
 	card_being_played.queue_free()
 	
 func _on_squirrel_enemy_died():
-	print("L'ennemi est mort ! 🎉")
 	emit_signal("enemy_died")
 	win_screen.set_squirrel(current_enemy) 
-	
-	if current_enemy.squirrel_name == "dwdwdwd":
-		print("win")
 
-		#card_manager.set_physics_process(false)
-		#card_manager.set_process(false)
-
-		win_scree_final.visible = true
-	else:		
-		increaseDamage()
-
-		#card_manager.set_physics_process(false)
-		#card_manager.set_process(false)
-
-		
-	# Active la suppression récursive sur l'écureuil battu
-	#if is_instance_valid(current_enemy):
-		#await get_tree().create_timer(1.0).timeout
-		#current_enemy._on_button2_pressed()	
+	increaseDamage()
 		
 	empty_player_hand()
 	
@@ -175,26 +142,16 @@ func _on_squirrel_enemy_died():
 	discard_pile_reference.get_node("CardCounter").text = str(discard_pile.size())
 	
 func gameVictory():
-	# TODO: Affiche le finalWinScreen 
 	emit_signal("game_victory")
 	
 func _on_player_died():
-	print("💀 Le joueur est mort ! GAME OVER")
 	emit_signal("player_died")
-
-	#card_manager.set_physics_process(false)
-	#card_manager.set_process(false)
-
-	
-	
-	
 	
 func _on_combat_requested(squirrel: SquirrelNode):
-	print("BattleManager a reçu :", squirrel.squirrel_name)
+	end_turn_button.visible = true
 	current_enemy = squirrel  
 	squirrel_enemy.setEnnemy(squirrel)
 	setNextMove()
-	
 	
 	player.resetPlayer()
 	current_mana = MAX_MANA
@@ -209,20 +166,19 @@ func on_end_turn_pressed():
 	
 	attack_allies()
 
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(ENEMY_TURN_TIME).timeout
 	attack_enemies()
 
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(ENEMY_TURN_TIME).timeout
 	current_mana = MAX_MANA
 	mana_counter.get_node("Counter").text = str(current_mana) + "/" + str(MAX_MANA)
 
 	end_turn_button.visible = true
-	#print(discard_pile)
+	
 	discard_pile.clear()
 	discard_pile_reference.get_node("CardCounter").text = str(discard_pile.size())
-	print("endTurn")
+	
 	deck.draw_all_cards()
-	print("endTurn")
 
 func attack_allies():
 	for ally in allies:
@@ -249,19 +205,14 @@ func attack_enemies():
 			audio_manager.get_node("EnemySlingshot").play()
 		
 		enemy_pos_copy = squirrel_enemy.position
-		print(enemy_pos_copy)
 		var new_pos = Vector2(enemy_pos_copy.x - 60, enemy_pos_copy.y)
-		print(new_pos)
 		var tween = get_tree().create_tween()
 		tween.tween_property(squirrel_enemy, "position", new_pos, ATTACK_MOVE_SPEED)
 		tween.connect("finished", on_tween_attack_enemy_finished)
 		player.reduceHealth(ennemyNextMove.damage * squirrel_enemy.damage_multiplier)
 	else:
-		#animations.get_node("ShieldEnemy").visible = true
-		#animations.get_node("AnimationPlayer").play("shield_buff_enemy")
-		#animations.get_node("BatonChefEnemy").visible = false
-		#animations.get_node("FleurEnemy").visible = true
 		squirrel_enemy.defense = ennemyNextMove.damage
+		
 	setNextMove()
 	
 
@@ -290,9 +241,6 @@ func _on_end_turn_button_pressed() -> void:
 	on_end_turn_pressed()
 	
 func empty_player_hand():
-	#print("Empty!!!")
-	#print(player_hand.player_hand)
-	#var real_player_hand = player_hand.player_hand
 	if player_hand.player_hand.size() > 0:
 		for i in player_hand.player_hand:
 			# Déplacer la carte dans la DiscardPile
