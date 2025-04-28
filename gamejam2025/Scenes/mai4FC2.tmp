@@ -1,0 +1,896 @@
+[gd_scene load_steps=59 format=3 uid="uid://dhi4ubpsbjwht"]
+
+[ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_8vpiy"]
+[ext_resource type="Script" path="res://Scripts/card_manager.gd" id="1_jcl2g"]
+[ext_resource type="Script" path="res://Scripts/input_manager.gd" id="2_pow3f"]
+[ext_resource type="Script" path="res://Scripts/player_hand.gd" id="4_pwind"]
+[ext_resource type="Script" path="res://Scripts/deck.gd" id="4_t3xfq"]
+[ext_resource type="Texture2D" uid="uid://blhyvhoxoyt3k" path="res://Assets/Cards/CarteDos.png" id="6_ln601"]
+[ext_resource type="Script" path="res://Scripts/ennemi_temporaire.gd" id="7_oksmg"]
+[ext_resource type="SpriteFrames" uid="uid://cy0vxs6rwoeev" path="res://Assets/Animations/SpriteFrames/idle-frames.tres" id="8_tqc0h"]
+[ext_resource type="PackedScene" uid="uid://bk8ny1bk7sxim" path="res://Scenes/player.tscn" id="9_6gpg3"]
+[ext_resource type="Script" path="res://Scripts/battle_manager.gd" id="9_fj1c1"]
+[ext_resource type="Texture2D" uid="uid://dyeu1ufbss37v" path="res://Assets/shield.png" id="9_wrptr"]
+[ext_resource type="PackedScene" uid="uid://ka0g8mqtomq5" path="res://Scenes/win_screen.tscn" id="10_761jn"]
+[ext_resource type="PackedScene" uid="uid://br13jqyfb661s" path="res://Scenes/genealogy_tree.tscn" id="10_av65l"]
+[ext_resource type="Texture2D" uid="uid://bi4yhcsx82f36" path="res://Assets/GlandMana.png" id="10_bghhq"]
+[ext_resource type="Texture2D" uid="uid://crvhrgnthtowx" path="res://Assets/Sword.png" id="10_ixkgl"]
+[ext_resource type="PackedScene" uid="uid://cpmpj2xq1q82o" path="res://Scenes/win_screen_final.tscn" id="13_sop7h"]
+[ext_resource type="PackedScene" uid="uid://cy5hygrw2p2jq" path="res://Scenes/lose_screen.tscn" id="16_xxiqe"]
+[ext_resource type="FontFile" uid="uid://c5imxehuj7mj7" path="res://Assets/Praise-Regular.ttf" id="17_hk6cb"]
+[ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_rutlw"]
+[ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_3tnsj"]
+[ext_resource type="Texture2D" uid="uid://b6dgi4xpsr06d" path="res://Assets/Animation/ecureuil_ancetre_Arme.png" id="21_m6gpq"]
+[ext_resource type="Texture2D" uid="uid://ghjexvfrju0y" path="res://Assets/Animation/ecureuil_bebe_fleur_Arme.png" id="22_s5ntu"]
+[ext_resource type="Texture2D" uid="uid://lo8s1mlrx0rc" path="res://Assets/Animation/ecureuil_bebe_slingshot_Arme.png" id="23_cku4j"]
+[ext_resource type="AudioStream" uid="uid://bh03uw6snueb6" path="res://Assets/Audio/Music/SquirrelWarrior_niveau_loop.wav" id="25_21laf"]
+[ext_resource type="AudioStream" uid="uid://67trjrdfl1vx" path="res://Assets/Audio/Music/SquirrelWarrior_menu.wav" id="26_pd02e"]
+[ext_resource type="AudioStream" uid="uid://smyu14dcapbp" path="res://Assets/Audio/sfx_v2/Background 1_Forest.wav" id="27_f58ca"]
+[ext_resource type="Texture2D" uid="uid://dsltxeqaxymk5" path="res://Assets/SplashStart.png" id="27_iwfyl"]
+[ext_resource type="AudioStream" uid="uid://c4en3ygogfdkh" path="res://Assets/Audio/sfx_v2/Background 2_Ecureuils.wav" id="28_qm1hg"]
+[ext_resource type="AudioStream" uid="uid://blk6u4e1t2532" path="res://Assets/Audio/Ennemi_Griffe.wav" id="29_7tjo5"]
+[ext_resource type="AudioStream" uid="uid://w2om1whgbwb5" path="res://Assets/Audio/sfx_v2/Carte_1.wav" id="29_hl3qb"]
+[ext_resource type="AudioStream" uid="uid://dbbkvwdaes2m3" path="res://Assets/Audio/sfx_v2/Carte_2.wav" id="30_7cv1t"]
+[ext_resource type="AudioStream" uid="uid://tgdytk6p75cw" path="res://Assets/Audio/sfx_v2/Carte_3.wav" id="31_atu2v"]
+[ext_resource type="AudioStream" uid="uid://8yjee5w4ajgw" path="res://Assets/Audio/sfx_v2/Carte_4.wav" id="32_6ueh7"]
+[ext_resource type="AudioStream" uid="uid://c02gr57bvn7bq" path="res://Assets/Audio/sfx_v2/Carte_5.wav" id="33_55pkj"]
+[ext_resource type="AudioStream" uid="uid://ci06c1udvgjvp" path="res://Assets/Audio/sfx_v2/Engage Battle.wav" id="34_bx343"]
+[ext_resource type="Texture2D" uid="uid://djxr3dqjvjct5" path="res://Assets/SplashCredit.png" id="34_cve46"]
+[ext_resource type="AudioStream" uid="uid://b1yndqvo1n5k5" path="res://Assets/Audio/sfx_v2/Ennemi_Autre.wav" id="35_7li20"]
+[ext_resource type="AudioStream" uid="uid://dgrfhihjh2ogd" path="res://Assets/Audio/sfx_v2/Ennemi_Hochet.wav" id="36_2eohc"]
+[ext_resource type="AudioStream" uid="uid://u6wj8oe22gyv" path="res://Assets/Audio/sfx_v2/Ennemi_Slingshot.wav" id="37_htnvu"]
+[ext_resource type="StyleBox" uid="uid://cvbqr8ncd81fr" path="res://Assets/button.tres" id="38_hcwcr"]
+[ext_resource type="AudioStream" uid="uid://csv4vvkl2v8xr" path="res://Assets/Audio/sfx_v2/Ennemi_Griffe.wav" id="38_k2uak"]
+[ext_resource type="AudioStream" uid="uid://be40oomafpihj" path="res://Assets/Audio/sfx_v2/Ennemi_Queue.wav" id="39_50rkn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_542va"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_asqb4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3501"]
+size = Vector2(240, 244)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n68kw"]
+bg_color = Color(0.20871, 0.20871, 0.20871, 0.745098)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4tk0"]
+bg_color = Color(0.884314, 3.20069e-06, 1.15514e-06, 1)
+
+[sub_resource type="Animation" id="Animation_ey12e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Claw:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1456, 671)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Claw:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tail:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.705113]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tail:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1384, 707)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tail:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shield:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(580, 774)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Shield:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ShieldEnemy:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1322, 765)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ShieldEnemy:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BatonChefEnemy:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(648, 657)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BatonChefEnemy:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BatonChefEnemy:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("FleurEnemy:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(594, 741)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("FleurEnemy:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("RockEnemy:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(639, 697)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("RockEnemy:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("RockEnemy:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_s04al"]
+resource_name = "baton_hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BatonChefEnemy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(648, 657), Vector2(632, 661), Vector2(591, 688)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BatonChefEnemy:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.558505, -1.40499]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BatonChefEnemy:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_wbus0"]
+resource_name = "claw_hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Claw:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1456, 671), Vector2(1398, 750)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Claw:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ygxg6"]
+resource_name = "flower_hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FleurEnemy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(594, 741), Vector2(503, 718)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FleurEnemy:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_sdlrs"]
+resource_name = "rock_hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RockEnemy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(639, 697), Vector2(590, 695), Vector2(547, 693)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RockEnemy:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 4.71239]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RockEnemy:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_y6myh"]
+resource_name = "shield_buff"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shield:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(580, 774), Vector2(580, 650)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shield:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_v5yq0"]
+resource_name = "shield_buff_enemy"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShieldEnemy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1322, 774), Vector2(1322, 650)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShieldEnemy:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.533333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_3lg0h"]
+resource_name = "tail_hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tail:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.705113, 1.13097]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tail:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1384, 707), Vector2(1383, 740)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tail:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u30wn"]
+_data = {
+"RESET": SubResource("Animation_ey12e"),
+"baton_hit": SubResource("Animation_s04al"),
+"claw_hit": SubResource("Animation_wbus0"),
+"flower_hit": SubResource("Animation_ygxg6"),
+"rock_hit": SubResource("Animation_sdlrs"),
+"shield_buff": SubResource("Animation_y6myh"),
+"shield_buff_enemy": SubResource("Animation_v5yq0"),
+"tail_hit": SubResource("Animation_3lg0h")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7f86e"]
+streams_count = 5
+stream_0/stream = ExtResource("29_hl3qb")
+stream_1/stream = ExtResource("30_7cv1t")
+stream_2/stream = ExtResource("31_atu2v")
+stream_3/stream = ExtResource("32_6ueh7")
+stream_4/stream = ExtResource("33_55pkj")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0shl2"]
+streams_count = 2
+stream_0/stream = ExtResource("38_k2uak")
+stream_1/stream = ExtResource("39_50rkn")
+
+[node name="Main" type="Node2D"]
+
+[node name="MainMenuScene" type="Node2D" parent="."]
+
+[node name="MainMenuSplash" type="TextureRect" parent="MainMenuScene"]
+offset_right = 1922.0
+offset_bottom = 1080.0
+texture = ExtResource("27_iwfyl")
+
+[node name="start_game_button" type="Button" parent="MainMenuScene/MainMenuSplash"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 651.0
+offset_right = 302.0
+offset_bottom = 736.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_542va")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_542va")
+
+[node name="credit_button" type="Button" parent="MainMenuScene/MainMenuSplash"]
+layout_mode = 0
+offset_left = 1658.0
+offset_top = 648.0
+offset_right = 1827.0
+offset_bottom = 733.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_asqb4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_asqb4")
+
+[node name="TreeScene" parent="." instance=ExtResource("10_av65l")]
+visible = false
+
+[node name="CombatScene" type="Node2D" parent="."]
+visible = false
+
+[node name="BattleBackground" type="Sprite2D" parent="CombatScene"]
+position = Vector2(960, 540)
+texture = ExtResource("1_8vpiy")
+
+[node name="PlayerHand" type="Node2D" parent="CombatScene"]
+script = ExtResource("4_pwind")
+
+[node name="CardManager" type="Node2D" parent="CombatScene"]
+script = ExtResource("1_jcl2g")
+
+[node name="InputManager" type="Node2D" parent="CombatScene"]
+script = ExtResource("2_pow3f")
+
+[node name="Deck" type="Node2D" parent="CombatScene"]
+position = Vector2(120, 955)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("4_t3xfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="CombatScene/Deck"]
+texture = ExtResource("6_ln601")
+
+[node name="CardCounter" type="RichTextLabel" parent="CombatScene/Deck"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -25.0
+offset_top = -47.5
+offset_right = 15.0
+offset_bottom = -7.49998
+scale = Vector2(4, 4)
+text = "0"
+
+[node name="DiscardPile" type="Node2D" parent="CombatScene"]
+position = Vector2(1763, 1004)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D3" type="Sprite2D" parent="CombatScene/DiscardPile"]
+position = Vector2(-4.99986, 22.5)
+rotation = 0.523599
+scale = Vector2(0.8, 0.8)
+skew = 1.0472
+texture = ExtResource("6_ln601")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CombatScene/DiscardPile"]
+position = Vector2(-3.74986, 9.99999)
+rotation = 0.523599
+scale = Vector2(0.8, 0.8)
+skew = 1.0472
+texture = ExtResource("6_ln601")
+
+[node name="Sprite2D" type="Sprite2D" parent="CombatScene/DiscardPile"]
+rotation = 0.523599
+scale = Vector2(0.8, 0.8)
+skew = 1.0472
+texture = ExtResource("6_ln601")
+
+[node name="CardCounter" type="RichTextLabel" parent="CombatScene/DiscardPile"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -22.5001
+offset_top = -50.0
+offset_right = 17.4999
+offset_bottom = -9.99998
+scale = Vector2(4, 4)
+text = "0"
+
+[node name="SquirrelEnemy" type="Node2D" parent="CombatScene"]
+position = Vector2(1417, 711)
+script = ExtResource("7_oksmg")
+currentHealth = 2
+audio_attack = ExtResource("29_7tjo5")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="CombatScene/SquirrelEnemy"]
+sprite_frames = ExtResource("8_tqc0h")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="CombatScene/SquirrelEnemy"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatScene/SquirrelEnemy/Area2D"]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_f3501")
+
+[node name="HealthBar" type="ProgressBar" parent="CombatScene/SquirrelEnemy"]
+offset_left = -86.0
+offset_top = -115.0
+offset_right = 74.0
+offset_bottom = -95.0
+theme_override_styles/background = SubResource("StyleBoxFlat_n68kw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_o4tk0")
+max_value = 120.0
+value = 100.0
+show_percentage = false
+
+[node name="HealthStatus" type="RichTextLabel" parent="CombatScene/SquirrelEnemy/HealthBar"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = -2.0
+offset_right = 114.0
+offset_bottom = 31.0
+text = "100/100"
+
+[node name="Shield" type="Sprite2D" parent="CombatScene/SquirrelEnemy/HealthBar"]
+position = Vector2(0.0150146, 9)
+scale = Vector2(0.889556, 0.833333)
+texture = ExtResource("9_wrptr")
+
+[node name="ShieldText" type="RichTextLabel" parent="CombatScene/SquirrelEnemy/HealthBar"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0750938
+anchor_top = -0.05
+anchor_right = 0.0124062
+offset_left = 0.015008
+offset_top = -3.0
+offset_right = 12.015
+offset_bottom = 22.0
+bbcode_enabled = true
+text = "[center]0[center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="EnemyShield" type="Sprite2D" parent="CombatScene"]
+visible = false
+position = Vector2(1413, 557)
+scale = Vector2(1.144, 1)
+texture = ExtResource("9_wrptr")
+
+[node name="EnemySword" type="Sprite2D" parent="CombatScene"]
+visible = false
+position = Vector2(1413, 558)
+scale = Vector2(1.047, 1.2)
+texture = ExtResource("10_ixkgl")
+
+[node name="BattleManager" type="Node" parent="CombatScene"]
+script = ExtResource("9_fj1c1")
+
+[node name="button_show_tree" type="Button" parent="CombatScene/BattleManager"]
+visible = false
+offset_left = 920.0
+offset_top = 413.0
+offset_right = 1146.0
+offset_bottom = 566.0
+text = "Show Tree"
+
+[node name="ManaCounter" type="Node2D" parent="CombatScene"]
+position = Vector2(327, 582)
+
+[node name="Sprite2D" type="Sprite2D" parent="CombatScene/ManaCounter"]
+texture = ExtResource("10_bghhq")
+
+[node name="Counter" type="RichTextLabel" parent="CombatScene/ManaCounter"]
+offset_left = -27.0
+offset_top = -29.0
+offset_right = 13.0
+offset_bottom = 11.0
+scale = Vector2(3, 3)
+text = "5/5"
+
+[node name="Player" parent="CombatScene" instance=ExtResource("9_6gpg3")]
+position = Vector2(516, 720)
+
+[node name="EndTurnButton" type="Button" parent="CombatScene"]
+offset_left = 1646.0
+offset_top = 536.0
+offset_right = 1881.0
+offset_bottom = 650.0
+theme_override_colors/font_color = Color(0.411765, 0.117647, 0.0235294, 1)
+theme_override_fonts/font = ExtResource("17_hk6cb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = ExtResource("38_hcwcr")
+theme_override_styles/disabled_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/disabled = ExtResource("38_hcwcr")
+theme_override_styles/hover_pressed_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/hover_pressed = ExtResource("38_hcwcr")
+theme_override_styles/hover_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/hover = ExtResource("38_hcwcr")
+theme_override_styles/pressed_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/pressed = ExtResource("38_hcwcr")
+theme_override_styles/normal_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/normal = ExtResource("38_hcwcr")
+text = "Terminer le tour"
+
+[node name="Animations" type="Node2D" parent="CombatScene"]
+
+[node name="Claw" type="Sprite2D" parent="CombatScene/Animations"]
+position = Vector2(1456, 671)
+scale = Vector2(6, 6)
+texture = ExtResource("17_rutlw")
+
+[node name="Tail" type="Sprite2D" parent="CombatScene/Animations"]
+position = Vector2(1384, 707)
+rotation = -0.705113
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("18_3tnsj")
+
+[node name="Shield" type="Sprite2D" parent="CombatScene/Animations"]
+position = Vector2(580, 774)
+scale = Vector2(3, 3)
+texture = ExtResource("9_wrptr")
+
+[node name="ShieldEnemy" type="Sprite2D" parent="CombatScene/Animations"]
+position = Vector2(1322, 765)
+scale = Vector2(3, 3)
+texture = ExtResource("9_wrptr")
+
+[node name="BatonChefEnemy" type="Sprite2D" parent="CombatScene/Animations"]
+position = Vector2(648, 657)
+scale = Vector2(2, 2)
+texture = ExtResource("21_m6gpq")
+
+[node name="FleurEnemy" type="Sprite2D" parent="CombatScene/Animations"]
+position = Vector2(594, 741)
+rotation = -2.11708
+scale = Vector2(2, 2)
+texture = ExtResource("22_s5ntu")
+
+[node name="RockEnemy" type="Sprite2D" parent="CombatScene/Animations"]
+position = Vector2(639, 697)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("23_cku4j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CombatScene/Animations"]
+libraries = {
+"": SubResource("AnimationLibrary_u30wn")
+}
+
+[node name="WinScreen" parent="CombatScene" instance=ExtResource("10_761jn")]
+position = Vector2(205, 36)
+
+[node name="CreditsScene" type="Node2D" parent="."]
+visible = false
+
+[node name="Credit" type="TextureRect" parent="CreditsScene"]
+offset_right = 1920.0
+offset_bottom = 1081.0
+texture = ExtResource("34_cve46")
+
+[node name="button_credit_back_to_menu" type="Button" parent="CreditsScene/Credit"]
+layout_mode = 0
+offset_left = 1632.0
+offset_top = 688.0
+offset_right = 1881.0
+offset_bottom = 797.0
+theme_override_colors/font_color = Color(0.411765, 0.117647, 0.0235294, 1)
+theme_override_fonts/font = ExtResource("17_hk6cb")
+theme_override_styles/focus = ExtResource("38_hcwcr")
+theme_override_styles/disabled_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/disabled = ExtResource("38_hcwcr")
+theme_override_styles/hover_pressed_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/hover_pressed = ExtResource("38_hcwcr")
+theme_override_styles/hover_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/hover = ExtResource("38_hcwcr")
+theme_override_styles/pressed_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/pressed = ExtResource("38_hcwcr")
+theme_override_styles/normal_mirrored = ExtResource("38_hcwcr")
+theme_override_styles/normal = ExtResource("38_hcwcr")
+text = "Retourner au menu"
+
+[node name="FinalWinScene" parent="." instance=ExtResource("13_sop7h")]
+visible = false
+
+[node name="LoseScene" parent="." instance=ExtResource("16_xxiqe")]
+visible = false
+position = Vector2(4, 4)
+
+[node name="lose_screen_back_to_menu_button" type="Button" parent="LoseScene"]
+offset_left = 851.0
+offset_top = 664.0
+offset_right = 1105.0
+offset_bottom = 768.0
+text = "Back to main menu"
+
+[node name="AudioManager" type="Node2D" parent="."]
+
+[node name="BattleMusic" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("25_21laf")
+volume_db = 5.0
+
+[node name="TreeMusic" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("26_pd02e")
+volume_db = 5.0
+
+[node name="Forest" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("27_f58ca")
+volume_db = -5.0
+
+[node name="Squirrel" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("28_qm1hg")
+volume_db = -5.0
+
+[node name="PlayingCard" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = SubResource("AudioStreamRandomizer_7f86e")
+volume_db = 10.0
+
+[node name="EngageBattle" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("34_bx343")
+volume_db = 10.0
+
+[node name="EnemyAutre" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("35_7li20")
+volume_db = 10.0
+
+[node name="EnemyHochet" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("36_2eohc")
+volume_db = 10.0
+
+[node name="EnemySlingshot" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = ExtResource("37_htnvu")
+volume_db = 10.0
+
+[node name="EnemyNormalAttack" type="AudioStreamPlayer2D" parent="AudioManager"]
+stream = SubResource("AudioStreamRandomizer_0shl2")
+volume_db = 10.0
+
+[connection signal="mouse_entered" from="CombatScene/SquirrelEnemy/Area2D" to="CombatScene/SquirrelEnemy" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="CombatScene/SquirrelEnemy/Area2D" to="CombatScene/SquirrelEnemy" method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="CombatScene/EndTurnButton" to="CombatScene/BattleManager" method="_on_end_turn_button_pressed"]

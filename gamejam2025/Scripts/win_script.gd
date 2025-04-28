@@ -9,13 +9,15 @@ extends Node
 
 var defeated_squirrel: SquirrelNode
 
+signal next_button_pressed
 
 func _ready():
 	button.pressed.connect(_on_button_next_pressed)
 
 func _on_button_next_pressed():
 	print("next")
-	genealogy_tree.info_panel.visible = false
+	emit_signal("next_button_pressed")
+	#genealogy_tree.info_panel.visible = false
 	if is_instance_valid(defeated_squirrel):
 		defeated_squirrel._on_button2_pressed()
 		
@@ -23,7 +25,7 @@ func _on_button_next_pressed():
 	
 	if defeated_squirrel.squirrel_name == "chef":	
 		await get_tree().create_timer(3).timeout
-		battle_manager.endGame()
+		battle_manager.gameVictory()
 		
 
 	

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://drjkgtqju0kwd"]
+
+[ext_resource type="Texture2D" uid="uid://djxr3dqjvjct5" path="res://Assets/SplashCredit.png" id="1_fjnb7"]
+[ext_resource type="Script" path="res://Scripts/credits_scene.gd" id="1_u05px"]
+[ext_resource type="FontFile" uid="uid://c5imxehuj7mj7" path="res://Assets/Praise-Regular.ttf" id="2_lkw4o"]
+[ext_resource type="StyleBox" uid="uid://cvbqr8ncd81fr" path="res://Assets/button.tres" id="3_cr16d"]
+
+[node name="CreditsScene" type="Node2D"]
+script = ExtResource("1_u05px")
+
+[node name="Credit" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1081.0
+texture = ExtResource("1_fjnb7")
+
+[node name="BackToMenu" type="Button" parent="."]
+offset_left = 1632.0
+offset_top = 688.0
+offset_right = 1881.0
+offset_bottom = 797.0
+theme_override_colors/font_color = Color(0.411765, 0.117647, 0.0235294, 1)
+theme_override_fonts/font = ExtResource("2_lkw4o")
+theme_override_styles/focus = ExtResource("3_cr16d")
+theme_override_styles/disabled_mirrored = ExtResource("3_cr16d")
+theme_override_styles/disabled = ExtResource("3_cr16d")
+theme_override_styles/hover_pressed_mirrored = ExtResource("3_cr16d")
+theme_override_styles/hover_pressed = ExtResource("3_cr16d")
+theme_override_styles/hover_mirrored = ExtResource("3_cr16d")
+theme_override_styles/hover = ExtResource("3_cr16d")
+theme_override_styles/pressed_mirrored = ExtResource("3_cr16d")
+theme_override_styles/pressed = ExtResource("3_cr16d")
+theme_override_styles/normal_mirrored = ExtResource("3_cr16d")
+theme_override_styles/normal = ExtResource("3_cr16d")
+text = "Retourner au menu"
+
+[connection signal="pressed" from="BackToMenu" to="." method="_on_back_to_menu_pressed"]
