@@ -175,6 +175,8 @@ func on_end_turn_pressed():
 
 	end_turn_button.visible = true
 	
+	
+	# TODO
 	discard_pile.clear()
 	discard_pile_reference.get_node("CardCounter").text = str(discard_pile.size())
 	

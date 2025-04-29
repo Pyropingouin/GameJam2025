@@ -9,8 +9,10 @@ const CARD_DRAW_SPEED = 0.5
 @onready var battle_manager: Node = $"../BattleManager"
 @onready var discard_pile_reference: Node2D = $"../DiscardPile"
 
-var player_deck = ["CarteGland", "CarteQueue", "CarteGriffe", "CarteQueue", "CarteGriffe"]
-var player_deck_copy = ["CarteGland", "CarteQueue", "CarteGriffe", "CarteQueue", "CarteGriffe"]
+var player_deck = ["CarteGland", "CarteGland", "CarteGriffe", "CarteGriffe", "CarteQueue", "CarteQueue",
+					"CarteGland", "CarteGland", "CarteGriffe", "CarteGriffe", "CarteQueue", "CarteQueue"]
+var player_deck_copy = ["CarteGland", "CarteGland", "CarteGriffe", "CarteGriffe", "CarteQueue", "CarteQueue",
+						"CarteGland", "CarteGland", "CarteGriffe", "CarteGriffe", "CarteQueue", "CarteQueue"]
 var card_database_reference
 
 func _ready() -> void:
@@ -18,11 +20,6 @@ func _ready() -> void:
 	$CardCounter.text = str(player_deck.size())
 	
 	card_database_reference = preload("res://Scripts/card_database.gd")
-	
-	# Main de départ
-	#for i in range(HAND_SIZE):
-		#draw_card()
-	#draw_all_cards()
 
 func draw_card():
 	#print("Draw card")
@@ -57,7 +54,6 @@ func draw_card():
 	var card_scene = preload(CARD_SCENE_PATH)
 	var new_card = card_scene.instantiate()
 	var card_image_path = str("res://Assets/Cards/" + card_drawn_name + ".png")
-	#var card_image_path = str("res://Assets/card_temporaire.png")
 	new_card.get_node("CardImage").texture = load(card_image_path)
 	# Populer les propriétés de la carte
 	new_card.mana = card_database_reference.CARDS[card_drawn_name][0]
