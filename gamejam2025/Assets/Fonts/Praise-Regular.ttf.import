@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://c5imxehuj7mj7"
-path="res://.godot/imported/Praise-Regular.ttf-750be294826f6ea89caf2ae4d97eaa8f.fontdata"
+path="res://.godot/imported/Praise-Regular.ttf-76216d750291b75be3f9858a0b24f869.fontdata"
 
 [deps]
 
-source_file="res://Assets/Praise-Regular.ttf"
-dest_files=["res://.godot/imported/Praise-Regular.ttf-750be294826f6ea89caf2ae4d97eaa8f.fontdata"]
+source_file="res://Assets/Fonts/Praise-Regular.ttf"
+dest_files=["res://.godot/imported/Praise-Regular.ttf-76216d750291b75be3f9858a0b24f869.fontdata"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lpgduafrjvai"
-path="res://.godot/imported/SplashVictory.png-89ce7cae721edfcd4981ef084d0f14ca.ctex"
+uid="uid://cstxjdfedut4j"
+path="res://.godot/imported/StatPerso.png-bd18f3da47dae8bba95cc73b3cfe11da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SplashVictory.png"
-dest_files=["res://.godot/imported/SplashVictory.png-89ce7cae721edfcd4981ef084d0f14ca.ctex"]
+source_file="res://Assets/Trees/StatPerso.png"
+dest_files=["res://.godot/imported/StatPerso.png-bd18f3da47dae8bba95cc73b3cfe11da.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfhb0oqftay68"
-path="res://.godot/imported/card_temporaire.png-f6ea019b24f6a2fc5b2eaa05dd2b56dd.ctex"
+uid="uid://m05wv32k6q7y"
+path="res://.godot/imported/Cursor_128x128.png-793ce2559fb1623a4cefb7439f390f8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/card_temporaire.png"
-dest_files=["res://.godot/imported/card_temporaire.png-f6ea019b24f6a2fc5b2eaa05dd2b56dd.ctex"]
+source_file="res://Assets/Cursor/Cursor_128x128.png"
+dest_files=["res://.godot/imported/Cursor_128x128.png-793ce2559fb1623a4cefb7439f390f8b.ctex"]
 
 [params]
 
