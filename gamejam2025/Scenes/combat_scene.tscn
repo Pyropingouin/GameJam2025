@@ -1,6 +1,6 @@
-[gd_scene load_steps=34 format=3 uid="uid://bdxkq5pmd7ry3"]
+[gd_scene load_steps=34 format=3 uid="uid://cxacuvalja7lq"]
 
-[ext_resource type="Texture2D" uid="uid://cfe6tj1jjpd50" path="res://Assets/Background.png" id="1_upt3k"]
+[ext_resource type="Texture2D" uid="uid://cscokgkm1y1ip" path="res://Assets/Backgrounds/Background_2.0.png" id="1_7bvt2"]
 [ext_resource type="Script" path="res://Scripts/player_hand.gd" id="2_e6val"]
 [ext_resource type="Script" path="res://Scripts/card_manager.gd" id="3_3ll4u"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="4_xy4ok"]
@@ -8,13 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://blhyvhoxoyt3k" path="res://Assets/Cards/CarteDos.png" id="6_7ku8x"]
 [ext_resource type="Script" path="res://Scripts/ennemy.gd" id="7_pjfob"]
 [ext_resource type="SpriteFrames" uid="uid://cy0vxs6rwoeev" path="res://Assets/Animations/SpriteFrames/idle-frames.tres" id="9_lkld2"]
-[ext_resource type="Texture2D" uid="uid://dyeu1ufbss37v" path="res://Assets/shield.png" id="10_nuso4"]
-[ext_resource type="Texture2D" uid="uid://crvhrgnthtowx" path="res://Assets/Sword.png" id="11_f68u2"]
+[ext_resource type="Texture2D" uid="uid://dyeu1ufbss37v" path="res://Assets/Items/shield.png" id="10_nuso4"]
+[ext_resource type="Texture2D" uid="uid://crvhrgnthtowx" path="res://Assets/Items/Sword.png" id="11_f68u2"]
 [ext_resource type="Script" path="res://Scripts/battle_manager.gd" id="12_hvqiw"]
-[ext_resource type="Texture2D" uid="uid://bi4yhcsx82f36" path="res://Assets/GlandMana.png" id="13_t5ntv"]
+[ext_resource type="Texture2D" uid="uid://bi4yhcsx82f36" path="res://Assets/Items/GlandMana.png" id="13_t5ntv"]
 [ext_resource type="PackedScene" uid="uid://bk8ny1bk7sxim" path="res://Scenes/player.tscn" id="14_1ygva"]
-[ext_resource type="FontFile" uid="uid://c5imxehuj7mj7" path="res://Assets/Praise-Regular.ttf" id="15_cymgj"]
-[ext_resource type="StyleBox" uid="uid://cvbqr8ncd81fr" path="res://Assets/button.tres" id="16_a4kje"]
+[ext_resource type="FontFile" uid="uid://c5imxehuj7mj7" path="res://Assets/Fonts/Praise-Regular.ttf" id="15_cymgj"]
+[ext_resource type="StyleBox" uid="uid://cvbqr8ncd81fr" path="res://Assets/Buttons/button.tres" id="16_a4kje"]
 [ext_resource type="Texture2D" uid="uid://day00a5wqsfu8" path="res://Assets/Animation/Claw.png" id="17_yfng8"]
 [ext_resource type="Texture2D" uid="uid://dq4vmtrivimfv" path="res://Assets/Animation/QueueSeul.png" id="18_ixnn7"]
 [ext_resource type="Texture2D" uid="uid://b6dgi4xpsr06d" path="res://Assets/Animation/ecureuil_ancetre_Arme.png" id="19_3fvns"]
@@ -490,7 +490,7 @@ _data = {
 
 [node name="BattleBackground" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("1_upt3k")
+texture = ExtResource("1_7bvt2")
 
 [node name="PlayerHand" type="Node2D" parent="."]
 script = ExtResource("2_e6val")
@@ -511,18 +511,19 @@ texture = ExtResource("6_7ku8x")
 
 [node name="CardCounter" type="RichTextLabel" parent="Deck"]
 modulate = Color(0, 0, 0, 1)
-offset_left = -25.0
-offset_top = -47.5
-offset_right = 15.0
-offset_bottom = -7.49998
+offset_left = 112.5
+offset_top = -217.5
+offset_right = 152.5
+offset_bottom = -177.5
 scale = Vector2(4, 4)
 text = "0"
 
 [node name="DiscardPile" type="Node2D" parent="."]
-position = Vector2(1763, 1004)
+position = Vector2(1792, 952)
 scale = Vector2(0.8, 0.8)
 
 [node name="Sprite2D3" type="Sprite2D" parent="DiscardPile"]
+visible = false
 position = Vector2(-4.99986, 22.5)
 rotation = 0.523599
 scale = Vector2(0.8, 0.8)
@@ -530,6 +531,7 @@ skew = 1.0472
 texture = ExtResource("6_7ku8x")
 
 [node name="Sprite2D2" type="Sprite2D" parent="DiscardPile"]
+visible = false
 position = Vector2(-3.74986, 9.99999)
 rotation = 0.523599
 scale = Vector2(0.8, 0.8)
@@ -537,22 +539,29 @@ skew = 1.0472
 texture = ExtResource("6_7ku8x")
 
 [node name="Sprite2D" type="Sprite2D" parent="DiscardPile"]
+visible = false
 rotation = 0.523599
 scale = Vector2(0.8, 0.8)
 skew = 1.0472
 texture = ExtResource("6_7ku8x")
 
+[node name="Sprite2D4" type="Sprite2D" parent="DiscardPile"]
+modulate = Color(0.299547, 0.299547, 0.299547, 1)
+scale = Vector2(1, 1)
+texture = ExtResource("6_7ku8x")
+
 [node name="CardCounter" type="RichTextLabel" parent="DiscardPile"]
 modulate = Color(0, 0, 0, 1)
-offset_left = -22.5001
-offset_top = -50.0
-offset_right = 17.4999
-offset_bottom = -9.99998
+offset_left = -151.25
+offset_top = -201.25
+offset_right = -111.25
+offset_bottom = -161.25
 scale = Vector2(4, 4)
 text = "0"
 
 [node name="SquirrelEnemy" type="Node2D" parent="."]
-position = Vector2(1417, 711)
+position = Vector2(1415.5, 638)
+scale = Vector2(1.2, 1.2)
 script = ExtResource("7_pjfob")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="SquirrelEnemy"]
@@ -611,14 +620,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="EnemyShield" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(1413, 557)
-scale = Vector2(1.144, 1)
+position = Vector2(1398.61, 454)
+scale = Vector2(1.716, 1.5)
 texture = ExtResource("10_nuso4")
 
 [node name="EnemySword" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(1413, 558)
-scale = Vector2(1.047, 1.2)
+position = Vector2(1398.61, 455)
+scale = Vector2(1.716, 1.5)
 texture = ExtResource("11_f68u2")
 
 [node name="BattleManager" type="Node" parent="."]
@@ -633,7 +642,7 @@ offset_bottom = 566.0
 text = "Show Tree"
 
 [node name="ManaCounter" type="Node2D" parent="."]
-position = Vector2(327, 582)
+position = Vector2(115, 765)
 
 [node name="Sprite2D" type="Sprite2D" parent="ManaCounter"]
 texture = ExtResource("13_t5ntv")
@@ -647,16 +656,18 @@ scale = Vector2(3, 3)
 text = "5/5"
 
 [node name="Player" parent="." instance=ExtResource("14_1ygva")]
-position = Vector2(516, 720)
+position = Vector2(566.983, 653)
+scale = Vector2(1.2, 1.2)
 
 [node name="EndTurnButton" type="Button" parent="."]
-offset_left = 1646.0
-offset_top = 536.0
-offset_right = 1881.0
-offset_bottom = 650.0
+offset_left = 1701.0
+offset_top = 691.0
+offset_right = 1930.0
+offset_bottom = 851.0
+scale = Vector2(0.8, 0.8)
 theme_override_colors/font_color = Color(0.411765, 0.117647, 0.0235294, 1)
 theme_override_fonts/font = ExtResource("15_cymgj")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = ExtResource("16_a4kje")
 theme_override_styles/disabled_mirrored = ExtResource("16_a4kje")
 theme_override_styles/disabled = ExtResource("16_a4kje")
@@ -668,7 +679,8 @@ theme_override_styles/pressed_mirrored = ExtResource("16_a4kje")
 theme_override_styles/pressed = ExtResource("16_a4kje")
 theme_override_styles/normal_mirrored = ExtResource("16_a4kje")
 theme_override_styles/normal = ExtResource("16_a4kje")
-text = "Terminer le tour"
+text = "Terminer
+le tour"
 
 [node name="Animations" type="Node2D" parent="."]
 

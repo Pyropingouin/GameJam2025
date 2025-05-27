@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://cpmpj2xq1q82o"]
 
 [ext_resource type="Script" path="res://Scripts/win_screen_final.gd" id="1_ja3jd"]
-[ext_resource type="Texture2D" uid="uid://lpgduafrjvai" path="res://Assets/SplashVictory.png" id="1_yo3dn"]
-[ext_resource type="FontFile" uid="uid://c5imxehuj7mj7" path="res://Assets/Praise-Regular.ttf" id="2_qu1bm"]
+[ext_resource type="Texture2D" uid="uid://lpgduafrjvai" path="res://Assets/Backgrounds/SplashVictory.png" id="1_yo3dn"]
+[ext_resource type="FontFile" uid="uid://c5imxehuj7mj7" path="res://Assets/Fonts/Praise-Regular.ttf" id="2_qu1bm"]
 [ext_resource type="Texture2D" uid="uid://4d1q3u22raf0" path="res://Assets/HUD/Button_Start_and_Restart_Hover_Start Hover.png" id="3_5yc3k"]
 [ext_resource type="Texture2D" uid="uid://bkbj5v18rj8j5" path="res://Assets/HUD/buttonsWithHover_Start.png" id="4_hiuhm"]
 [ext_resource type="Texture2D" uid="uid://s17hxjqgvq74" path="res://Assets/HUD/Button_Credit_and_QuitGame_Hover.png" id="5_jjhis"]

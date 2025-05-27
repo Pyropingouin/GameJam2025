@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsltxeqaxymk5"
-path="res://.godot/imported/SplashStart.png-551fcb9eb917127bd9c8fbf2e12a4510.ctex"
+uid="uid://lpgduafrjvai"
+path="res://.godot/imported/SplashVictory.png-b69ed1df3a1647fc21ac20bfcc4fadba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SplashStart.png"
-dest_files=["res://.godot/imported/SplashStart.png-551fcb9eb917127bd9c8fbf2e12a4510.ctex"]
+source_file="res://Assets/Backgrounds/SplashVictory.png"
+dest_files=["res://.godot/imported/SplashVictory.png-b69ed1df3a1647fc21ac20bfcc4fadba.ctex"]
 
 [params]
 
