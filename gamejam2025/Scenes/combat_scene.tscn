@@ -522,30 +522,7 @@ text = "0"
 position = Vector2(1792, 952)
 scale = Vector2(0.8, 0.8)
 
-[node name="Sprite2D3" type="Sprite2D" parent="DiscardPile"]
-visible = false
-position = Vector2(-4.99986, 22.5)
-rotation = 0.523599
-scale = Vector2(0.8, 0.8)
-skew = 1.0472
-texture = ExtResource("6_7ku8x")
-
-[node name="Sprite2D2" type="Sprite2D" parent="DiscardPile"]
-visible = false
-position = Vector2(-3.74986, 9.99999)
-rotation = 0.523599
-scale = Vector2(0.8, 0.8)
-skew = 1.0472
-texture = ExtResource("6_7ku8x")
-
-[node name="Sprite2D" type="Sprite2D" parent="DiscardPile"]
-visible = false
-rotation = 0.523599
-scale = Vector2(0.8, 0.8)
-skew = 1.0472
-texture = ExtResource("6_7ku8x")
-
-[node name="Sprite2D4" type="Sprite2D" parent="DiscardPile"]
+[node name="DiscardSprite" type="Sprite2D" parent="DiscardPile"]
 modulate = Color(0.299547, 0.299547, 0.299547, 1)
 scale = Vector2(1, 1)
 texture = ExtResource("6_7ku8x")
